@@ -9,7 +9,7 @@
         <div class="Search_input" v-show="newbool">
             <strong>
                 <i></i>
-            </strong>
+            </strong> 
             <input type="text" placeholder="请输入城市名称或拼音">
             <span @click="to()">取消</span>
         </div>
