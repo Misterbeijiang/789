@@ -1,8 +1,9 @@
 <template>
   <div class="index_body_node">
     <!-- header部分 -->
-    <div id="index_body">
-        <swiper></swiper>
+    <div id="index_body"> 
+        <Gif v-if="bool"></Gif>
+        <swiper v-else></swiper>
     </div>
     <!-- 合同 -->
     <router-link to class="index_hetong">
@@ -651,6 +652,8 @@ import { Swipe, SwipeItem } from "mint-ui";
 const Logocai = () => import("../components/index/logocai")
 const Jinrizuixin = () => import("../components/index/jinrizuixin")
 const Swiper = () => import("../components/index/swiper")
+const Gif = () => import("../components/gif/loading")
+
 
 // import Logocai from '../components/index/logocai';
 // import Jinrizuixin from '../components/index/jinrizuixin';
@@ -659,16 +662,16 @@ export default {
     components:{
         Logocai,
         Jinrizuixin,
-        Swiper
+        Swiper,
+        Gif
     },
   created(){
     this.axios({
       url: "/apis/loadAll",
       methods: "get"
     }).then((ok)=>{
-      console.log(ok.data.length);
-      // this.dazhong=ok.data.queryResult.list[0].carName
       this.count = ok.data.length
+      this.bool=false
     });
   },
   data() {
@@ -729,7 +732,8 @@ export default {
       tabstes3: false,
       tabstes4: false,
       tabstes5: false,
-      tabstes6: false
+      tabstes6: false,
+      bool:true
     };
   },
   methods: {

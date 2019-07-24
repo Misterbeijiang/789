@@ -74,6 +74,10 @@
 <script>
 import LocationStr from './LocationStr'
 import Car from './car'  //引入组件
+
+
+
+
   export default {
     components:{
       Car ,
@@ -212,7 +216,7 @@ import Car from './car'  //引入组件
      .liucheng-2{
          float: left;
          height: 100%;
-         display: inline-block;
+         display: block;
          text-align: center;
          width: 20%;
          font-size: 12px;
@@ -241,8 +245,7 @@ import Car from './car'  //引入组件
             line-height: 68px;
             width: 20%;
             height: 68px;
-            display:inline-block;
-             background:#f9f9f9; 
-            /* background-color: red; */
+            display:block;
+            background:#f9f9f9; 
         }
 </style>

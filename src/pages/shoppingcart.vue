@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="header" >
+            
             <router-link :to="v.router" v-for="(v,i) in arr"  :key="i"><span class="check" @click="fun(i)">{{v.title}}</span></router-link>
             <router-link to=""><span class="share"></span></router-link>   
         </div>
@@ -8,14 +9,16 @@
     </div>
 </template>
 <script>
+
+
 export default {
+   
     data(){
         return {
             arr:[
                 {"title":"全部","router":"/shoppingcart/all"},
                 {"title":"购物车","router":"/shoppingcart/cart"}
-            ],
-            
+            ]
         }
     },
     mounted() {

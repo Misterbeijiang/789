@@ -13,7 +13,8 @@
 </template>
 
 <script>
-	import Head from "../components/head/head"
+    // import Head from "../components/head/head"
+    const Head = () => import("../components/head/head")
 	export default{
 		components:{
 			Head
@@ -45,7 +46,7 @@
     line-height: 20px;
     text-align: center;
     float: left;
-    display: inline-block;
+    display: block;
     width: 20%;
     background: #ff5a37;
     height: 20px;
@@ -61,7 +62,7 @@
     text-align: center;
     float: left;
     margin:10px 10px 0 0;
-    display: inline-block;
+    display: block;
     background: #ff5a37;
     
 }

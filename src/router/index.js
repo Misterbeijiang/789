@@ -178,7 +178,7 @@ export default new Router({
       },
       {
         path: '/bulekefu',
-        name: 'Bulekefu',
+        name: 'Bulekefu', 
         component: resolve=>(require(["@/pages/Bulekefu"],resolve))
       },
       {

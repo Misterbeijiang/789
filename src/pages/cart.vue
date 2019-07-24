@@ -1,31 +1,45 @@
 <template>
     <div>
-        <div class="section" v-for="(v,i) in arr" :key="i">
-            <div class="cont" @click="fun(id)">
-                <div class="cart-left">
-                    <img class="image" :src="v.image" alt="">
-                    <img :src="v.video" class="start">              
+        <div v-if="bool">
+            <Gif></Gif>
+        </div>
+        <div v-else>
+            <div class="section" v-for="(v,i) in arr" :key="i">
+                <div class="cont" @click="fun(id)">
+                    <div class="cart-left">
+                        <img class="image" :src="v.image" alt="">
+                        <img :src="v.video" class="start">              
+                    </div>
+                    <h3>{{v.title}}</h3>
+                    <span class="total"><i class="number">{{v.money}}</i>万</span>
+                    <span class="time">{{v.time}}</span>
+                </div>       
+                <div class="cart-right">
+                    <img class="imagein" :src="v.exponent" alt="">
+                    <div class="infor">
+                        <router-link to=""><span class="online">在线咨询</span></router-link>            
+                        <router-link to=""><span class="contrast"><i>+</i>对比</span></router-link>
+                    </div>            
                 </div>
-                <h3>{{v.title}}</h3>
-                <span class="total"><i class="number">{{v.money}}</i>万</span>
-                <span class="time">{{v.time}}</span>
-            </div>       
-            <div class="cart-right">
-                <img class="imagein" :src="v.exponent" alt="">
-                <div class="infor">
-                    <router-link to=""><span class="online">在线咨询</span></router-link>            
-                    <router-link to=""><span class="contrast"><i>+</i>对比</span></router-link>
-                </div>            
             </div>
         </div>
+        
+        
     </div>
    
 </template>
 <script>
+
+const Gif = () => import("../components/gif/loading")
+
 export default {
+    components:{
+        Gif
+    },
     data() {
         return {
-            arr:[]
+            arr:[],
+            bool:true
         }
     },
     created() {
@@ -34,6 +48,7 @@ export default {
             method:"get"
         }).then((ok)=>{
             this.arr=ok.data.cart
+            this.bool=false
         })
     },
     methods: {
