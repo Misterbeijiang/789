@@ -5,7 +5,7 @@
         <span class="right_option_col_2_boxtitle_unit">{{more}}</span>    
         </span>
         <ul class="right_option_box">
-            <li class="right_option_box_2_list js_option_list" v-for="(v,i) in listtitle" :key="i" @click="togglegf(i,v)" :class="{color: i == checkindex}" >
+            <li class="right_option_box_2_list js_option_list" v-for="(v,i) in listtitle" :key="i" @click="togglegf(i,v)" :class="{color: i == check}" >
                 <span>{{v.price}}</span>            
             </li>
         </ul> 
@@ -15,7 +15,7 @@
 export default {
     data() {
         return {
-            checkindex:-1,
+            check:-1,
             blues:false
         }
     },
@@ -33,19 +33,17 @@ export default {
             for(let i=0 ; i<this.listtitle.length;i++){
                 if(this.listtitle[index].showme == false){
                     this.blues = false
-                    // console.log(this.blues)
                 }else{
                     this.blues = true
-                    // console.log(this.blues)
                 }
             }
-            if(index != this.checkindex){
-                this.checkindex = index;
+            if(index != this.check){
+                this.check = index;
                 this.listtitle[index].showme = !this.blues
                 // console.log(this.listtitle[index].showme)
                 this.$emit("togglegf",value.price,this.listtitle[index].showme)
             }else{
-                this.checkindex = -1;
+                this.check = -1;
                 this.listtitle[index].showme = !this.blues
                 // console.log(this.listtitle[index].showme)
                 this.$emit("togglegf",value.price,this.listtitle[index].showme)

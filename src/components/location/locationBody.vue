@@ -1,6 +1,6 @@
 <template>
 <!-- 定位城市主体 -->
-    <dl class="city_colomn" v-if="mast" v-show="">
+    <dl class="city_colomn">
         <dt class="city_white">定位城市</dt>
         <!-- 定位图标和位置 -->   
         <dd class="city_city">   
@@ -57,7 +57,6 @@ export default {
             D:[],
         }
     },
-    props:["mast","goodmast"],
     methods:{
 
     },
@@ -87,7 +86,7 @@ export default {
     color: #333;
 }
 .city_colomn .city_white{
-    margin-top: .24rem;
+    /* margin-top: .24rem; */
     color: #666666;
     font-size: .24rem;
     background-color: white;
@@ -120,7 +119,10 @@ export default {
     padding: .24rem 0;
     font-size: .26rem;
     border-bottom: 1px solid #f8f8f8;
-    color: #666666;
+    color: #666666;   
+}
+.city_colomn .city_zimu dd{
+    background: #ffffff;
 }
 .city_colomn .hot_city{
     display: flex;

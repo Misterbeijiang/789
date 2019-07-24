@@ -19,7 +19,7 @@
                     <span>自定义价格</span>
                     <span class="right_class_pp_zdyjg_title_dw">(万)</span>
                     <span class="right_class_pp_zdyjg_title_ramout" v-if="falser">{{info}}</span>
-                    <Sider :value-fun="Val  " :min="0" :max="100"></Sider>
+                    <Sider :valueFun="Val()" :min="0" :max="100"></Sider>
                     <div class="right_class_pp_zdyjg_title_num">
                         <span>0</span>
                         <span>10</span>
@@ -181,6 +181,7 @@ export default {
             valure:0,
             info:"",
             falser:false,
+            gundong:0,
             arr :[
                 {"classift":"品牌"},
                 {"classift":"价格"},
@@ -328,46 +329,15 @@ export default {
             this.checkindex = index;
             console.log(index)
 
-            let target = document.querySelector('.right')
+            let target = document.querySelector('.left')
             let scrollItems = document.querySelectorAll('.scroll-item')
             // 判断滚动条是否滚动到底部
             if (target.scrollHeight <= target.scrollTop + target.clientHeight) {
-                this.checkindex  = index
+                this.gundong  = index
             }
             let total = scrollItems[index].offsetTop - scrollItems[0].offsetTop // 锚点元素距离其offsetParent(这里是body)顶部的距离(待滚动的距离)
             let distance = document.querySelector('.right').scrollTop // 滚动条距离滚动区域顶部的距离
             // let distance = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset // 滚动条距离滚动区域顶部的距离(滚动区域为窗口)
-
-            let step = total / 50
-            if (total > distance) {
-                smoothDown(document.querySelector('.right'))
-            } else {
-                let newTotal = distance - total
-                step = newTotal / 50
-                smoothUp(document.querySelector('.right'))
-            }
-
-            
-            function smoothDown (element){
-            if (distance < total) {
-                distance += step
-                element.scrollTop = distance
-                
-            } else {
-                element.scrollTop = total
-            }
-            }
-
-            // 参数element为滚动区域
-            function smoothUp (element) {
-            if (distance > total) {
-                distance -= step
-                element.scrollTop = distance
-                
-            } else {
-                element.scrollTop = total
-            }
-            }
         },   
         onScroll (e) {
             let scrollItems = document.querySelectorAll('.scroll-item')
@@ -380,10 +350,10 @@ export default {
                 }
             }
         },
-        // Val(i){
-        //     // console.log(i)
-        //     console.log("sss")
-        // },
+        Val(i){
+            // console.log(i)
+            console.log("sss")
+        },
         func(data,caos){
             console.log(caos)
             if(this.falser == false){
@@ -391,9 +361,7 @@ export default {
             }else{
                 this.falser = caos
             }
-
             this.info = data
-            
         }
     },
     components:{
