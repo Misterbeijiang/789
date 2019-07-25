@@ -5,7 +5,7 @@
          <i class="header_log"></i>
          <input type="text" class="header_input" placeholder="搜索您想要的车" @input="fun" v-model="input_content">
       </form>
-      <router-link to="#" class="header_btn">取消</router-link>
+      <a href="javascript:history.go(-1);" class="header_btn">取消</a>
       <div class="search_suggest_list" v-show="bool">
          <router-link to="#" v-for="(v,i) in inputDate" :key="i">
                <span>
@@ -22,6 +22,7 @@ export default {
             chepais:[],
             bool:false,
             input_content:"",
+            input_value:{},
          }
     },
    methods: {
@@ -32,23 +33,29 @@ export default {
          if(document.querySelector('input').value == "" ){
             this.bool = false
          }
+         this.axios({
+               url:"/apis/getCarInfo?"+"carInfoPath="+this.input_content,
+               methods:"get"
+         }).then((ok)=>{
+               console.log(ok.data.queryResult.list[0].carBrand)
+               for(let i=0;i< ok.data.queryResult.list.length;i++){
+                  this.input_value = [
+                                          { "title" : ok.data.queryResult.list[i].carBrand}
+                                    ]
+               }
+               console.log(this.input_value)
+         })
       }
    },
    created() {
-      this.axios({
-            url:"/shou/sou",
-            methods:"get"
-      }).then((ok)=>{
-            console.log(ok.data.chepai)
-            this.chepais = ok.data.chepai
-      })
+      
    },
    computed: {
       inputDate(){
          let input_content = this.input_content;
          if(input_content){
-               return this.chepais.filter(function(product) {
-               console.log(product)
+               return this.input_value.filter(function(product) {
+               console.log(product.carBrand)
                return Object.keys(product).some(function(key) {
                return String(product[key]).toLowerCase().indexOf(input_content) > -1
             })

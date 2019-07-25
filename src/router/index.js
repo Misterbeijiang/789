@@ -50,7 +50,14 @@ export default new Router({
       {
         path:"/index",
         name:"Index",
-        component: resolve=>(require(["@/pages/index"],resolve))
+        component: resolve=>(require(["@/pages/index"],resolve)),
+        children:[
+          {
+            path: '/index/:name',
+            name: 'index',
+            component: resolve=>(require(["@/pages/index"],resolve))
+          },
+        ]
       },
       {
         path:"/shopping",
@@ -169,16 +176,21 @@ export default new Router({
         name: 'Serve',
         component: resolve=>(require(["@/pages/serve"],resolve))
       },
-   
-     
       {
-        path: '/filter',
-        name: 'Filter',
-        component: resolve=>(require(["@/pages/Filter"],resolve))
+        path: '/Filter',
+        name: 'filter',
+        component: resolve=>(require(["@/pages/Filter"],resolve)),
+        children:[
+          {
+            path: '/Filter/:id',
+            name: 'filter',
+            component: resolve=>(require(["@/pages/Filter"],resolve))
+          },
+        ]
       },
       {
         path: '/bulekefu',
-        name: 'Bulekefu',
+        name: 'Bulekefu', 
         component: resolve=>(require(["@/pages/Bulekefu"],resolve))
       },
       {

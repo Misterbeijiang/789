@@ -2,7 +2,8 @@
     <div>
         <div class="color">
             <div class="box1">
-                <em class="header_goback"></em>
+                <a href="javascript:history.go(-1)" class="header_goback">
+                </a>
                 <p class="nav">车辆估价</p>
                 <span></span>
             </div>
@@ -253,42 +254,82 @@ const Car = () => import("./car")
     .color_b{
         width: 100%;
         height: 1rem;
-        position: fixed;
-        bottom:0;
-        background-color: #ff5a37;
         line-height: 1rem;
-        text-align: center;
-        float: left;
     }
-    .goback{
-        width: .2rem;
-        height: .2rem; 
-        border:1px solid #dbdada;
-        border-width:1.5px 1.5px 0 0;
-        transform: rotate(45deg);
-        position: relative;
-        left: 168px;
-        float:right;
-        margin-top:.45rem;
-    } 
-    input{
-        padding-right: 20px;
+    .MD-c2b-car-sale-o-c2b-trigger-collect {
+        width: 70%;
+        height: 1.2rem;
+        font-size: .28rem;
+        color: #ccc;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
     }
-    .color_c{
-        width: .2rem;
-        height: .2rem; 
-        border:1px solid #dbdada;
-        border-width:0 1.5px 1.5px 0;
-        transform: rotate(45deg);
-        position: relative;
-        margin-right:-.7rem;
-        float:right;
+    .MD-c2b-car-sale-o-c2b-trigger-finish {
+        color: #333;
+    }
+    .MD-c2b-car-sale-o-c2b-trigger-content {
+        font-size: .28rem;
+        color: #ccc;
+        display: inline-block;
+        width: 90%;
+        height: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1rem;
+        text-align: right;
+    }
+    .MD-c2b-car-sale-o-c2b-license-content:first-child {
+        margin-right: .4rem;
+    }
+    .MD-c2b-car-sale-o-c2b-license-content {
+        display: inline-block;
+        height: 100%;
+    }
+    .MD-c2b-car-sale-o-c2b-license-collect {
+        width: 60%;
+        height: 1.2rem;
+        font-size: .28rem;
+        color: #333;
+        text-align: right;
+        line-height: 1.2rem;
+    }
+    .MD-c2b-car-sale-o-c2b-license-content::after {
+        content: '';
+        display: inline-block;
+        width: .14rem;
+        height: .14rem;
+        border: solid #DBDADA;
+        border-width: 1.5px 1.5px 0 0;
+        transform: rotate(135deg);
+        margin: 0 0 .05rem .15rem;
+    }
+    .MD-c2b-car-sale-o-c2b-trigger-finish {
+        color: #333;
+    }
+    .MD-c2b-car-sale-o-c2b-mileage-collect {
+        width: 60%;
+        height: 1rem;
+        font-size: .28rem;
+        color: #333;
+        text-align: right;
+        line-height: 1rem;
+    }
+    .MD-c2b-car-sale-o-c2b-mileage-content {
+        display: inline-block;
+        border: 0;
+        outline: 0;
+        height: .4rem;
+        line-height: .4rem;
+        padding: .15rem 0;
+        width: 65%;
+        text-align: right;
+        font-size: .28rem;
+        color: #333;
         
-        margin-top:.4rem;
     }
-    p{
-        float: right;
-        margin-right: .7rem;
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color:    #cccccc;
     }
-    
 </style>

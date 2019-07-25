@@ -30,21 +30,22 @@ export default {
         },
         togglegf(index,value){      
             // console.log(index)
-            for(let i=0 ; i<this.listtitle.length;i++){
-                if(this.listtitle[index].showme == false){
-                    this.blues = false
-                }else{
-                    this.blues = true
-                }
+            if(this.listtitle[index].showme == false){
+                this.blues = false
+                // this.listtitle[index].showme = false
+                // console.log(this.listtitle[index].showme)
+                // this.check = -1;
+            }else{
+                this.blues = true
             }
             if(index != this.check){
                 this.check = index;
-                this.listtitle[index].showme = !this.blues
+                this.listtitle[index].showme = true
                 // console.log(this.listtitle[index].showme)
                 this.$emit("togglegf",value.price,this.listtitle[index].showme)
             }else{
                 this.check = -1;
-                this.listtitle[index].showme = !this.blues
+                this.listtitle[index].showme = false
                 // console.log(this.listtitle[index].showme)
                 this.$emit("togglegf",value.price,this.listtitle[index].showme)
             }

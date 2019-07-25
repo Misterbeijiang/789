@@ -1,7 +1,7 @@
 <template>
 <!-- 城市头部 -->
    <div class="Search_header">
-        <em class="header_goback"></em>
+        <router-link  :to="'/index/' + this.values" class="header_goback"></router-link>
         <p @click="show()" v-show="bool">
             <i class="header_logo"></i>
             <span>请输入城市名称或拼音</span>
@@ -16,13 +16,14 @@
             </div>
         </div>
         <div class="Search_input_result"  v-show="bools">
-            <a v-for="(v,i) in inputDate" :key="i">
-                <span>{{v.name}}</span>
-            </a>
+            <router-link :to="'/index/ '+ v.name"  v-for="(v,i) in inputDate" :key="i">
+                <span @click="bother(v.name)">{{v.name}}</span>
+            </router-link>
         </div>
    </div>
 </template>
 <script>
+import brother from '../../../src/assets/js/brother.js'
 export default {
     data() {
         return {
@@ -32,21 +33,22 @@ export default {
             goodmast:false,
             bools:false,
             input_content:"",
-            city:[]
+            city:[],
+            values:""
         }
     },
     methods: {
         show(){
-            console.log("ssss")
+            // console.log("ssss")
             this.newbool = !this.newbool
             this.bool = !this.bool  
-            this.$emit("spot", this.mast)
+            this.$emit("spot",this.mast,this.goodmast)
         },
         to(){
-            console.log("llll")
+            // console.log("llll")
             this.newbool = !this.newbool
             this.bool = !this.bool  
-            this.$emit("spot",this.goodmast,this.mast)
+            this.$emit("spotwhite",this.goodmast,this.bools)
         },
         func(){
             this.bools = true
@@ -54,6 +56,11 @@ export default {
             if(document.querySelector('input').value == "" ){
                 this.bool = false
             }
+        },
+        bother:function(value){
+            this.values = value
+            console.log("传入信息")
+            brother.$emit("bothers",this.values)
         }
     },
     created() {

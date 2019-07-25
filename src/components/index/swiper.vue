@@ -4,41 +4,41 @@
             <router-link to="/index">
                 <i></i>
             </router-link>
-            <router-link to class="header_seach">
+            <router-link to="/sousuo" class="header_seach">
             <span class="header-search-text">
                 <span class="text">搜索你想要的车</span>
             </span>
             </router-link>
-            <router-link to class="header-city">北京</router-link>
+            <router-link to="/LocationStr" class="header-city">{{titleName}}</router-link>
         </header>
         <!-- 轮播图的背景图 -->
-        <section class="index_warp">
-            <div class="index_banner_back"></div>
+        <section class="index_warp" v-bind:style="elMain">
+            <div class="index_banner_back" v-bind:style="elMain"></div>
         </section>
         <!-- 轮播图 -->
         <section class="index_warp_banner" ref="slider">
-            <mt-swipe :auto="2000" class="carousel-wrap">
-            <mt-swipe-item class="carousel-wrap-item">
+            <mt-swipe :auto="index" class="carousel-wrap" @change="handleChange">
+            <mt-swipe-item class="carousel-wrap-item" id="1" ref="dataInfo">
                 <router-link to="/shopping">
                 <img id="1" src="../../assets/lunbo_1.png" />
                 </router-link>
             </mt-swipe-item>
-            <mt-swipe-item class="carousel-wrap-item">
+            <mt-swipe-item class="carousel-wrap-item" id="2" ref="dataInfo">
                 <router-link to="/contract">
                 <img id="2" src="../../assets/jinrong.jpg" />
                 </router-link>
             </mt-swipe-item>
-            <mt-swipe-item class="carousel-wrap-item">
+            <mt-swipe-item class="carousel-wrap-item" id="3" ref="dataInfo">
                 <router-link to="/videodetection">
                 <img id="3" src="../../assets/shipinjiance.jpg" />
                 </router-link>
             </mt-swipe-item>
-            <mt-swipe-item class="carousel-wrap-item">
+            <mt-swipe-item class="carousel-wrap-item" id="4" ref="dataInfo">
                 <router-link to="/goodcar">
                 <img id="4" src="../../assets/chaozhihaoche.png" />
                 </router-link>
             </mt-swipe-item>
-            <mt-swipe-item class="carousel-wrap-item">
+            <mt-swipe-item class="carousel-wrap-item" id="5" ref="dataInfo">
                 <router-link to="/valuable">
                 <img id="5" src="../../assets/zhuanjia.jpg" />
                 </router-link>
@@ -53,21 +53,34 @@ export default {
     data(){
         return {
                 //轮播图
-            backgrounde:[
-                {id:1,backgroudd1:"linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)"},
-                {id:2,backgroudd2:"linear-gradient(90deg, rgb(142, 89, 22) 0%, rgb(174, 128, 59) 49%, rgb(192, 153, 94) 100%)"},
-                {id:3,backgroudd3:"linear-gradient(90deg, rgb(212, 112, 54) 0%, rgb(232, 153, 88) 49%, rgb(204, 109, 51) 100%)"},
-                {id:4,backgroudd4:"linear-gradient(90deg, rgb(189, 4, 0) 0%, rgb(209, 61, 36) 49%, rgb(148, 1, 1) 100%)"},
-                {id:5,backgroudd5:"linear-gradient(90deg, rgb(215, 97, 0) 0%, rgb(234, 117, 2) 49%, rgb(214, 117, 0) 100%)"},      
-            ]
-        }
-       
+            index:2000,
+            elMain:{
+                background:"linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)"
+            },
+            titleName:this.$route.params.name,
+        }   
     },
     methods:{
-    }
+         handleChange(index) {
+             console.log(index)
+             if(index == 0){
+                this.elMain.background = "linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)";
+             }else if(index == 1){
+                this.elMain.background = "linear-gradient(90deg, rgb(142, 89, 22) 0%, rgb(174, 128, 59) 49%, rgb(192, 153, 94) 100%)";
+             }else if(index == 2){
+                this.elMain.background = "linear-gradient(90deg, rgb(212, 112, 54) 0%, rgb(232, 153, 88) 49%, rgb(204, 109, 51) 100%)";
+             }else if(index == 3){
+                this.elMain.background = "linear-gradient(90deg, rgb(189, 4, 0) 0%, rgb(209, 61, 36) 49%, rgb(148, 1, 1) 100%)";
+             }else if(index == 4){
+                this.elMain.background = "linear-gradient(90deg, rgb(215, 97, 0) 0%, rgb(234, 117, 2) 49%, rgb(214, 117, 0) 100%)";
+             }
+        }
+    },
+    created() {
+        console.log(this.titleName)
+    },
 }
-</script>
-
+</script>   
 <style>
     header {
         padding-top: 0.24rem;
@@ -141,7 +154,7 @@ export default {
         z-index: 0;
         background: linear-gradient(90deg,rgb(231, 5, 0) 0%,rgb(219, 84, 0) 49%,rgb(235, 59, 0) 100%);
     }
-    .index_banner_back {
+    .index_banner_back{
         width: 110%;
         margin-left: -5%;
         height: 0.8rem;
@@ -150,6 +163,21 @@ export default {
         bottom: -0.5rem;
         background: linear-gradient(90deg,rgb(231, 5, 0) 0%,rgb(219, 84, 0) 49%,rgb(235, 59, 0) 100%);
     }
+    /* .index_banner_back1{
+        background: linear-gradient(90deg,rgb(231, 5, 0) 0%,rgb(219, 84, 0) 49%,rgb(235, 59, 0) 100%);
+    }
+    .index_banner_back2{
+        background: linear-gradient(90deg, rgb(142, 89, 22) 0%, rgb(174, 128, 59) 49%, rgb(192, 153, 94) 100%);
+    }
+    .index_banner_back3{
+        background: linear-gradient(90deg, rgb(212, 112, 54) 0%, rgb(232, 153, 88) 49%, rgb(204, 109, 51) 100%);
+    }
+    .index_banner_back4{
+        background: linear-gradient(90deg, rgb(189, 4, 0) 0%, rgb(209, 61, 36) 49%, rgb(148, 1, 1) 100%);
+    }
+    .index_banner_back5{
+        background: linear-gradient(90deg, rgb(215, 97, 0) 0%, rgb(234, 117, 2) 49%, rgb(214, 117, 0) 100%);
+    } */
     /* 轮播图 */
     .carousel-wrap {
         height: 2.2rem;

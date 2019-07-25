@@ -28,6 +28,7 @@ export default {
         "透明交易，在线签约，立刻打款，收款支付比例最高可达100%",
         "双方自行约定客户，交易完成车款尾款即时付"
       ]
+      
     };
   },
   methods: {
@@ -35,6 +36,7 @@ export default {
       this.ind = index;
       if (index == 0) {
         this.flag = true;
+        
       }
     }
   }

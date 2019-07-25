@@ -17,7 +17,7 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="">
+                        <router-link to="/jiancebaogao">
                             <div class="play-btn-wrap video_wrap">
                                 <div class="play-btn"></div>
                             </div>
@@ -31,18 +31,18 @@
                 </div>
             </div>
             <div class="page_right_wrap">
-                <router-link to="" class="block">
+                <router-link to="/canshu" class="block">
                     <i class="report-icon"></i>
                     <span class="parameter">参数配置</span>
                 </router-link>
-                <router-link to="" class="report-mark-wrap block">
+                <router-link to="/jiancebaogao" class="report-mark-wrap block">
                     <i class="report-mark-icon"></i>
                     <span class="report-mark">检测报告</span>
                 </router-link>
             </div>
         </div>
         <!-- 金融特惠价 -->
-        <router-link to="" class="car-detail-financial-benefit-bar">
+        <router-link to="/yichenggou" class="car-detail-financial-benefit-bar">
             <span class="car-detail-fbb-font text1">金融特惠价</span>
             <span class="car-detail-fbb-font text2">首付仅需0.42万</span>
             <span class="car-detail-fbb-icon"></span>

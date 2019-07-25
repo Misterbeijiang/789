@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="headbox">
-			<a class="head-bcak"></a>
+			<a class="head-bcak" href="javascript:history.go(-1)"></a>
 			{{title}}
 		</div>
 	</div>
@@ -10,8 +10,7 @@
 <script>
 	export default{
 		props:{
-			title:String,
-			
+			title:String
 		}
 	}
 	

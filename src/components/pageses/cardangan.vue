@@ -29,13 +29,13 @@
                     <p class="vehicle-data">1个月</p>
                 </div>
             </div>
-            <router-link to="" class="car-detail-item-more">查看详细参数配置</router-link>
+            <router-link to="/canshu" class="car-detail-item-more">查看详细参数配置</router-link>
         </div>
         <section class="car-purchase-wrap">
             <h3 class="uxin-tips">
                 <span>购车服务</span>
                 <span class="car-purchase-tips">服务费不超过4500元</span>
-                <router-link to="" class="car-purchase-im" >立即咨询</router-link>
+                <router-link to="/Register" class="car-purchase-im" >立即咨询</router-link>
             </h3>
             <ul class="car-purchase-content">
                 <li>

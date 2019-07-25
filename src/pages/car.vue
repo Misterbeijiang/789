@@ -57,7 +57,7 @@ export default {
     
 
     .item_c{
-        margin-left:-5%;
+        margin-left:-76%;
         height: 100%;
         font-family: "kaiti"
     }

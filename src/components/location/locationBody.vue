@@ -1,12 +1,12 @@
 <template>
 <!-- 定位城市主体 -->
-    <dl class="city_colomn">
+    <dl class="city_colomn" >
         <dt class="city_white">定位城市</dt>
         <!-- 定位图标和位置 -->   
         <dd class="city_city">   
             <span>
                 <i class="city_icon"></i>
-                安庆
+                {{this.values}}
             </span>
         </dd>
         <dt class="city_white">热门城市</dt>
@@ -46,6 +46,7 @@
     </dl>
 </template>
 <script>
+import brother from '../../../src/assets/js/brother.js'
 export default {
     data() {
         return {
@@ -55,12 +56,14 @@ export default {
             B:[],
             C:[],
             D:[],
+            values:""
         }
     },
-    methods:{
-
-    },
     created() {
+        var self = this
+        brother.$on("bothers",function(val){
+            self.values = val
+        })
         this.axios({
             url:"/ding/wei",
             methods:"get"

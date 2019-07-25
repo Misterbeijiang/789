@@ -4,20 +4,20 @@
         <router-link to="/page"  >
             <div class="item_img">
                 <span>
-                    <img :src="v.imgone">
-                    <img :src="v.imgtwo">
-                    <img :src="v.imgthree">
+                    <img :src="v.carPic">
+                    <img src="../../assets/cz.png">
+                    <img src="../../assets/z-1.png">
                 </span>
             </div>
             <div class="item_text">
                 <ul class="item_li">
-                    <li>{{v.carBrand}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</li>
+                    <li>{{v.carBrand}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</li>
                     <li>{{v.carTime}}/{{v.carDiatance}}</li>
                     <li>{{v.carPrice}}</li>
                     <li class="item_span">
                         <span>一成购</span>
-                        <span>{{v.down}}</span>
-                        <span>{{v.monthly}}</span>
+                        <span>首付{{v.carFirstPay}}</span>
+                        <span>月供{{v.carMonthPay}}</span>
                     </li>
                 </ul>
                 
