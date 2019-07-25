@@ -94,7 +94,17 @@
         <span>5万以下开回家</span>
       </div>
       <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
+        <router-link v-for="(v,i) in index5wan" :key="i" to="/page" class="index_home_body_a">
+          <img :src="v.carPic" />
+          <i class="index_home_body_vido"></i>
+          <div class="index_home_body_div">
+            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+            <div class="index_home_body_div_money">
+              <span class="list-detail-price">2.53万</span>
+            </div>
+          </div>
+        </router-link>
+        <!-- <router-link to="/page" class="index_home_body_a">
           <img src="../assets/123.jpg" />
           <i class="index_home_body_vido"></i>
           <div class="index_home_body_div">
@@ -163,17 +173,7 @@
               <span class="list-detail-price">2.53万</span>
             </div>
           </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
+        </router-link> -->
       </div>
       <router-link to="/shopping" class="index_home_btn">
         查看更多
@@ -670,12 +670,22 @@ export default {
       // this.dazhong=ok.data.queryResult.list[0].carName
       this.count = ok.data.length
     });
+    this.axios({
+      url: "/apis/carByprice",
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index5wan = ok.data
+      // this.dazhong=ok.data.queryResult.list[0].carName
+    });
+
   },
   data() {
     return {
       dazhong:"",
       count:"",
       name:"",
+      index5wan:[],
       mast:"买车商城",
       // 买车商城
       playcar: [
@@ -1161,6 +1171,7 @@ export default {
   width: 100%;
   height: 2.28rem;
   border-radius: 0.08rem;
+  padding: 2%;
 }
 .index_home_body_vido {
   display: inline-block;
@@ -1176,6 +1187,7 @@ export default {
   bottom: 0.08rem;
   width: 0.44rem;
   height: 0.44rem;
+  top: -0.8rem;
 }
 .index_home_body_div {
   background: #fff;
