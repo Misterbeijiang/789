@@ -174,7 +174,7 @@ export default {
         }).then(ok => {
           this.mettods = ok.data;
           console.log(this.mettods);
-          this.$emit("chiend", this.mettods);
+          this.$emit("chiend", this.mettods,true);
         });
       } else if (index == "5万以下") {
         this.axios({
@@ -183,7 +183,7 @@ export default {
         }).then(ok => {
           this.mettods = ok.data;
           console.log(this.mettods);
-          this.$emit("chiend", this.mettods);
+          this.$emit("chiend", this.mettods,true);
         });
       } else if (index == "5-10万") {
         this.axios({
@@ -192,7 +192,7 @@ export default {
         }).then((ok) => {
           this.mettods = ok.data.queryResult.list;
           console.log(this.mettods);
-          this.$emit("chiend", this.mettods);
+          this.$emit("chiend", this.mettods,true);
         });
       }
       // this.math = !this.math;

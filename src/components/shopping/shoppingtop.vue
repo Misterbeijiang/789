@@ -9,7 +9,7 @@
           <span class="text">搜索你想要的车</span>
         </span>
       </router-link>
-      <router-link to class="shoppingtop-city">北京</router-link>
+      <router-link to="/locationStr" class="shoppingtop-city">北京</router-link>
     </header>
   </div>
 </template>

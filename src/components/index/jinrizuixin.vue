@@ -1,6 +1,6 @@
 <template>
   <div class="index_sku_wrap_aabb">
-    <router-link to="/shopping">
+    <router-link :to="'/shopping/'+mast">
       <h5 class="index_sku_warp_h5">今日上新</h5>
       <p class="index_sku_warp_p">车源实时更新</p>
       <img src="../../assets/car.png" class="index_sku_warp_img" />
@@ -21,8 +21,13 @@
 </template>
 
     <script>
+    // newArrival
     export default {
-
+      data(){
+        return {
+          mast:20190723
+        }
+      }
     };
     </script>
 

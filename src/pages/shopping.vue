@@ -1,7 +1,7 @@
 <template>
     <div>
           <Shoppingtop></Shoppingtop>
-          <Shoppingtext @chiend="chiends"></Shoppingtext>
+          <Shoppingtext @chiend="chiends($event,userDefined)"></Shoppingtext>
           <Shoppingbottom :chiends="name"></Shoppingbottom>
           <Shoppingbottomone></Shoppingbottomone>
     </div>
