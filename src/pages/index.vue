@@ -19,7 +19,7 @@
     <!-- 买车商城五个小图标 -->
     <div class="index_five_fast">
       <section class="fast_index">
-        <router-link :to="'/shopping/'+v.title" v-for="(v,i) in playcar" :key="i" class="fast_img_box" >
+        <router-link :to="'/shopping/'+v.title" @click="funT(v.title)" v-for="(v,i) in playcar" :key="i" class="fast_img_box" >
             <logocai :titlename="v.title" :titleimg="v.imgagr"></logocai>
         </router-link>
         <router-link to="/sellcar" class="fast_img_box">

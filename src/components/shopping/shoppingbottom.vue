@@ -296,11 +296,11 @@ export default {
                 
             ],
             mettods:[],
-            name:""
+            name:"买车商城"
         }
     },
     created(){
-        this.name = Number(this.$route.params.name)
+        this.name = this.$route.params.name
         console.log(this.name)
         if(this.name =="大众"||this.name =="宝马"||this.name =="奔驰"||this.name =="奥迪"||this.name =="丰田"||this.name =="本田"||this.name =="宝马"||this.name =="宝马"||this.name =="宝马"){
              this.axios({
@@ -318,7 +318,7 @@ export default {
                     console.log(ok.data)
                     this.mettods=(ok.data).splice(0,10)
                 })
-        }else if(this.name === 20192723){
+        }else if(this.name == 20192723){
             console.log(this.name)
              this.axios({
                     url:"/apis/newArrival/?carNewtime="+this.name,
