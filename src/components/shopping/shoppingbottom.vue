@@ -303,7 +303,6 @@ export default {
             url:"/apis/loadAll",
             methods:"get"
         }).then((ok)=>{
-            console.log(ok.data)
             this.mettods=ok.data
         })
     }

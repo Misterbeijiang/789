@@ -36,6 +36,7 @@ html {
 body,html {
   height: 100%;
   background-color: #f4f4f4;
+  overflow: auto;
 }  
 a {
   background: transparent;

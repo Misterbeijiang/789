@@ -1,9 +1,14 @@
 <template>
     <div>
-        <Gif v-if="bool"></Gif>
-        <Picture :itemdata="arr" v-else></Picture>
-        <Videocarlist :itemdata="arra"></Videocarlist>
-        <More more="更多超值车源" :itemdata="arrb"></More>
+        <div v-if="bool">
+            <Gif></Gif>
+        </div>
+        <div v-else>
+            <Picture :itemdata="arr" ></Picture>
+            <Videocarlist :itemdata="arra"></Videocarlist>
+            <More more="更多超值车源" :itemdata="arrb"></More>
+        </div>
+       
     </div>
 </template>
 <script>

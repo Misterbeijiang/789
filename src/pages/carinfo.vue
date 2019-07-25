@@ -67,21 +67,17 @@
             </div>
         </div>
         <div class="color_b">下一步</div>
-      
-    </div>
-          
+    </div>  
 </template>
 <script>
-import LocationStr from './LocationStr'
-import Car from './car'  //引入组件
 
-
-
+const LocationStr = () => import("./LocationStr")
+const Car = () => import("./car")
 
   export default {
     components:{
       Car ,
-      LocationStr//引用组件
+      LocationStr,//引用组件
     },
     data(){
       return{
@@ -89,10 +85,9 @@ import Car from './car'  //引入组件
         bool:false,
       }
     },
-    
     methods:{
       show(){
-          this.bool=true
+        this.bool=true
       }
     }
   }
@@ -105,13 +100,11 @@ import Car from './car'  //引入组件
     }
     .color_a{
         background-color: #fff;
-        /* border:1px solid red; */
         height: 6.7rem;
     }
-   .item:hover Car{
-       display: block;
-   }
-   
+    .item:hover Car{
+        display: block;
+    }
     .nav_a{
         width: 10%;
         float: left;

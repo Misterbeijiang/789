@@ -69,7 +69,7 @@
 
 const Brander = () => import("../components/brander/brander")
 const Remen = () => import("../components/brander/remen")
-const Gif = () => import("../components/gif/loading")
+
 export default {
     components:{
        Brander,

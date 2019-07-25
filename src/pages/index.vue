@@ -647,17 +647,13 @@
 </template>
 
 <script>
-//    cockLoft_tabs_hidden_div_block
+
 import { Swipe, SwipeItem } from "mint-ui";
 const Logocai = () => import("../components/index/logocai")
 const Jinrizuixin = () => import("../components/index/jinrizuixin")
 const Swiper = () => import("../components/index/swiper")
 const Gif = () => import("../components/gif/loading")
 
-
-// import Logocai from '../components/index/logocai';
-// import Jinrizuixin from '../components/index/jinrizuixin';
-// import Swiper from '../components/index/swiper';
 export default {
     components:{
         Logocai,
@@ -848,7 +844,6 @@ export default {
     func4() {
       var ss = document.getElementsByClassName("index_tabs_ul")[0];
       ss.scrollLeft= 380;
-      console.log(ss.scrollLeft)
       document.documentElement.scrollTop = 3765;
       this.tabstes1 = false;
       this.tabstes2 = false;
@@ -889,8 +884,9 @@ export default {
 
 <style scoped>
 .index_body_node {
-  background: #fafafb;
+  background: #f4f4f4;
   overflow: hidden;
+  margin-bottom:1.5rem;
 }
 /* header */
 #index_body {

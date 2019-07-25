@@ -4,7 +4,7 @@
         <div class="push">
             <input type="file" class="push-inp" value="选择图片"  multiple="multiple">
             <!-- <span>选择图片</span> -->
-            <spna class="push-sp2">上传</spna>
+            <span class="push-sp2">上传</span>
         </div>
         <div class="fanhui">
             <router-link to class="linkto">返回首页</router-link>
@@ -32,11 +32,6 @@
 .push-inp{
     margin-top:9px;
     width: 60%;
-    opacity: 0;
-    cursor: pointer;
-    text-decoration: none;
-    -moz-opacity:0;				
-	-khtml-opacity: 0;
     height: 20px;
 }
 .push span:nth-child(2){

@@ -4,7 +4,52 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  routes: [   
+  routes: [  
+    {
+      path: '/bottombar/index',
+      name: 'Bottombar', 
+      component: resolve=>(require(["@/pages/bottombar"],resolve)),
+      children:[
+        {
+          path:"/bottombar/index",
+          name:"Index",
+          component: resolve=>(require(["@/pages/index"],resolve))
+        },
+        {
+          path:"/bottombar/shopping",
+          name:"Shopping",
+          component: resolve=>(require(["@/pages/shopping"],resolve))
+        },
+        {
+          path:"/bottombar/sellcar",
+          name:"Sellcar",
+          component: resolve=>(require(["@/pages/sellcar"],resolve))
+        },
+        {
+          path: '/bottombar/shoppingcart/cart',
+          name: 'Shoppingcart',
+          component: resolve=>(require(["@/pages/shoppingcart"],resolve)),
+          children:[
+            {
+              path: '/bottombar/shoppingcart/all',
+              name: 'All',
+              component: resolve=>(require(["@/pages/all"],resolve))
+            },
+            {
+              path: '/bottombar/shoppingcart/cart',
+              name: 'Cart',
+              component: resolve=>(require(["@/pages/cart"],resolve))
+            }
+          ],redirect:'/bottombar/shoppingcart/cart'
+        },
+        {
+          path:"/bottombar/userinfo",
+          name:"/Userinfo",
+          component: resolve=>(require(["@/pages/userinfo"],resolve))
+        },
+
+      ]
+    }, 
     {
       path: '/zhao',
       name: 'Zhao',
@@ -47,26 +92,14 @@ export default new Router({
       component: resolve=>(require(["@/pages/shangchuan"],resolve))
      },
     
-      {
-        path:"/index",
-        name:"Index",
-        component: resolve=>(require(["@/pages/index"],resolve))
-      },
-      {
-        path:"/shopping",
-        name:"Shopping",
-        component: resolve=>(require(["@/pages/shopping"],resolve))
-      },
+      
+      
       {
         path:"/page/:id",
         name:"Page",
         component: resolve=>(require(["@/pages/page"],resolve))
       },
-      {
-        path:"/sellcar",
-        name:"Sellcar",
-        component: resolve=>(require(["@/pages/sellcar"],resolve))
-      },
+     
       {
         path: '/contract',
         name: 'Contract',
@@ -102,28 +135,7 @@ export default new Router({
         name: 'Home',
         component: resolve=>(require(["@/pages/home"],resolve))    
       },
-      {
-        path: '/shoppingcart/cart',
-        name: 'Shoppingcart',
-        component: resolve=>(require(["@/pages/shoppingcart"],resolve)),
-        children:[
-          {
-            path: '/shoppingcart/all',
-            name: 'All',
-            component: resolve=>(require(["@/pages/all"],resolve))
-          },
-          {
-            path: '/shoppingcart/cart',
-            name: 'Cart',
-            component: resolve=>(require(["@/pages/cart"],resolve))
-          },
-          {
-            path: '/shoppingcart/inquiry',
-            name: 'Inquiry',
-            component: resolve=>(require(["@/pages/inquiry"],resolve))
-          }
-        ],redirect:'shoppingcart/cart'
-      },
+      
       
       {
         path:'/yichenggou',
@@ -140,12 +152,7 @@ export default new Router({
         name:'Canshu',
         component: resolve=>(require(["@/pages/canshu"],resolve))
       },
-      {
-        path:"/userinfo",
-        name:"/Userinfo",
-        component: resolve=>(require(["@/pages/userinfo"],resolve))
-      
-      },
+     
 
       {
         path: '/datails',
@@ -181,8 +188,9 @@ export default new Router({
         name: 'Bulekefu', 
         component: resolve=>(require(["@/pages/Bulekefu"],resolve))
       },
+     
       {
-        path:"/*",redirect:"/index"
+        path:"/*",redirect:"/bottombar/index"
       }
   ]
 })

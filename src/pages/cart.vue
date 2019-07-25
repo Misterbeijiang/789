@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <div v-if="bool">
             <Gif></Gif>
         </div>
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             arr:[],
+            arrb:[],
             bool:true
         }
     },
@@ -49,16 +50,30 @@ export default {
         }).then((ok)=>{
             this.arr=ok.data.cart
             this.bool=false
-        })
+        }),
+
+
+
+        this.newid = this.$route.params.id;
+        for(var i in this.arr){
+            for (var j in this.arr[i]){
+                if(this.arr[i][j].id==this.newid){
+                    return this.arrb=this.arr[i][j]
+                }
+            }
+        }
     },
     methods: {
         fun(id){
-            
+            this.$router.push("/page/"+id);
         }
     },
 }
 </script>
 <style scoped>
+    .content{
+        margin-top:1.1rem;
+    }
     .section{
         margin: .2rem;
         padding: .3rem .2rem;

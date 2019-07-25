@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box">
           <Shoppingtop></Shoppingtop>
           <Shoppingtext></Shoppingtext>
           <Shoppingbottom></Shoppingbottom>
@@ -25,6 +25,8 @@ export default {
 }
 </script>
 <style scoped>
-    
+    .box{
+        margin-bottom:1.5rem;
+    }
     
 </style>

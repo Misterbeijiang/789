@@ -7,11 +7,13 @@
 </template>
 
 <script>
-//	import Canpeihead from "../components/canpeihead/canpeihead"
-	import CarCanshu from "../components/carCanshu/carCanshu"
+	
+	const CarCanshu = () => import("../components/carCanshu/carCanshu")
+	const Canpeihead = () => import("../components/canpeihead/canpeihead")
+
 	export default{
 		components:{
-//			Canpeihead,
+			Canpeihead,
 			CarCanshu
 		}
 	}

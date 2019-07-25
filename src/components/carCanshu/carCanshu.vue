@@ -401,7 +401,6 @@
 	.xn-bigbox-title{
 		background: #ffffff;
 		text-align: center;
-		line-height: ;
 	    padding: .55rem 0rem;
 	    color: #1B1B1B;
 	    -webkit-border-radius: .08rem;
@@ -452,7 +451,7 @@
 	}
 	.carimg-1{
 		float: left;
-		display:inline-block;
+		display:block;
 		text-align: center;
 		width: 60%;
 		height: 220px;
@@ -491,7 +490,7 @@
 	.carimg-2 {
 		text-align: center;
 		float: left;
-		display: inline-block;
+		display: block;
 		width: 40%;
 		height: 50%;
 		/*background:saddlebrown;*/
@@ -500,7 +499,7 @@
 	.carimg-3{
 		text-align: center;
 		float: left;
-		display: inline-block;
+		display: block;
 		width: 40%;
 		height: 50%;
 		/*background:saddlebrown;*/
@@ -538,9 +537,8 @@
 		border-bottom:1px solid #EEE ;
 	}
 	.carimg-btm-1{
-		display: inline-block;
+		display: block;
 		float: left;
-		/*padding-left: 20px;*/
 		text-align: center;
 		line-height: 110px;
 		width: 60%;
@@ -603,9 +601,9 @@
 	    margin-bottom: .02rem;
 	}
 	.guige-p{
-		display: inline-block;
+		display: block;
 		font-size: 13px;
-		color: #585858;;
+		color: #585858;
 		float: right;
 	}
 	.btm{

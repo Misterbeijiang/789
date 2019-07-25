@@ -248,13 +248,11 @@
 	    font-weight: 500;
 	    text-align: center;
 	    color: #FF0600;
-	    margin-bottom: ;
 	    padding-top: 24px;
 	    margin-bottom: 15px;
 	}
 	.youshi-div2{
 		width: 315px;
-		background: ;
 		margin: 0 auto;
 		}
 	.youshi-div2 a{
@@ -267,7 +265,7 @@
 		margin-bottom: .26rem;
 	}
 	.youshi-div2 img{
-		display: inline;
+		display: inline-block;
 		width: 41px;
 		vertical-align:middle;
 	}
@@ -360,7 +358,7 @@
 	}
 	.btm-box-div1{
 		float: left;
-		display: inline-block;
+		display:block;
 		font-size: 15px;
 		width: 35%;
 		height: .98rem;
@@ -371,7 +369,7 @@
 	}
 	.btm-box-div2{
 		float: left;
-		display: inline-block;
+		display: block;
 		width:65%;
 		height: .98rem;
 		color: #fff;
