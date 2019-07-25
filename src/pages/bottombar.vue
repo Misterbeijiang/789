@@ -5,7 +5,7 @@
                 <div @click="fun(i)" class="navlist">               
                     <img :src="v.image" alt="" class="image">
                     <img :src="v.images" alt="" class="images">
-                    <span class="item">{{v.title}}</span>
+                    <span class="items">{{v.title}}</span>
                 </div>
             </router-link>
         </div>
@@ -54,13 +54,13 @@ export default {
     mounted() {
         document.getElementsByClassName("navlist")[0].style.borderBottom =".03rem solid #e75830";
         document.getElementsByClassName("image")[0].style.display ="none";
-        document.getElementsByClassName("item")[0].style.display ="none";
+        document.getElementsByClassName("items")[0].style.display ="none";
         document.getElementsByClassName("images")[0].style.display ="block";
     },
     methods:{
         fun(i){
             var navlist = document.getElementsByClassName("navlist");
-            var item = document.getElementsByClassName("item");
+            var item = document.getElementsByClassName("items");
             var image =document.getElementsByClassName("image");
             var images=document.getElementsByClassName("images");
             for(let j = 0;j<navlist.length;j++){
