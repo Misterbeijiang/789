@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-for="(v,i) in mettods" :key="i" class="item">
+    <div v-for="(v,i) in mettods" :key="i" class="item" >
         <router-link to="/page"  >
             <div class="item_img">
                 <span>
@@ -295,17 +295,51 @@ export default {
                 },
                 
             ],
-            mettods:[]
+            mettods:[],
+            name:""
         }
     },
     created(){
+        this.name = Number(this.$route.params.name)
+        console.log(this.name)
+        if(this.name =="大众"||this.name =="宝马"||this.name =="奔驰"||this.name =="奥迪"||this.name =="丰田"||this.name =="本田"||this.name =="宝马"||this.name =="宝马"||this.name =="宝马"){
+             this.axios({
+                    url:"/apis/getCarBycarBrand/"+this.name,
+                    methods:"get"
+                }).then((ok)=>{
+                    console.log(ok.data.queryResult.list)
+                    this.mettods=ok.data.queryResult.list
+                })
+        }else if(this.name =="买车商城"){
+             this.axios({
+                    url:"/apis/loadAll",
+                    methods:"get"
+                }).then((ok)=>{
+                    console.log(ok.data)
+                    this.mettods=(ok.data).splice(0,10)
+                })
+        }else if(this.name === 20192723){
+            console.log(this.name)
+             this.axios({
+                    url:"/apis/newArrival/?carNewtime="+this.name,
+                    methods:"get",
+                    // data:{
+                    //     carPercentName:this.name
+                    // }
+                }).then((ok)=>{
+                    console.log(ok.data)
+                    this.mettods=(ok.data).splice(0,10)
+                })
+        }else{
         this.axios({
-            url:"/apis/loadAll",
-            methods:"get"
-        }).then((ok)=>{
-            console.log(ok.data)
-            this.mettods=ok.data
-        })
+                    url:"/apis/loadByPriceRange/"+this.name,
+                    methods:"get"
+                }).then((ok)=>{
+                    console.log(ok.data.queryResult.list)
+                    this.mettods=ok.data.queryResult.list
+            })
+        }
+        
     }
 
    

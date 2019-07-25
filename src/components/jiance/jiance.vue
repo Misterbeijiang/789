@@ -5,7 +5,7 @@
 			<div class="MD-vehicle_report-video-video-wrap">
 				<div class="MD-vehicle_report-video-video-box">
 					<div class="video-js vjs-fluid vjs-paused my-video-dimensions vjs-controls-enabled vjs-v6 vjs-user-inactive">
-						<video @click="funB()" class="vjs-tech" id="videomast" :src="mmttan" poster="https://c1.xinstatic.com/o/20190707/1401/5d218ab77a4dd823168_19.jpg"></video>
+						<video  v-bind:controls="fttpsts" @click="funB()" class="vjs-tech" id="videomast" :src="mmttan" poster="https://c1.xinstatic.com/o/20190707/1401/5d218ab77a4dd823168_19.jpg"></video>
 						<!-- 视频进度条 -->
 						
 					</div>
@@ -19,9 +19,9 @@
 						<a @click="funA()" href="javascript:void(0)" class="MD-vehicle_report-video-btn-tips MD-vehicle_report-video-btn-right">开始播放</a>
 					</div>
 				</div>
-				<div class="MD-vehicle_report-video-video-option">
-					<ul class="MD-vehicle_report-video-video-option-box">
-						<li class="MD-vehicle_report-video-video-option-item">车头</li>
+				<div v-bind:class="{changeColor:abd}" class="MD-vehicle_report-video-video-option">
+					<ul class="MD-vehicle_report-video-video-option-box MD-vehicle_report-video-video-option-box-height">
+						<li class="MD-vehicle_report-video-video-option-item MD-vehicle_report-video-video-option-item-actived">车头</li>
 						<li class="MD-vehicle_report-video-video-option-item">发动机舱</li>
 						<li class="MD-vehicle_report-video-video-option-item">右前车身</li>
 						<li class="MD-vehicle_report-video-video-option-item">右前内饰</li>
@@ -35,11 +35,11 @@
 						<li class="MD-vehicle_report-video-video-option-item">左前内饰</li>
 						<li class="MD-vehicle_report-video-video-option-item">机电检查</li>
 					</ul>
-					<div class="MD-vehicle_report-video-video-option-switch">
-						<span class="MD-vehicle_report-video-video-option-switch-text text-up">收起</span>
-						<span class="MD-vehicle_report-video-video-option-switch-text text-down MD-vehicle_report-video-video-option-switch-hidden">展开</span>
-						<img src="../../assets/xiangshang_1.png" class="MD-vehicle_report-video-video-option-switch-img img-up">
-						<img src="../../assets/xiangxia_1.png" class="MD-vehicle_report-video-video-option-switch-img img-down MD-vehicle_report-video-video-option-switch-hidden">
+					<div @click="funD()" class="MD-vehicle_report-video-video-option-switch">
+						<span class="MD-vehicle_report-video-video-option-switch-text text-up" v-bind:class="{MD_vehicle_report_video_video_option_switch_hidden:hinddens}">收起</span>
+						<span class="MD-vehicle_report-video-video-option-switch-text text-down">展开</span>
+						<img src="../../assets/xiangshang_1.png" class="MD-vehicle_report-video-video-option-switch-img img-up" v-bind:class="{MD_vehicle_report_video_video_option_switch_hidden:hinddens}">
+						<img src="../../assets/xiangxia_1.png" class="MD-vehicle_report-video-video-option-switch-img img-down">
 					</div>
 				</div>
 			</div>
@@ -134,7 +134,11 @@
 			return{
 				bools:false,
 				mmttan:require("../../assets/shipingmp4.mp4"),
-				mster:true
+				mster:true,
+				fttpsts:false,
+				abd:false,
+				// 张开
+				hinddens:true
 			}
 		},
 		methods:{
@@ -146,9 +150,17 @@
 				this.mster = false;
 				var videomast = document.getElementById('videomast')
 				videomast.play()
+				this.abd = true;
 			},
 			funB(){
-
+				if(this.fttpsts==false){
+					this.fttpsts = true
+				}else{
+					this.fttpsts = false
+				}
+			},
+			funD(){
+				
 			}
 		}
 	}
@@ -156,6 +168,7 @@
 </script>
 
 <style scoped>
+	
 	.video{
 		width: 100%;
 		height: 4.2rem;
@@ -310,7 +323,7 @@
 	.MD-vehicle_report-video-video-option-box {
 		display: flex;
 		flex-wrap: wrap;
-		padding: .2rem .1rem .1rem;
+		margin: .2rem .1rem .1rem;
 	}
 	.MD-vehicle_report-video-video-box {
 		width: 100%;
@@ -318,6 +331,7 @@
 		position: relative;
 	}
 	.MD-vehicle_report-video-video-option-switch {
+		box-sizing: content-box;
 		text-align: center;
 		line-height: .24rem;
 		margin-bottom: .22rem;
@@ -330,16 +344,18 @@
 		font-size: .26rem;
 		border-radius: .04rem;
 		color: #585858;	
+		    line-height: 1;
 	}
 	.MD-vehicle_report-video-video-option-switch-text {
 		font-size: .24rem;
 		color: #585858;
 	}
-	.MD-vehicle_report-video-video-option-switch-hidden {
+	.MD-vehicle_report-video-video-option-switch .MD_vehicle_report_video_video_option_switch_hidden {
 		display: none;
 	}
 	.MD-vehicle_report-video-video-option-switch-img {
 		width: .24rem;
+		display: inline-block;
 	}
 	.MD-vehicle_report-video-video-option-switch-hidden {
 		display: none;
@@ -464,5 +480,17 @@
     padding-top: 18%;
 }
 /* 进度条 */
+	.changeColor{
+		display: block;
+	}
+	.MD-vehicle_report-video-video-option-item-actived {
+		background: #F85D00;
+		color: #fff;
+		border-color: #F85D00;
+	}
+	.MD-vehicle_report-video-video-option-box-height {
+		height: 1.65rem;	
+		overflow: hidden;
+	}
 	
 </style>

@@ -19,7 +19,7 @@
     <!-- 买车商城五个小图标 -->
     <div class="index_five_fast">
       <section class="fast_index">
-        <router-link to="/shopping" class="fast_img_box" v-for="(v,i) in playcar" :key="i">
+        <router-link :to="'/shopping/'+v.title" v-for="(v,i) in playcar" :key="i" class="fast_img_box" >
             <logocai :titlename="v.title" :titleimg="v.imgagr"></logocai>
         </router-link>
         <router-link to="/sellcar" class="fast_img_box">
@@ -43,13 +43,13 @@
       <!-- 热门车 -->
       <ul class="car-brand">
         <li class="car-screen-li" v-for="(v,i) in money" :key="i">
-          <router-link to="/shopping" class="car-price-a">{{v.moey}}</router-link>
+          <router-link :to="'/shopping/'+v.moey" class="car-price-a">{{v.moey}}</router-link>
         </li>
       </ul>
       <!-- 带logo的车 -->
       <ul class="car-brand">
         <li class="car-screen-li" v-for="(v,i) in car" :key="i">
-          <router-link to="/shopping" class="car-price-a">
+          <router-link :to="'/shopping/'+v.cartry" class="car-price-a">
             <img class="car-brand-img" :src="v.imgagr" />
             <span class="car-brand-text">{{v.cartry}}</span>
           </router-link>
@@ -61,7 +61,7 @@
           </router-link>
         </li>
       </ul>
-      <router-link to="/shopping" class="indexB-Bottom-btn">查看全部{{count}}俩车</router-link>
+      <router-link :to="'/shopping/'+mast" class="indexB-Bottom-btn">查看全部{{count}}俩车</router-link>
     </div>
     <!-- 今日最新 -->
     <div class="index_sku_wrap">
@@ -675,6 +675,8 @@ export default {
     return {
       dazhong:"",
       count:"",
+      name:"",
+      mast:"买车商城",
       // 买车商城
       playcar: [
         { title: "买车商城", imgagr: require("../assets/qiche.png") },
@@ -875,6 +877,15 @@ export default {
     },
     funcctict(){
       document.documentElement.scrollTop = 0;
+    },
+    funD(mut){
+      this.name = mut
+    },
+    funF(mut){
+      this.name = mut
+    },
+    funT(mut){
+      this.name = mut
     }
   },
   mounted() {
