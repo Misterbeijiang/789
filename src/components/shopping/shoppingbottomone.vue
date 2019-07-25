@@ -42,8 +42,6 @@
 </div>
 </template>
 <script>
-import Vue from 'vue'
-import {Lazyload} from 'vant'
 export default {
      data () {
         return {
