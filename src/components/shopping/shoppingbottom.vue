@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div v-for="(v,i) in chiends" :key="i" class="item">
-        <router-link to="/page"  >
+    <div v-for="(v,i) in mettods" :key="i" class="item" >
+        <router-link :to="'/page/'+v.carId">
             <div class="item_img">
                 <span>
                     <img :src="v.carPic">

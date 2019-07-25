@@ -3,23 +3,27 @@
         <ul class="left">
             <li class="left_class_list" v-for="(v,i) in arr" :key="i" @click="toggle(i)" :class="{'left_class_active': i == checkindex}">{{v.classift}}</li>
         </ul>
+        <div class="height_class_list_footer">
+            <span class="height_class_list_footer_cz" @click="chong" >重置</span>
+            <span class="height_class_list_footer_zong" @click="zong">共{{gong}}辆车</span>
+        </div>
         <div class="right" @scroll="onScroll">
             <!-- 品牌 -->
             <div class="right_class_pp scroll-item">
                 品牌
                 <span class="right_class_pp_bx right_class_pp_right_bx">
-                    不限
+                    <router-link to="/brand" style="color:#cccccc">{{titleName}}</router-link>
                 </span>
             </div> 
             <!-- 价格 -->
-            <Optionkuai class="js-filter-price scroll-item" :listtitle="price" :title="prices"  @togglegf="func"></Optionkuai>
+            <Optionkuai class="js-filter-price scroll-item" :listtitle="price" :title="prices"  @togglegf="funa" ref='myBox'></Optionkuai>
             <!-- 自定义价格 -->
             <div class="right_class_pp_zdyjg right_class_pp_right_zdyjg scroll-item">
                 <span class="right_class_pp_zdyjg_title">
                     <span>自定义价格</span>
                     <span class="right_class_pp_zdyjg_title_dw">(万)</span>
                     <span class="right_class_pp_zdyjg_title_ramout" v-if="falser">{{info}}</span>
-                    <Sider :value-fun="Val  " :min="0" :max="100"></Sider>
+                    <Sider :valueFun="Val()" :min="0" :max="100"></Sider>
                     <div class="right_class_pp_zdyjg_title_num">
                         <span>0</span>
                         <span>10</span>
@@ -32,12 +36,13 @@
                 </span>
             </div>
             <!-- 首付 -->
-            <Optionkuai class="js-filter-price scroll-item" :listtitle="putdown" :title="putdowns"></Optionkuai>
+            <Optionfourkuai class="js-filter-price scroll-item" :fucktitle="putdown" :title="putdowns" @toggleone="funb" ref='myBox1'></Optionfourkuai>
             <!-- 自定义首付 -->
             <div class="right_class_pp_zdyjg right_class_pp_right_zdyjg scroll-item">
                 <span class="right_class_pp_zdyjg_title">
                     <span>自定义首付</span>
                     <span class="right_class_pp_zdyjg_title_dw">(万)</span>
+                    <span class="right_class_pp_zdyjg_title_ramout" v-if="falsers">{{twoinfo}}</span>
                     <Sider :value-fun="Val" :min="0" :max="100"></Sider>
                     <div class="right_class_pp_zdyjg_title_num">
                         <span>0</span>
@@ -50,12 +55,13 @@
                 </span>
             </div>
             <!-- 月供 -->
-            <Optionkuai class="js-filter-price scroll-item" :listtitle="monthly" :title="monthlys"></Optionkuai>
+            <Optionfivekuai class="js-filter-price scroll-item" :bithtitle="monthly" :title="monthlys" @toggletwo="func" ref='myBox2'></Optionfivekuai>
             <!-- 自定义月供 -->
             <div class="right_class_pp_zdyjg right_class_pp_right_zdyjg scroll-item">
                 <span class="right_class_pp_zdyjg_title">
                     <span>自定义月供</span>
                     <span class="right_class_pp_zdyjg_title_dw">(千)</span>
+                    <span class="right_class_pp_zdyjg_title_ramout" v-if="falserb">{{threeinfo}}</span>
                     <Sider :value-fun="Val" :min="0" :max="100"></Sider>
                     <div class="right_class_pp_zdyjg_title_num">
                         <span>0</span>
@@ -154,11 +160,14 @@
 const Optioncolor = () => import("../optionfilter/optioncolor")
 const Optionthreekuai = () => import("../optionfilter/optionthreekuai")
 const Optionkuai = () => import("../optionfilter/optionkuai")
+const Optionfourkuai = () => import("../optionfilter/optionfourkuai")
+const Optionfivekuai = () => import("../optionfilter/optionfive")
 const Sider = () => import("../optionfilter/slider")
 
 export default {
     props:{
-        listtitle:Array
+        listtitle:Array,
+        fucktitle:Array
     },
     data() {
         return {
@@ -180,7 +189,15 @@ export default {
             checkindex:0,
             valure:0,
             info:"",
+            twoinfo:"",
+            threeinfo:"",
             falser:false,
+            falsers:false,
+            falserb:false,
+            gundong:0,
+            gong:"",
+            lengths:"",
+            titleName:this.$route.params.id,
             arr :[
                 {"classift":"品牌"},
                 {"classift":"价格"},
@@ -212,18 +229,18 @@ export default {
                 {"price":"50万以上","showme":false},             
             ],
             putdown:[
-                {"price":"0-1万"},
-                {"price":"1-3万"},
-                {"price":"3-5万"},
-                {"price":"5-10万"},
-                {"price":"10万以上"},
+                {"price":"0-1万","showme1":false},
+                {"price":"1-3万","showme1":false},
+                {"price":"3-5万","showme1":false},
+                {"price":"5-10万","showme1":false},
+                {"price":"10万以上","showme1":false},
             ],
             monthly:[
-                {"price":"0-2千"},
-                {"price":"2-5万"},
-                {"price":"5-8万"},
-                {"price":"8千-1万"},
-                {"price":"1万以上"},
+                {"price":"0-2千","showme2":false},
+                {"price":"2-5万","showme2":false},
+                {"price":"5-8万","showme2":false},
+                {"price":"8千-1万","showme2":false},
+                {"price":"1万以上","showme2":false},
             ],
             car:[
                 {"imgurl":"https://s1.xinstatic.com/m/img/carshape-sanxiang.png","title":"三厢轿车"},
@@ -328,46 +345,15 @@ export default {
             this.checkindex = index;
             console.log(index)
 
-            let target = document.querySelector('.right')
+            let target = document.querySelector('.left')
             let scrollItems = document.querySelectorAll('.scroll-item')
             // 判断滚动条是否滚动到底部
             if (target.scrollHeight <= target.scrollTop + target.clientHeight) {
-                this.checkindex  = index
+                this.gundong  = index
             }
             let total = scrollItems[index].offsetTop - scrollItems[0].offsetTop // 锚点元素距离其offsetParent(这里是body)顶部的距离(待滚动的距离)
             let distance = document.querySelector('.right').scrollTop // 滚动条距离滚动区域顶部的距离
             // let distance = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset // 滚动条距离滚动区域顶部的距离(滚动区域为窗口)
-
-            let step = total / 50
-            if (total > distance) {
-                smoothDown(document.querySelector('.right'))
-            } else {
-                let newTotal = distance - total
-                step = newTotal / 50
-                smoothUp(document.querySelector('.right'))
-            }
-
-            
-            function smoothDown (element){
-            if (distance < total) {
-                distance += step
-                element.scrollTop = distance
-                
-            } else {
-                element.scrollTop = total
-            }
-            }
-
-            // 参数element为滚动区域
-            function smoothUp (element) {
-            if (distance > total) {
-                distance -= step
-                element.scrollTop = distance
-                
-            } else {
-                element.scrollTop = total
-            }
-            }
         },   
         onScroll (e) {
             let scrollItems = document.querySelectorAll('.scroll-item')
@@ -380,27 +366,97 @@ export default {
                 }
             }
         },
-        // Val(i){
-        //     // console.log(i)
-        //     console.log("sss")
-        // },
-        func(data,caos){
+        Val(i){
+            // console.log(i)
+            // console.log("sss")   
+        },
+        funa(data,caos){
             console.log(caos)
             if(this.falser == false){
                 this.falser = caos
             }else{
                 this.falser = caos
             }
-
             this.info = data
+            console.log(this.info)
             
+        },
+        funb(data,caos){
+            console.log(caos)
+            if(this.falser == false){
+                this.falsers = caos
+            }else{
+                this.falsers = caos
+            }
+            this.twoinfo = data,
+            console.log(this.twoinfo)
+        },
+        func(data,caos){
+            console.log(caos)
+            if(this.falserb == false){
+                this.falserb = caos
+            }else{
+                this.falserb = caos
+            }
+            this.threeinfo = data,
+            console.log(this.threeinfo)
+        },
+        zong(){
+            this.axios({
+                url:"/apis/choose?"+"carPriceRange="+this.info+"&carFirstPay="+this.twoinfo+"&carMonthPay"+this.threeinfo,
+                methods:"get"
+            }).then((data)=>{
+                console.log(data)
+                this.length = data
+            })
+        },
+        chong(){
+            // console.log("sss")
+            for(var i=0;i<this.price.length;i++){
+                this.$refs.myBox.$el.childNodes[2].childNodes[i].className = "right_option_box_2_list js_option_list";
+                this.price[i].showme = false
+                if(this.price[i].showme == true){
+                    this.price[i].showme=false
+                }
+            }
+            for(var i=0;i<this.putdown.length;i++){
+                this.$refs.myBox1.$el.childNodes[2].childNodes[i].className = "right_option_box_5_list js_option_list";
+                this.putdown[i].showme1 = false
+                if(this.putdown[i].showme1 == true){
+                    this.putdown[i].showme1 =false
+                }
+            }
+            for(var i=0;i<this.monthly.length;i++){
+                this.$refs.myBox2.$el.childNodes[2].childNodes[i].className = "right_option_box_6_list js_option_list";
+                this.monthly[i].showme2 = false
+                if(this.monthly[i].showme2 == true){
+                    this.monthly[i].showme2=false
+                }
+            }
+            this.falser = false;
+            this.falsers =false;
+            this.falserb = false;
         }
+    },
+    created() {
+        console.log(this.titleName)
+        this.axios({
+            url:"/apis/getCount",
+            methods:"get"
+        }).then((data)=>{
+            console.log(data.data.queryResult.total)
+            this.gong = data.data.queryResult.total
+            // this.gong = this.length
+            console.log(this.gong)
+        })
     },
     components:{
         Optionkuai,
         Sider,
         Optionthreekuai,
-        Optioncolor
+        Optioncolor,
+        Optionfourkuai,
+        Optionfivekuai
     }
 }
 </script>
@@ -550,5 +606,28 @@ export default {
 }
 .right_option_box .right_option_box_2_list:nth-child(2n-1){
     margin-right: .2rem;
+}
+.height_class_list_footer{
+    height: .88rem;
+    line-height: .88rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-size: .32rem;
+    z-index: 20;
+}
+.height_class_list_footer_cz{
+    width: 2.5rem;
+    color: #f85d00;
+    background: #ffffff;
+    text-align: center;
+    float: left;
+}
+.height_class_list_footer_zong{
+    background: linear-gradient(90deg,rgba(252,150,0,1),rgba(248,93,0,1));
+    text-align: center;
+    color: #ffffff;
+    width: calc(100% - 2.5rem);
+    float: right;
 }
 </style>

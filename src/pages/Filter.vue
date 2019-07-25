@@ -1,10 +1,6 @@
 <template>
     <div class="body">
         <OptionTop class="header"></OptionTop>
-        <div class="height_class_list_footer">
-            <span class="height_class_list_footer_cz">重置</span>
-            <span class="height_class_list_footer_zong">共1111辆车</span>
-        </div>
         <OptionBody></OptionBody>
     </div>
 </template>
@@ -17,7 +13,10 @@ export default {
     components:{
         OptionTop,
         OptionBody
-    }
+    },
+    created() {
+        
+    },
 }
 </script>
 <style scoped>

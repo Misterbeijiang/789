@@ -10,48 +10,60 @@
                 </router-link>
             </div>
             <div class="page_car_wrap">
-                <mt-swipe :auto="index"  class="page_carousel_wrap" @change="handleChange">
-                    <mt-swipe-item class="carousel-wrap-item-mst" id="1" ref="dataInfo">
-                        <router-link to="">
+                <mt-swipe :auto="index" class="page_carousel_wrap" @change="handleChange">
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                        <router-link to="/jiancebaogao">
+                            <div class="play-btn-wrap">
+                                <div class="play-btn"></div>
+                            </div>
                             <img src="../../assets/page_car_1.jpg" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" id="1" ref="dataInfo">
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
                         <router-link to="">
-                            <img src="../../assets/carshippingphone.jpg" width="100%">
+                        <img src="../../assets/carshippingphone.jpg" width="100%">
+                        </router-link>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                        <router-link to="">
+                        <img src="../../assets/carshippingphone.jpg" width="100%">
+                        </router-link>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                        <router-link to="">
+                        <img src="../../assets/carshippingphone.jpg" width="100%">
                         </router-link>
                     </mt-swipe-item>
                     <!-- 
-                    
-                        <router-link to="/shopping">
-                        <img id="1" src="../../assets/lunbo_1.png" />
-                        </router-link>
-                    
+                    <router-link to="/shopping">
+                    < img id="1" src="../../assets/lunbo_1.png" />
+                    </router-link>
                     <mt-swipe-item class="carousel-wrap-item" id="2" ref="dataInfo">
-                        <router-link to="/contract">
-                        <img id="2" src="../../assets/jinrong.jpg" />
-                        </router-link>
+                    <router-link to="/contract">
+                    < img id="2" src="../../assets/jinrong.jpg" />
+                    </router-link>
                     </mt-swipe-item>
                     <mt-swipe-item class="carousel-wrap-item" id="3" ref="dataInfo">
-                        <router-link to="/videodetection">
-                        <img id="3" src="../../assets/shipinjiance.jpg" />
-                        </router-link>
+                    <router-link to="/videodetection">
+                    < img id="3" src="../../assets/shipinjiance.jpg" />
+                    </router-link>
                     </mt-swipe-item>
                     <mt-swipe-item class="carousel-wrap-item" id="4" ref="dataInfo">
-                        <router-link to="/goodcar">
-                        <img id="4" src="../../assets/chaozhihaoche.png" />
-                        </router-link>
+                    <router-link to="/goodcar">
+                    < img id="4" src="../../assets/chaozhihaoche.png" />
+                    </router-link>
                     </mt-swipe-item>
                     <mt-swipe-item class="carousel-wrap-item" id="5" ref="dataInfo">
-                        <router-link to="/valuable">
-                        <img id="5" src="../../assets/zhuanjia.jpg" />
-                        </router-link>
+                    <router-link to="/valuable">
+                    < img id="5" src="../../assets/zhuanjia.jpg" />
+                    </router-link>
                     </mt-swipe-item>
-                     -->
+                    -->
                 </mt-swipe>
                 <div class="swiper_bot">
-                    <div class="video-tag swiper_video">视频</div>
-                    <div class="video-tag ">图片</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveA }" @click="funD()">视频</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveB }" @click="funT()">图片</div>
+                    <div class="pagination-tag" v-if="pagination">1/24</div>
                 </div>
             </div>
             <div class="page_right_wrap">
@@ -76,14 +88,33 @@
 
 <script>
 export default {
-    data() {
-        return {
-            index:0
+    data(){
+        return{
+            index:0,
+            isActiveA:true,
+            isActiveB:false,
+            pagination:false
         }
     },
     methods:{
         funa(){
             this.$router.go(-1);
+        },
+        handleChange(index){
+            console.log(index)
+            if(index==0){
+                this.isActiveA=true;
+                this.isActiveB=false;
+            }else{
+                this.isActiveA=false;
+                this.isActiveB=true;
+            }
+        },
+        funT(){
+
+        },
+        funD(){
+
         }
     }
 }
@@ -280,5 +311,23 @@ export default {
         float: right;
         margin-right: .32rem;
         margin-top: .24rem;
+    }
+    .pagination-tag {
+        position: absolute;
+        display: inline-block;
+        right: .2rem;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: .24rem;
+        color: #fff;
+        background: rgba(0,0,0,.2);
+        border-radius: .16rem;
+        padding: .04rem .12rem;
+    }
+</style>
+<style>
+    .mint-swipe-indicators{
+        display: none;
     }
 </style>

@@ -3,8 +3,10 @@
         
         <div class="brander_a">
             <span class="brander_b">
-                <img :src="images" >
-                <p>{{name}}</p>
+                <router-link :to="'/shopping/'+name">
+                    <img :src="images" >
+                    <p>{{name}}</p>
+                </router-link>
             </span>
         </div>
     </div>
@@ -35,7 +37,7 @@ export default {
         /* line-height: 1.2rem; */
         padding-left:.3rem;
         font-size: .3rem;
-
-    }
+        color: #333;
+    }   
     
 </style>
