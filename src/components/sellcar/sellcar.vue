@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="nav">
-        <router-link to="" class="nav-aBack">
+        <router-link to="/index" class="nav-aBack">
         </router-link>
             <span>我要卖车</span>
         <router-link to="" class="nav-sell">
@@ -18,7 +18,7 @@
         <span>辆车成功在优信售出</span>
     </div>
     <div class="make">
-        <router-link to="">
+        <router-link to="/home">
             <span>预约卖车</span>
         </router-link>
     </div>
@@ -26,7 +26,7 @@
         <router-link to="" class="free">
             免费咨询
         </router-link>
-        <router-link to="" class="evaluate">
+        <router-link to="/home" class="evaluate">
             先估个价
         </router-link>
     </div>

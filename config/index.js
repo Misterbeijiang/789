@@ -18,6 +18,13 @@ module.exports = {
           '^/apis':''
         }
       }
+      // '/apis':{
+      //   target:'http://10.12.156.7:8080',
+      //   changeOrigin:true,
+      //   pathRewrite:{
+      //     '^/apis':''
+      //   }
+      // }
     },
 
     // Various Dev Server settings

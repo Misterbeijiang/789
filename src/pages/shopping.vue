@@ -1,8 +1,8 @@
 <template>
     <div class="box">
           <Shoppingtop></Shoppingtop>
-          <Shoppingtext></Shoppingtext>
-          <Shoppingbottom></Shoppingbottom>
+          <Shoppingtext @chiend="chiends($event,userDefined)"></Shoppingtext>
+          <Shoppingbottom :chiends="name"></Shoppingbottom>
           <Shoppingbottomone></Shoppingbottomone>
     </div>
 </template>
@@ -21,7 +21,19 @@ export default {
         Shoppingbottom,
         Shoppingbottomone
     },
-    
+    data () {
+        return {
+            name:""
+        }
+    },
+    methods: {
+        chiends(met){
+            this.name=met;
+        }
+    },
+    created () {
+        this.axios
+    }
 }
 </script>
 <style scoped>

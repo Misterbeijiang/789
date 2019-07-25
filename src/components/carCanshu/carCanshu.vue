@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<div class="headbox">
-			<a class="head-bcak"></a>
-			
+			<a href="javascript:history.go(-1);" class="head-bcak"></a>
 			<span :class="headclass?'head-box-sp1':'head-box-sp2'" @click="fun1()">{{xingneng}}</span>
 			<span :class="headclass?'head-box-sp2':'head-box-sp1'" @click="fun2">{{wanzheng}}</span>
 		</div>
@@ -139,7 +138,11 @@
 			</div>
 		</div>
 		<!--底部------>
-		<div class="btm">在线咨询</div>
+		<div class="btm">
+			<router-link to="/Bulekefu">
+				在线咨询
+			</router-link>	
+		</div>
 		
 		<!------------配置参数总模块-->
 		<div class="pz-bigbox" v-show="pzshow">
@@ -308,9 +311,7 @@
 					<span>多点电喷</span>
 				</p>		
 			</div>
-		</div>
-		
-			
+		</div>	
 	</div>
 </template>
 
@@ -667,5 +668,8 @@
 	}
 	.set-p span:nth-child(2){
 		float: right;
+	}
+	.btm a{
+		color: #fff;
 	}
 </style>

@@ -5,22 +5,62 @@
         <span class="right_option_col_2_boxtitle_unit">{{more}}</span>    
         </span>
         <ul class="right_option_box">
-            <li class="right_option_box_2_list js_option_list" v-for="(v,i) in listtitle" :key="i">
-                <span>{{v.price}}</span>        
+            <li class="right_option_box_2_list js_option_list" v-for="(v,i) in listtitle" :key="i" @click="togglegf(i,v)" :class="{color: i == checkindex}" >
+                <span>{{v.price}}</span>            
             </li>
         </ul> 
     </div>
 </template>
 <script>
 export default {
+    data() {
+        return {
+            checkindex:-1,
+            blues:false
+        }
+    },
     props:{
         title:String,
         listtitle:Array,
         more:String
-    }
+    },
+    methods: {
+        two(){
+            // console.log("sss")  
+        },
+        togglegf(index,value){      
+            // console.log(index)
+            for(let i=0 ; i<this.listtitle.length;i++){
+                if(this.listtitle[index].showme == false){
+                    this.blues = false
+                    // console.log(this.blues)
+                }else{
+                    this.blues = true
+                    // console.log(this.blues)
+                }
+            }
+            if(index != this.checkindex){
+                this.checkindex = index;
+                this.listtitle[index].showme = !this.blues
+                // console.log(this.listtitle[index].showme)
+                this.$emit("togglegf",value.price,this.listtitle[index].showme)
+            }else{
+                this.checkindex = -1;
+                this.listtitle[index].showme = !this.blues
+                // console.log(this.listtitle[index].showme)
+                this.$emit("togglegf",value.price,this.listtitle[index].showme)
+            }
+            
+        }
+    },
 }
 </script>
 <style scoped>
+.right_option_box .color{
+    background: rgba(248,93,0,.1);
+    color: #F85D00 !important;
+    border-color: transparent ;
+}
 .right_option_col_2_box{
     overflow: hidden;
     float: left;

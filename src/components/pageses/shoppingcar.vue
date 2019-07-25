@@ -1,6 +1,6 @@
 <template>
     <div class="bottom-btn">
-        <router-link to="" class="btn-anniu detail-enter-im">我要优惠</router-link>
+        <router-link to="/Register" class="btn-anniu detail-enter-im">我要优惠</router-link>
         <router-link to="" class="btn-anniu btn-content detail-enter-im">在线客服</router-link>
         <router-link to="" class="btn-anniu btn-right chargecall jrtt_cardetail_call zhuge-phone btn-icon">免费咨询</router-link>
     </div>

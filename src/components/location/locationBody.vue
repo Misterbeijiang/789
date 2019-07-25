@@ -1,6 +1,6 @@
 <template>
 <!-- 定位城市主体 -->
-    <dl class="city_colomn">
+    <dl class="city_colomn" v-if="mast" >
         <dt class="city_white">定位城市</dt>
         <!-- 定位图标和位置 -->   
         <dd class="city_city">   
@@ -50,8 +50,16 @@ export default {
     data() {
         return {
             newdata:[],
-            newdatas:[]
+            newdatas:[],
+            A:[],
+            B:[],
+            C:[],
+            D:[],
         }
+    },
+    props:["mast","goodmast"],
+    methods:{
+
     },
     created() {
         this.axios({
@@ -61,22 +69,12 @@ export default {
             this.newdatas = data.data.city
             this.newdata = data.data.city
             console.log(this.newdata)
+            this.A = this.newdata[0].A
+            this.B = this.newdata[1].B
+            this.C = this.newdata[2].C
+            this.D = this.newdata[3].D
         })
     },
-    computed:{
-        A:function(){
-            return this.newdata[0].A
-        },
-        B:function(){
-            return this.newdata[1].B
-        },
-        C:function(){
-            return this.newdata[2].C
-        },
-        D:function(){
-            return this.newdata[3].D
-        }
-    }
 }
 </script>
 <style scoped>

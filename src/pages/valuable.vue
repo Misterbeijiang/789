@@ -36,6 +36,7 @@ const Clopedias = () => import("../components/treasury/clopedias")
 const Popular = () => import("../components/treasury/popular")
 const Gif = () => import("../components/gif/loading")
 
+
 export default {
     components:{
         Slide,

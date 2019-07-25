@@ -43,6 +43,25 @@
             "title":"撩妹神车"
         }
     ],
+    "chepai":[
+        {"title":"奥迪"},
+        {"title":"奥迪"},
+        {"title":"奥托"},
+        {"title":"拜拜"},
+        {"title":"存储"},
+        {"title":"大的"},
+        {"title":"谔谔"},
+        {"title":"奥迪"},
+        {"title":"拜拜"},
+        {"title":"存储"},
+        {"title":"大的"},
+        {"title":"谔谔"},
+        {"title":"奥迪"},
+        {"title":"拜拜"},
+        {"title":"存储"},
+        {"title":"大的"},
+        {"title":"谔谔"}
+    ],
     "contract":[
         {"image":"../../../static/img/contract1.jpg"},
         {"image":"../../../static/img/contract2.jpg"},

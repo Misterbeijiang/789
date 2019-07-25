@@ -32,7 +32,8 @@
 					isBtn:0,
 					propoWidth:0
 				},
-				myDefault:null
+				myDefault:null,
+				valueFun:[]
 			}
 		},
 		methods:{
@@ -142,31 +143,22 @@
 			height: 0.5rem;
 			.left-btn,.right-btn{
 				position: absolute;
-				top: -0.34rem;
+				top: -0.24rem;
 				transform:translate(-50%,0);
+				z-index: 5;
 				&:before{
 					content: ""; 
 					display: block;
-					width: 0; 
-					height: 0.4rem;
-					border-left: 0.17rem solid transparent; 
-					border-right: 0.17rem solid transparent; 
-					border-bottom: 0.17rem solid #B6B6B6; 
-				}
-				&:after{
-					content: "";
-					display: block;
-				    height: 0.30rem;
-				    width: 0.34rem;
-				    background: #B6B6B6;
-				    border-bottom-left-radius: 0.1rem;
-				    border-bottom-right-radius: 0.1rem;
+					width: .56rem;
+					background: url(https://imgs.xin.com/xinwap/images/filter/range.png)no-repeat;
+					background-size: .56rem .56rem; 
+					height: .56rem;					
 				}
 			}
 			.propo{
 				width: 0%;
 				height: 0.04rem;
-				background: #FFD00D;
+				background-color: #ff5a37;
 				position: absolute;
 			    top: 0;
 			    left: 0;

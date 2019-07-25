@@ -28,7 +28,7 @@ export default {
                     "image":"../../static/img/car.png",
                     "images":"../../static/img/car1.png",
                     "title":"买车",
-                    "router":"/bottombar/shopping"
+                    "router":"/bottombar/shopping/买车商城"
                 },
                 {
                     "image":"../../static/img/money.png",

@@ -1,7 +1,7 @@
 <template>
     <div>
     <div v-for="(v,i) in shopping" :key="i" class="item">
-        <router-link to="/"  >
+        <router-link to="/page"  >
             <div class="item_img">
                 <span>
                     <img :src="v.imgone">
@@ -11,7 +11,7 @@
             </div>
             <div class="item_text">
                 <ul class="item_li">
-                    <li>{{v.text}}</li>
+                    <li>{{v.text}}</li> 
                     <li>{{v.year}}</li>
                     <li>{{v.price}}</li>
                     <li class="item_span">
@@ -37,7 +37,7 @@
                 </p>
         </router-link>
     </div>
-    <router-link to="" class="enter-im-list">
+    <router-link to="/Bulekefu" class="enter-im-list">
     </router-link>
 </div>
 </template>
@@ -298,7 +298,7 @@ export default {
 <style scopde>
 .enter-im-list{
     position: fixed;
-    bottom: 1.004rem;
+    bottom: 1.4rem;
     right: .18rem;
     width: 1.16rem;
     height: 1.16rem;
@@ -342,7 +342,7 @@ export default {
     display: flex;
     width: 62%;
     margin-left: 2.9rem;
-    margin-top: -.08rem;
+    margin-top: -.06rem;
 }
 .item_li{
     margin-top: .3rem;

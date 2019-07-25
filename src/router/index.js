@@ -16,7 +16,7 @@ export default new Router({
           component: resolve=>(require(["@/pages/index"],resolve))
         },
         {
-          path:"/bottombar/shopping",
+          path:"/bottombar/shopping/:name",
           name:"Shopping",
           component: resolve=>(require(["@/pages/shopping"],resolve))
         },

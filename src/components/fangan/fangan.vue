@@ -110,10 +110,14 @@
 		<!--底部-->
 		<div class="btm-box">
 			<div class="btm-box-div1">
-				在线客服
+				<router-link to="/Bulekefu">
+					在线客服
+				</router-link>
 			</div>
 			<div class="btm-box-div2">
+				<router-link to="/Register">
 				在线提交资料
+				</router-link>
 			</div>
 		</div>
 	</div>
@@ -380,5 +384,11 @@
 	    font-weight: 500;
 	    text-align: center;
 	    line-height: .98rem;
+	}
+	.btm-box-div1 a{
+		color: #585858;
+	}
+	.btm-box-div2 a{
+		color: #fff;
 	}
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <header class="header">
+    <header class="shoppingtop">
       <router-link to="/index">
         <i></i>
       </router-link>
-      <router-link to class="header_seach">
-        <span class="header-search-text">
+      <router-link to="/sousuo" class="shoppingtop_seach">
+        <span class="shoppingtop-search-text">
           <span class="text">搜索你想要的车</span>
         </span>
       </router-link>
-      <router-link to class="header-city">北京</router-link>
+      <router-link to="/locationStr" class="shoppingtop-city">北京</router-link>
     </header>
   </div>
 </template>
@@ -19,13 +19,13 @@ export default {
 </script>
 <style socped>
 /* header */
-.header {
+.shoppingtop {
   padding: 0.14rem 0;
   position: relative;
   z-index: 1;
   border-bottom: #c5c5c5 1px solid;
 }
-.header i {
+.shoppingtop i {
   display: inline-block;
   height: 0.46rem;
   width: 1rem;
@@ -35,26 +35,27 @@ export default {
   margin-top: 0.1rem;
   margin-left: 0.3rem;
 }
-.header_seach {
+.shoppingtop_seach {
   display: inline-block;
   width: 4.5rem;
-  height: 0.7rem;
+  height: 0.6rem;
   padding: 0.08rem 0;
   padding-left: 0.34rem;
   margin-left: 0.2rem;
+  margin-top: .06rem;
   box-sizing: border-box;
   background-color: #eceaea;
   border-radius: 0.1rem;
   text-align: left;
   vertical-align: middle;
-  line-height: 0.6rem;
+  line-height: 0.5rem;
 }
-.header-search-text {
+.shoppingtop-search-text {
   position: relative;
   color: #c5c5c5;
   font-size: 0.3rem;
 }
-.header-search-text:before {
+.shoppingtop-search-text:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -64,11 +65,11 @@ export default {
   background: url("../../assets/sousuo.png") no-repeat 50%;
   background-size: 100%;
 }
-.header .text {
+.shoppingtop .text {
   padding-left: 0.3rem;
   width: 3.6rem;
 }
-.header-city {
+.shoppingtop-city {
   font-size: 0.35rem;
   vertical-align: middle;
   text-align: right;
@@ -77,7 +78,7 @@ export default {
   margin-right: 0.24rem;
   color: #888;
 }
-.header-city:after {
+.shoppingtop-city:after {
   content: "";
   display: inline-block;
   width: 0.14rem;

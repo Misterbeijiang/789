@@ -9,6 +9,8 @@
         <Cardangan></Cardangan>
         <!-- 检测部分 -->
         <Carjiance></Carjiance>
+        <!-- 顶部bang -->
+
     </div>
 </template>
 

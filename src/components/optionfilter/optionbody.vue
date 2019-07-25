@@ -12,13 +12,14 @@
                 </span>
             </div> 
             <!-- 价格 -->
-            <Optionkuai class="js-filter-price scroll-item" :listtitle="price" :title="prices"></Optionkuai>
+            <Optionkuai class="js-filter-price scroll-item" :listtitle="price" :title="prices"  @togglegf="func"></Optionkuai>
             <!-- 自定义价格 -->
             <div class="right_class_pp_zdyjg right_class_pp_right_zdyjg scroll-item">
                 <span class="right_class_pp_zdyjg_title">
                     <span>自定义价格</span>
                     <span class="right_class_pp_zdyjg_title_dw">(万)</span>
-                    <Sider :value-fun="Val" :min="0" :max="100"></Sider>
+                    <span class="right_class_pp_zdyjg_title_ramout" v-if="falser">{{info}}</span>
+                    <Sider :value-fun="Val  " :min="0" :max="100"></Sider>
                     <div class="right_class_pp_zdyjg_title_num">
                         <span>0</span>
                         <span>10</span>
@@ -177,6 +178,9 @@ export default {
             drives:"驱动",
             configurations:"配置亮点",
             checkindex:0,
+            valure:0,
+            info:"",
+            falser:false,
             arr :[
                 {"classift":"品牌"},
                 {"classift":"价格"},
@@ -199,13 +203,13 @@ export default {
                 {"classift":"配置亮点"},
             ],
             price:[
-                {"price":"5万以下"},
-                {"price":"5-10万"},
-                {"price":"10-15万"},
-                {"price":"15-20万"},
-                {"price":"20-30万"},
-                {"price":"30-50万"},
-                {"price":"50万以上"},             
+                {"price":"5万以下","showme":false},
+                {"price":"5-10万","showme":false},
+                {"price":"10-15万","showme":false},
+                {"price":"15-20万","showme":false},
+                {"price":"20-30万","showme":false},
+                {"price":"30-50万","showme":false},
+                {"price":"50万以上","showme":false},             
             ],
             putdown:[
                 {"price":"0-1万"},
@@ -375,6 +379,21 @@ export default {
                     break
                 }
             }
+        },
+        // Val(i){
+        //     // console.log(i)
+        //     console.log("sss")
+        // },
+        func(data,caos){
+            console.log(caos)
+            if(this.falser == false){
+                this.falser = caos
+            }else{
+                this.falser = caos
+            }
+
+            this.info = data
+            
         }
     },
     components:{
@@ -475,6 +494,13 @@ export default {
     box-sizing: border-box;
     display: inline-flex;
     justify-content: space-between;
+}
+.right_class_pp_zdyjg .right_class_pp_zdyjg_title_ramout{
+    float:right;
+    font-size: .28rem;
+    font-weight: 400;
+    color: #f85d00;
+    /* padding-right: .3rem; */
 }
 .right_class_pp_zdyjg .right_class_pp_zdyjg_title .right_class_pp_zdyjg_title_num span{
     display: inline-block;

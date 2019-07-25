@@ -9,13 +9,13 @@
                     <div class="car-price-analysis-wrap">
                         <router-link to="" class="car-price-analysis">车价分析</router-link>
                     </div>
-                    <router-link to="" class="notice xdj-btn">我要优惠</router-link>
+                    <router-link to="/Register" class="notice xdj-btn">我要优惠</router-link>
                 </div>
             </div>
             <!-- 一成首付 -->
             <div class="car-header-one">
                 <img src="../../assets/renpepoe.png" class="icon-head-li">
-                <router-link to="" class="xBtn one-precent-li-bkg">一成首付 月供1050元</router-link>
+                <router-link to="/yichenggou" class="xBtn one-precent-li-bkg">一成首付 月供1050元</router-link>
             </div>
         </div>
     </div>
