@@ -11,50 +11,52 @@
             热门品牌
         </div>
         <div class="brand_c">
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/大众" class="brand_b">
                 <img src="../assets/baoma_mats.png" >
                 <span>大众</span>
             </router-link>
-            <router-link to="" class="brand_b">
-                <img src="../assets/baoma_mats_1.png" >
-                <span>大众</span>
+            <router-link to="/shopping/奥迪" class="brand_b">
+                <img src="../assets/aodi_big.png" >                
+                <span>奥迪</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/奔驰" class="brand_b">
                 <img src="../assets/baoma_mats_2.png" >
-                <span>大众</span>
+                <span>奔驰</span>
             </router-link>
-            <router-link to="" class="brand_b">
-                <img src="../assets/aodi_big.png" >
-                <span>大众</span>
+            <router-link to="/shopping/宝马" class="brand_b">
+                <img src="../assets/baoma_mats_1.png" >
+                <span>宝马</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/丰田" class="brand_b">
                 <img src="../assets/yiqi_big.png" >
-                <span>大众</span>
+                <span>丰田</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/别克" class="brand_b">
                 <img src="../assets/bieke.png" >
-                <span>大众</span>
+                <span>别克</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/本田" class="brand_b">
                 <img src="../assets/bentian_big.png" >
-                <span>大众</span>
+                <span>本田</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/福特" class="brand_b">
                 <img src="../assets/fute_big.png" >
-                <span>大众</span>
+                <span>福特</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/日产" class="brand_b">
                 <img src="../assets/richan_big.png" >
-                <span>大众</span>
+                <span>日产</span>
             </router-link>
-            <router-link to="" class="brand_b">
+            <router-link to="/shopping/路虎" class="brand_b">
                 <img src="../assets/luhu_big.png" >
-                <span>大众</span>
+                <span>路虎</span>
             </router-link>
         </div>
         <div class="brand_s">
             <p>A</p>
-            <Brander class="brand_d"></Brander>
+            
+                <Brander class="brand_d"></Brander>
+            
             <p>b</p>
             <Brander class="brand_d"></Brander>
             <p>c</p>
@@ -79,6 +81,7 @@ export default {
 }
 </script>
 <style scoped>
+  
     .brand_s p{
         padding-left:.3rem;
         height: 0.6rem;
