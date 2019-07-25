@@ -23,7 +23,7 @@
         </div>
         <p v-if="v.silver" class="car-list-label">
           <span class="label-box-box">
-            <img :src="v.yinpai" />
+            <img :src="v.yinpai"/>
             <span class="label-box-silver">{{v.silver}}</span>
             <span class="uxin-promise">{{v.retreat}}</span>
           </span>
