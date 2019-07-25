@@ -5,7 +5,7 @@
         <swiper></swiper>
     </div>
     <!-- 合同 -->
-    <router-link to class="index_hetong">
+    <router-link to="/serve" class="index_hetong">
       <span>
         <i class="index_hetong_icon"></i>315项专业检测
       </span>
@@ -36,7 +36,7 @@
     <div class="index_All_vehicle">
       <h4>
         全部车源
-        <router-link to="" class="quick-screen-right-btn">
+        <router-link to="/Filter" class="quick-screen-right-btn">
           <img src="../assets/jiangbei.png" />精准筛选
         </router-link>
       </h4>
@@ -666,7 +666,7 @@ export default {
       url: "/apis/loadAll",
       methods: "get"
     }).then((ok)=>{
-      console.log(ok.data.length);
+      console.log(ok.data);
       // this.dazhong=ok.data.queryResult.list[0].carName
       this.count = ok.data.length
     });

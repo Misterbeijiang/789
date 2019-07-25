@@ -14,7 +14,7 @@
             <div class="evaluate">本车没出现过重大事故和水淹火烧的情况，车身骨架件完好，外观部件没有明显损伤，漆面没有修复痕迹，内饰无明显瑕疵，发动机变速箱工况正常，发动机舱内油液无需添加。</div>
             <ul class="detail-banner car-check-video-mark">
                 <li>
-                    <router-link to="">
+                    <router-link to="/jiancebaogao">
                         <div class="play-btn-wrap">
                             <div class="play-btn"></div>
                         </div>
@@ -27,49 +27,49 @@
         <ul class="check-items">
             <li class="check-item">
                 <span class="check-name">事故排查</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">132项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
                 <span class="check-name">轻微碰撞</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">36项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
-                <span class="check-name">轻微碰撞</span>
-                <router-link to="" class="check-right">
+                <span class="check-name">易损耗部件</span>
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">36项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
                 <span class="check-name">事故排查</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">132项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
                 <span class="check-name">事故排查</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">132项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
                 <span class="check-name">事故排查</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">132项</span>
                     <i class="arrow"></i>
                 </router-link>
             </li>
             <li class="check-item">
                 <span class="check-name">事故排查</span>
-                <router-link to="" class="check-right">
+                <router-link to="/jiancebaogao" class="check-right">
                     <span class="check-succ">132项</span>
                     <i class="arrow"></i>
                 </router-link>
@@ -78,13 +78,13 @@
         <!-- 外观图 -->
         <div class="defect">
             <ul class="new-tab-type-part">
-                <li class="tab-type-li tab-type-active">外观件</li>
-                <li class="tab-type-li">内饰图</li>
-                <li class="tab-type-li">骨架图</li>
+                <li class="tab-type-li" @click="func1()" :class="{'tab-type-active':mettt}">外观件</li>
+                <li class="tab-type-li" @click="func2()" :class="{'tab-type-active':mettt2}">内饰图</li>
+                <li class="tab-type-li" @click="func3()" :class="{'tab-type-active':mettt3}">骨架图</li>
             </ul>
             <div class="flaw-box-item">
                 <div class="appear-part-image  v3Flaw">
-                    <img src="../../assets/img_title.jpg" class="flaws-image" >
+                    <img :src="scr" class="flaws-image" >
                     <ul class="detail-spot-box" ></ul>
                 </div>
                 <p class="detail-note" style="text-align: center;">
@@ -93,9 +93,9 @@
             </div>
         </div>
         <!-- 免费看检测报告 -->
-        <router-link to="" class="car-detail-item-more">免费查看详细检测报告</router-link>
+        <router-link to="/jiancebaogao" class="car-detail-item-more">免费查看详细检测报告</router-link>
         <!-- 顶部fixed -->
-        <Topdixed></Topdixed>
+        <Topdixed :btnName="btnName"></Topdixed>
         <!-- 车辆实拍 -->
         <div class="car-picture-wrap">
             <Uvintips></Uvintips>
@@ -181,6 +181,45 @@ export default {
         Changjian,
         Xiangshituijian,
         Shoppingcar
+    },
+    data(){
+        return{
+            btnName:false,
+            mettt:true,
+            mettt2:false,
+            mettt3:false,
+            scr:require("../../assets/img_title.jpg"),
+        }
+    },
+    methods:{
+        showIcon(){
+            if(document.documentElement.scrollTop && document.documentElement.scrollTop>208){
+                this.btnName = true
+            }else{
+                this.btnName = false
+            }
+        },
+        func1(){
+            this.mettt=true
+            this.mettt2=false
+            this.mettt3=false
+            this.scr=require("../../assets/img_title.jpg")
+        },
+        func2(){
+            this.mettt=false
+            this.mettt2=true
+            this.mettt3=false
+            this.scr=require("../../assets/12tudou.jpg")
+        },
+        func3(){
+            this.mettt=false
+            this.mettt2=false
+            this.mettt3=true
+            this.scr=require("../../assets/qianchekuangjia.jpg")
+        }
+    },
+    mounted(){
+        window.addEventListener("scroll", this.showIcon);
     }
 }
 </script>
@@ -462,5 +501,9 @@ export default {
         content: "\2014";
         margin: 0 .2rem;
         color: #ddd;
+    }
+    .defect .new-tab-type-part .tab-type-active {
+        background: #f85d00;
+        color: #fff;
     }
 </style>    

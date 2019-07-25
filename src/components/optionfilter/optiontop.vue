@@ -2,7 +2,7 @@
 <!-- 高级筛选头部 -->
         <nav class="nav">
             <!-- 这个点击跳转首页 -->
-            <router-link to="#" class="GoBack"></router-link>
+            <a href="javascript:history.go(-1);" class="GoBack"></a>
             <span class="subTit">高级筛选</span>
         </nav>
 </template>

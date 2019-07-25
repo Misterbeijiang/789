@@ -5,7 +5,8 @@
          <i class="header_log"></i>
          <input type="text" class="header_input" placeholder="搜索您想要的车" @input="fun" v-model="input_content">
       </form>
-      <router-link to="/" class="header_btn">取消</router-link>
+
+      <a href="javascript:history.go(-1);" class="header_btn">取消</a>
       <div class="search_suggest_list" v-show="bool">
          <router-link to="#" v-for="(v,i) in inputDate" :key="i">
                <span>
@@ -13,7 +14,8 @@
                </span>
          </router-link>
       </div>
-      
+
+
    </header>
 </template>
 <script>

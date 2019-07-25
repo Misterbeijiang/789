@@ -1,5 +1,5 @@
 <template>
-    <div class="page-tabs-wrap" v-if="ment">
+    <div class="page-tabs-wrap" v-if="btnName">
         <a href="javascript:void(0);" class="back">
             <i class="triangle-left"></i>
         </a>
@@ -19,6 +19,9 @@ export default {
         return {
             ment:false  
         }
+    },
+    props:{
+        btnName:Boolean
     }
 }
 </script>

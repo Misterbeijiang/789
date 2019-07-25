@@ -10,39 +10,63 @@
                 </router-link>
             </div>
             <div class="page_car_wrap">
-                <ul class="page_carousel_wrap">
-                    <li>
+                <mt-swipe :auto="index"  class="page_carousel_wrap" @change="handleChange">
+                    <mt-swipe-item class="carousel-wrap-item-mst" id="1" ref="dataInfo">
                         <router-link to="">
                             <img src="../../assets/page_car_1.jpg" width="100%">
                         </router-link>
-                    </li>
-                    <li>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item-mst" id="1" ref="dataInfo">
                         <router-link to="">
-                            <div class="play-btn-wrap video_wrap">
-                                <div class="play-btn"></div>
-                            </div>
-                            <img src="../../assets/page_car_1.jpg" width="100%">
+                            <img src="../../assets/carshippingphone.jpg" width="100%">
                         </router-link>
-                    </li>
-                </ul>
+                    </mt-swipe-item>
+                    <!-- 
+                    
+                        <router-link to="/shopping">
+                        <img id="1" src="../../assets/lunbo_1.png" />
+                        </router-link>
+                    
+                    <mt-swipe-item class="carousel-wrap-item" id="2" ref="dataInfo">
+                        <router-link to="/contract">
+                        <img id="2" src="../../assets/jinrong.jpg" />
+                        </router-link>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item" id="3" ref="dataInfo">
+                        <router-link to="/videodetection">
+                        <img id="3" src="../../assets/shipinjiance.jpg" />
+                        </router-link>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item" id="4" ref="dataInfo">
+                        <router-link to="/goodcar">
+                        <img id="4" src="../../assets/chaozhihaoche.png" />
+                        </router-link>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="carousel-wrap-item" id="5" ref="dataInfo">
+                        <router-link to="/valuable">
+                        <img id="5" src="../../assets/zhuanjia.jpg" />
+                        </router-link>
+                    </mt-swipe-item>
+                     -->
+                </mt-swipe>
                 <div class="swiper_bot">
                     <div class="video-tag swiper_video">视频</div>
                     <div class="video-tag ">图片</div>
                 </div>
             </div>
             <div class="page_right_wrap">
-                <router-link to="" class="block">
+                <router-link to="/canshu" class="block">
                     <i class="report-icon"></i>
                     <span class="parameter">参数配置</span>
                 </router-link>
-                <router-link to="" class="report-mark-wrap block">
+                <router-link to="/jiancebaogao" class="report-mark-wrap block">
                     <i class="report-mark-icon"></i>
                     <span class="report-mark">检测报告</span>
                 </router-link>
             </div>
         </div>
         <!-- 金融特惠价 -->
-        <router-link to="" class="car-detail-financial-benefit-bar">
+        <router-link to="/yichenggou" class="car-detail-financial-benefit-bar">
             <span class="car-detail-fbb-font text1">金融特惠价</span>
             <span class="car-detail-fbb-font text2">首付仅需0.42万</span>
             <span class="car-detail-fbb-icon"></span>
@@ -52,6 +76,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            index:0
+        }
+    },
     methods:{
         funa(){
             this.$router.go(-1);

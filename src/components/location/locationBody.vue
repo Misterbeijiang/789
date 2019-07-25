@@ -1,6 +1,6 @@
 <template>
 <!-- 定位城市主体 -->
-    <dl class="city_colomn" v-if="mast" v-show="">
+    <dl class="city_colomn" v-if="mast" >
         <dt class="city_white">定位城市</dt>
         <!-- 定位图标和位置 -->   
         <dd class="city_city">   

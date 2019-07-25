@@ -1,7 +1,7 @@
 <template>
     <div>
     <div v-for="(v,i) in shopping" :key="i" class="item">
-        <router-link to="/"  >
+        <router-link to="/page"  >
             <div class="item_img">
                 <span>
                     <img :src="v.imgone">
@@ -37,11 +37,13 @@
                 </p>
         </router-link>
     </div>
-    <router-link to="" class="enter-im-list">
+    <router-link to="/Bulekefu" class="enter-im-list">
     </router-link>
 </div>
 </template>
 <script>
+import Vue from 'vue'
+import {Lazyload} from 'vant'
 export default {
      data () {
         return {

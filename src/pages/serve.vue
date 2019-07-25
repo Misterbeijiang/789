@@ -106,7 +106,11 @@
             <p class="img_c">三天无理由服务是由优信为了保护消费者权益退出的购车特权服务，您自购买"超值车源"3日内(含三日，
                 自客户提车日期之日起计算)，在保证车辆无新增损伤，在约定使用程度内的前提下，可以无理由退车。</p>
         </div>
-        <div class="img_b">去选车</div>
+        <div class="img_b">
+           <router-link to="/shopping">
+            去选车
+            </router-link>
+            </div>
     </div>
 </template>
 <script>
@@ -225,5 +229,8 @@ export default {
         margin:5%;
        color:#7e7e7e;
        height: 3rem;
+    }
+    .img_b a{
+        color: #fff;
     }
 </style>
