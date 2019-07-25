@@ -37,7 +37,7 @@
                 </p>
         </router-link>
     </div>
-    <router-link to="" class="enter-im-list">
+    <router-link to="/Bulekefu" class="enter-im-list">
     </router-link>
 </div>
 </template>
@@ -298,7 +298,7 @@ export default {
 <style scopde>
 .enter-im-list{
     position: fixed;
-    bottom: 1.004rem;
+    bottom: 1.4rem;
     right: .18rem;
     width: 1.16rem;
     height: 1.16rem;

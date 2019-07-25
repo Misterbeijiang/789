@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="box">
 		<Userxinxi></Userxinxi>
 	</div>
 </template>
@@ -15,5 +15,8 @@
 	}
 </script>
 	
-<style>
+<style scoped>
+	.box{
+		margin-bottom:1.5rem;
+	}
 </style>

@@ -20,7 +20,7 @@ export default {
     props:{
         itemdata:Array
     },
-    updated(){
+    mounted(){
         new Swiper ('.swiper-container', {          
             loop: true,
             autoplay:true,

@@ -40,6 +40,7 @@ export default {
 <style scoped>
     .box{
         width: 100%;
+        
     }
   
     /* .brander_a{

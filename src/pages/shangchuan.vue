@@ -4,7 +4,7 @@
         <div class="push">
             <input type="file" class="push-inp" value="选择图片"  multiple="multiple">
             <!-- <span>选择图片</span> -->
-            <spna class="push-sp2">上传</spna>
+            <span class="push-sp2">上传</span>
         </div>
         <div class="fanhui">
             <router-link to class="linkto">返回首页</router-link>
@@ -13,7 +13,8 @@
 </template>
 
 <script>
-	import Head from "../components/head/head"
+    // import Head from "../components/head/head"
+    const Head = () => import("../components/head/head")
 	export default{
 		components:{
 			Head
@@ -31,11 +32,6 @@
 .push-inp{
     margin-top:9px;
     width: 60%;
-    opacity: 0;
-    cursor: pointer;
-    text-decoration: none;
-    -moz-opacity:0;				
-	-khtml-opacity: 0;
     height: 20px;
 }
 .push span:nth-child(2){
@@ -45,7 +41,7 @@
     line-height: 20px;
     text-align: center;
     float: left;
-    display: inline-block;
+    display: block;
     width: 20%;
     background: #ff5a37;
     height: 20px;
@@ -61,7 +57,7 @@
     text-align: center;
     float: left;
     margin:10px 10px 0 0;
-    display: inline-block;
+    display: block;
     background: #ff5a37;
     
 }
