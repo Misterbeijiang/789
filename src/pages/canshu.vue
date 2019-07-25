@@ -6,7 +6,7 @@
 </template>
 
 <script>
-	import CarCanshu from "../components/carCanshu/carCanshu"
+	const CarCanshu = () => import("../components/carCanshu/carCanshu")
 	export default{
 		components:{
 			CarCanshu

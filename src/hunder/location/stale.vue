@@ -5,8 +5,7 @@
         <!-- 定位图标和位置 -->   
         <dd class="city_city">   
             <span class="city_a">
-                <img src="../../../static/img/1.png" alt="">
-                
+                <img src="../../../static/img/1.png" alt="">            
                 北京
             </span>
         </dd>

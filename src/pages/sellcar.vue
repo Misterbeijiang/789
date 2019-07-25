@@ -33,7 +33,8 @@ export default {
 </script>
 <style socped>
     .box{
-        background: white;
+        background: white;   
+        margin-bottom:1.5rem;
     }
 </style>
  

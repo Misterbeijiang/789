@@ -20,6 +20,7 @@
 
 <script>
 	import Head from "../components/head/head"
+
 	export default{
 		components:{
 			Head
@@ -47,7 +48,7 @@
 	float: left;
 	font-size: 18px;
 	line-height: 40px;
-	display:inline-block;
+	display:block;
 	height: 40px;
 	width: 25%;
 	color: white;

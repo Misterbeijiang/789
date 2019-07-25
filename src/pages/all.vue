@@ -10,8 +10,8 @@ export default {
 </script>
 <style scoped>
     .section{
-        margin: .2rem;
-        /* padding: 5rem; */
+        margin:1.1rem .2rem .2rem .2rem;
         background: white;
+        padding: .1rem .1rem;
     }
 </style>

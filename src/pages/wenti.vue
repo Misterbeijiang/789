@@ -5,8 +5,10 @@
     </div>
 </template>
 <script>
-    import Head from "../components/head/head"
-    import Changjianwenti from "../components/changjianwenti/changjianwenti"
+
+const Head = () => import("../components/head/head")
+const Changjianwenti = () => import("../components/changjianwenti/changjianwenti")
+
 export default {
     components:{
        Head,

@@ -1,21 +1,30 @@
 <template>
     <div>
+        <div v-if="bool">
+            <Gif ></Gif>
+        </div>
+        <div v-else>
+            <Picture :itemdata="arr" ></Picture>
+        </div>
         
-        <Picture :itemdata="arr"></Picture>
+        
         
     </div>
 </template>
 <script>
 
+const Gif = () => import("../components/gif/loading")
 const Picture = () => import("../components/repeat/picture")
-
+ 
 export default {
     components:{
-        Picture
+        Picture,
+        Gif
     },
     data(){
         return {
             arr:[],
+            bool:true
         }
     },
     created() {
@@ -24,7 +33,7 @@ export default {
             methods:"get"
         }).then((ok)=>{
             this.arr = ok.data.contract
-            console.log(this.arr);
+            this.bool=false
         })
     },
 }

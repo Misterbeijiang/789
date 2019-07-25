@@ -7,8 +7,10 @@
     </div>
 </template>
 <script>
-import Stale from '../hunder/location/stale'
-import Stalem from '../hunder/location/stalem'
+
+const Stale = () => import("../hunder/location/stale")
+const Stalem = () => import("../hunder/location/stalem")
+
 export default {
     components:{
         Stale,

@@ -13,11 +13,12 @@
 	const Head = () => import("../components/head/head")
 	const Fangan = () => import("../components/fangan/fangan")
 
+	
+
 	export default{
 		components:{
 			Head,
 			Fangan
-			
 		},
 		data(){
 			return{
