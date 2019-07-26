@@ -45,7 +45,6 @@ export default {
         //     url:"10.12.156.43",
         //     method:"get"
         // }).then((ok)=>{
-            
         //     this.arra=ok.data
         // });
    

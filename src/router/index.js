@@ -92,23 +92,23 @@ export default new Router({
       component: resolve=>(require(["@/pages/shangchuan"],resolve))
      },
     
-      {
-        path:"/index",
-        name:"Index",
-        component: resolve=>(require(["@/pages/index"],resolve)),
-        children:[
-          {
-            path: '/index/:name',
-            name: 'index',
-            component: resolve=>(require(["@/pages/index"],resolve))
-          },
-        ]
-      },
-      {
-        path:"/shopping",
-        name:"Shopping",
-        component: resolve=>(require(["@/pages/shopping"],resolve))
-      },
+      // {
+      //   path:"/index",
+      //   name:"Index",
+      //   component: resolve=>(require(["@/pages/index"],resolve)),
+      //   children:[
+      //     {
+      //       path: '/index/:name',
+      //       name: 'index',
+      //       component: resolve=>(require(["@/pages/index"],resolve))
+      //     },
+      //   ]
+      // },
+      // {
+      //   path:"/shopping",
+      //   name:"Shopping",
+      //   component: resolve=>(require(["@/pages/shopping"],resolve))
+      // },
       {
         path:"/page/:id",
         name:"Page",

@@ -101,7 +101,6 @@ export default {
             this.$router.go(-1);
         },
         handleChange(index){
-            console.log(index)
             if(index==0){
                 this.isActiveA=true;
                 this.isActiveB=false;
