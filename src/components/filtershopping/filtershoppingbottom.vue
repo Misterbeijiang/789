@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-for="(v,i) in chiends" :key="i" class="item" >
+    <div v-for="(v,i) in chuancan" :key="i" class="item" >
         <router-link :to="'/page/'+v.carId">
             <div class="item_img">
                 <span>
@@ -36,6 +36,7 @@
                     </span>
                 </p>
         </router-link>
+        
     </div>
     <div class="shopping_img">
       <img src="../../assets/z-4.png" />
@@ -61,6 +62,7 @@ export default {
                     url:"/apis/getCarBycarBrand/"+this.name,
                     methods:"get"
                 }).then((ok)=>{
+                    console.log(ok.data.queryResult.list)
                     this.chiends=ok.data.queryResult.list
                 })
         }else if(this.name =="买车商城"){
@@ -68,22 +70,26 @@ export default {
                     url:"/apis/loadAll",
                     methods:"get"
                 }).then((ok)=>{
+                    console.log(ok.data)
                     this.chiends=(ok.data).splice(0,10)
                 })
         }else if(this.name == 20192723){
+            console.log(this.name)
              this.axios({
                     url:"/apis/newArrival/?carNewtime="+this.name,
                     methods:"get",
-                    // data:{carByprice
+                    // data:{
                     //     carPercentName:this.name
-                    // }carPriceRange 
+                    // }
                 }).then((ok)=>{
+                    console.log(ok.data)
                     this.chiends=(ok.data).splice(0,10)
                 })
         }else{this.axios({
                     url:"/apis/loadByPriceRange/"+this.name,
                     methods:"get"
                 }).then((ok)=>{
+                    console.log(ok.data.queryResult.list)
                     this.chiends=ok.data.queryResult.list
             })
         }   

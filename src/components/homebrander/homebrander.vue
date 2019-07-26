@@ -5,7 +5,11 @@
                 <div class="brander_a">
                     <span class="brander_b">
                         <img :src="v.images" >
-                        <router-link :to="'/Filter/'+ v.name" @click="func()">{{v.name}}</router-link>
+                        <p>
+                            <span @click.stop="func(v,i)">
+                                {{v.name}}
+                            </span>       
+                        </p>
                     </span>
                 </div>
             </div>
@@ -31,8 +35,9 @@ export default {
         }
     },
     methods: {
-        func(index){
-            console.log(index)
+        func(value,index){
+            this.$router.go(-1)
+            this.$router.push({name:'home',query:{value:value.name}});
         }
     },  
 }
@@ -53,7 +58,7 @@ export default {
         float: left;
         
     }
-    a{
+    p{
         float: left;
         /* line-height: 1.2rem; */
         padding-left:.3rem;

@@ -2,12 +2,14 @@
     <div>
         <div class="nav">
             <router-link :to="v.router" v-for="(v,i) in arr" :key="i">
-                <div @click="fun(i)" class="navlist">               
+                <div class="navlist">               
                     <i class="image" :style="{backgroundImage:($route.path==v.router?v.images:v.image)}"></i>
-                    <span class="items" :style="{display:($route.path==v.router?'none':'block')}">{{v.title}}</span>
+                    <span class="items" :style="{color:($route.path==v.router?'#e75830':'black')}">{{v.title}}</span>
                 </div>
             </router-link>
-        </div>
+        </div> 
+        <!-- 给这个组件里面动态传值 true或false 让他在刷新的时候消失或者显示 -->
+        
         <router-view></router-view>
     </div>
 </template>

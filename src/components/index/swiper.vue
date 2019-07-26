@@ -62,7 +62,7 @@ export default {
     },
     methods:{
          handleChange(index) {
-             console.log(index)
+            //  console.log(index)
              if(index == 0){
                 this.elMain.background = "linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)";
              }else if(index == 1){
@@ -77,7 +77,7 @@ export default {
         }
     },
     created() {
-        console.log(this.titleName)
+        // console.log(this.titleName)
     },
 }
 </script>   

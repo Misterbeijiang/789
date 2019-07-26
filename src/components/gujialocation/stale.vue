@@ -11,9 +11,8 @@
         </dd>
          <p>A</p>
         <div class="city_zimu">
-           
             <span>
-                <a href="#" v-for="(v,i) in A" :key="i">{{v.name}}</a>
+                <a href="#" v-for="(v,i) in A" :key="i" @click="funa(v,i)">{{v.name}}</a>
             </span> 
             {{newdata.list}}
         </div>
@@ -45,32 +44,31 @@ export default {
     data() {
         return {
             newdata:[],
-            newdatas:[]
+            newdatas:[],
+            A:[],
+            B:[],
+            C:[],
+            D:[],
         }
     },
     created() {
         this.axios({
             url:"/link/data",
             method:"get"
-        }).then((data)=>{
-            
+        }).then((data)=>{           
             this.newdata = data.data.city
             console.log(this.newdata)
-            console.log(this.A)
+            this.A = this.newdata[0].A
+            this.B = this.newdata[1].B
+            this.C = this.newdata[2].C
+            this.D = this.newdata[3].D
         })
     },
-    computed:{
-        A:function(){
-            return this.newdata[0].A
-        },
-        B:function(){
-            return this.newdata[1].B
-        },
-        C:function(){
-            return this.newdata[2].C
-        },
-        D:function(){
-            return this.newdata[3].D
+    methods:{
+        funa(value,index){
+            console.log(value.name)
+            console.log(index)
+            this.$router.push({name:'home',query:{name:value.name}})
         }
     }
 }
@@ -78,12 +76,14 @@ export default {
 <style scoped>
 p{
     width: 100%;
-    height: .5rem;
+    height: .7rem;
     padding-left: .3rem;
-    line-height: .5rem;
+    line-height: .7rem;
     font-weight: 500;
     background: #f6f6f9;
+    color: #999999;
     float: left;
+    font-size: .26rem;
 }
 img{
     float: left;
@@ -116,6 +116,7 @@ a{
      text-align: center;
      line-height: .8rem;
     color:black;
+    font-size: .28rem;
 }
 
 

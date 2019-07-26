@@ -706,7 +706,7 @@ export default {
         { moey: "5万以下" },
         { moey: "5-8万" },
         { moey: "8-10万" },
-        { moey: "10万以上" },
+        { moey: "10-20万" },
         { moey: "热销SUV" },
         { moey: "三厢轿车" },
         { moey: "两厢轿车" },
