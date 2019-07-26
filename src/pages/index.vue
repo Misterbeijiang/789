@@ -1,682 +1,313 @@
 <template>
-  <div class="index_body_node">
+  <div>
+      <div v-if="bool">
+        <Gif></Gif>
+      </div>
+      <div v-else>
+        <div class="index_body_node">
     <!-- header部分 -->
-    <div id="index_body">
-        <swiper></swiper>
-    </div>
-    <!-- 合同 -->
-    <router-link to="/serve" class="index_hetong">
-      <span>
-        <i class="index_hetong_icon"></i>315项专业检测
-      </span>
-      <span>
-        <i class="index_hetong_icon"></i>全国联保服务
-      </span>
-      <span>
-        <i class="index_hetong_icon"></i>高清视频挑车
-      </span>
-    </router-link>
-    <!-- 买车商城五个小图标 -->
-    <div class="index_five_fast">
-      <section class="fast_index">
-        <router-link :to="'/shopping/'+v.title" @click="funT(v.title)" v-for="(v,i) in playcar" :key="i" class="fast_img_box" >
-            <logocai :titlename="v.title" :titleimg="v.imgagr"></logocai>
-        </router-link>
-        <router-link to="/sellcar" class="fast_img_box">
-          <img :src="imgagr4" class="img_box_img" />
-          <span class="img_box_text">{{title4}}</span>
-        </router-link>
-        <router-link to="/home" class="fast_img_box">
-          <img :src="imgagr5" class="img_box_img" />
-          <span class="img_box_text">{{title5}}</span>
-        </router-link>
-      </section>
-    </div>
-    <!-- 全部车源 -->
-    <div class="index_All_vehicle">
-      <h4>
-        全部车源
-        <router-link to="/Filter" class="quick-screen-right-btn">
-          <img src="../assets/jiangbei.png" />精准筛选
-        </router-link>
-      </h4>
-      <!-- 热门车 -->
-      <ul class="car-brand">
-        <li class="car-screen-li" v-for="(v,i) in money" :key="i">
-          <router-link :to="'/shopping/'+v.moey" class="car-price-a">{{v.moey}}</router-link>
-        </li>
-      </ul>
-      <!-- 带logo的车 -->
-      <ul class="car-brand">
-        <li class="car-screen-li" v-for="(v,i) in car" :key="i">
-          <router-link :to="'/shopping/'+v.cartry" class="car-price-a">
-            <img class="car-brand-img" :src="v.imgagr" />
-            <span class="car-brand-text">{{v.cartry}}</span>
+          <div id="index_body"> 
+              <swiper></swiper>
+          </div>
+          <!-- 合同 -->
+          <router-link to="/serve" class="index_hetong">
+            <span>
+              <i class="index_hetong_icon"></i>315项专业检测
+            </span>
+            <span>
+              <i class="index_hetong_icon"></i>全国联保服务
+            </span>
+            <span>
+              <i class="index_hetong_icon"></i>高清视频挑车
+            </span>
           </router-link>
-        </li>
-        <li class="car-screen-li">
-          <router-link to="/brand" class="car-price-a">
-            <img class="car-brand-img" :src="gengduoimgagr" />
-            <span class="car-brand-text">{{gengduocartry}}</span>
-          </router-link>
-        </li>
-      </ul>
-      <router-link :to="'/shopping/'+mast" class="indexB-Bottom-btn">查看全部{{count}}俩车</router-link>
-    </div>
-    <!-- 今日最新 -->
-    <div class="index_sku_wrap">
-        <jinrizuixin></jinrizuixin>
-    </div>
-    <!-- 淘好车 -->
-    <router-link to class="xin-crunchies-wrap"></router-link>
-    <!-- 防止塌陷 -->
-    <div class="cockLoft-tabs-hidden-div" v-bind:class="{cockLoft_tabs_hidden_div_block:divHidden}"></div>
-    <!-- 价格分类 -->
-    <div class="idnex_tabs_wrap" v-bind:class="{idnex_tabs_wrap_fixed:tabs}">
-      <div class="box">
-        <ul class="index_tabs_ul" style="text-align:center">
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes1}" @click="func1()">5万以下开回家</li>
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes2}" @click="func2()">5-8万入手准新车</li>
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes3}" @click="func3()">8-10万买豪华品牌</li>
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes4}" @click="func4()">10-20万中大型车</li>
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes5}" @click="func5()">20万起高档车</li>
-          <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes6}" @click="func6()">猜你喜欢</li>
-        </ul>
+          <!-- 买车商城五个小图标 -->
+          <div class="index_five_fast">
+            <section class="fast_index">
+              <router-link :to="'/bottombar/shopping/'+v.title" v-for="(v,i) in playcar" :key="i" class="fast_img_box" >
+                  <logocai :titlename="v.title" :titleimg="v.imgagr"></logocai>
+              </router-link>
+              <router-link to="/bottombar/sellcar" class="fast_img_box">
+                <img :src="imgagr4" class="img_box_img" />
+                <span class="img_box_text">{{title4}}</span>
+              </router-link>
+              <router-link to="/home" class="fast_img_box">
+                <img :src="imgagr5" class="img_box_img" />
+                <span class="img_box_text">{{title5}}</span>
+              </router-link>
+            </section>
+          </div>
+          <!-- 全部车源 -->
+          <div class="index_All_vehicle">
+            <h4>
+              全部车源
+              <router-link to="/Filter" class="quick-screen-right-btn">
+                <img src="../assets/jiangbei.png" />精准筛选
+              </router-link>
+            </h4>
+            <!-- 热门车 -->
+            <ul class="car-brand">
+              <li class="car-screen-li" v-for="(v,i) in money" :key="i">
+                <router-link :to="'/bottombar/shopping/'+v.moey" class="car-price-a">{{v.moey}}</router-link>
+              </li>
+            </ul>
+            <!-- 带logo的车 -->
+            <ul class="car-brand">
+              <li class="car-screen-li" v-for="(v,i) in car" :key="i">
+                <router-link :to="'/bottombar/shopping/'+v.cartry" class="car-price-a">
+                  <img class="car-brand-img" :src="v.imgagr" />
+                  <span class="car-brand-text">{{v.cartry}}</span>
+                </router-link>
+              </li>
+              <li class="car-screen-li">
+                <router-link to="/brand" class="car-price-a">
+                  <img class="car-brand-img" :src="gengduoimgagr" />
+                  <span class="car-brand-text">{{gengduocartry}}</span>
+                </router-link>
+              </li>
+            </ul>
+            <router-link :to="'/bottombar/shopping/'+mast" class="indexB-Bottom-btn">查看全部{{count}}俩车</router-link>
+          </div>
+          <!-- 今日最新 -->
+          <div class="index_sku_wrap">
+              <jinrizuixin></jinrizuixin>
+          </div>
+          <!-- 淘好车 -->
+          <router-link to class="xin-crunchies-wrap"></router-link>
+          <!-- 防止塌陷 -->
+          <div class="cockLoft-tabs-hidden-div" v-bind:class="{cockLoft_tabs_hidden_div_block:divHidden}"></div>
+          <!-- 价格分类 -->
+          <div class="idnex_tabs_wrap" v-bind:class="{idnex_tabs_wrap_fixed:tabs}">
+            <div class="box">
+              <ul class="index_tabs_ul" style="text-align:center">
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes1}" @click="func1()">5万以下开回家</li>
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes2}" @click="func2()">5-8万入手准新车</li>
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes3}" @click="func3()">8-10万买豪华品牌</li>
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes4}" @click="func4()">10-20万中大型车</li>
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes5}" @click="func5()">20万起高档车</li>
+                <li class="index_tabs_li" v-bind:class="{tab_type_active:tabstes6}" @click="func6()">猜你喜欢</li>
+              </ul>
+            </div>
+            <!-- v-bind:class="{tab-type-active:mutter}" -->
+            <div class="index_tabs_div">
+              <span></span>
+            </div>
+          </div>
+          <!-- 5万以下开回家 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>5万以下开回家</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in index5wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+            <router-link to="/bottombar/shopping/5万以下" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 5-8万入手准新车 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>5-8万入手准新车</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in index5wandao8wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+            <router-link to="/bottombar/shopping/5-8万" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 8-10万买豪华品牌 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>8-10万买豪华品牌</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in index8wandao10wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+              
+            </div>
+            <router-link to="/bottombar/shopping/8-10万" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 10-20万中大型车 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>10-20万中大型车</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in index10wandao20wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+            <router-link to="/bottombar/shopping/10-20万" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 20万起高档车 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>20万起高档车</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in index20wanyishang" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+            <router-link to="/bottombar/shopping/20万以上" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 猜你喜欢 -->
+          <div class="index_home_bottom">
+            <div class="index_home_title">
+              <span>猜你喜欢</span>
+            </div>
+            <div class="index_home_body">
+              <router-link to="/page" v-for="(v,i) in countpst" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
+                <i class="index_home_body_vido"></i>
+                <div class="index_home_body_div">
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
+                  <div class="index_home_body_div_money">
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+            <router-link to="/bottombar/shopping/买车商城" class="index_home_btn">
+              查看更多
+              <img src="../assets/xiangyou.png" />
+            </router-link>
+          </div>
+          <!-- 锚点 -->
+          <a href="javascript:void(0);" class="totop" id="totop" v-if="truemett" @click="funcctict()"></a>
+        </div>
+
+
+
+
       </div>
-      <!-- v-bind:class="{tab-type-active:mutter}" -->
-      <div class="index_tabs_div">
-        <span></span>
-      </div>
-    </div>
-    <!-- 5万以下开回家 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>5万以下开回家</span>
-      </div>
-      <div class="index_home_body">
-        <router-link v-for="(v,i) in index5wan" :key="i" to="/page" class="index_home_body_a">
-          <img :src="v.carPic" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <!-- <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link> -->
-      </div>
-      <router-link to="/shopping" class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 5-8万入手准新车 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>5-8万入手准新车</span>
-      </div>
-      <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <router-link to="/shopping" class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 8-10万买豪华品牌 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>8-10万买豪华品牌</span>
-      </div>
-      <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <router-link to="/shopping" class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 10-20万中大型车 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>10-20万中大型车</span>
-      </div>
-      <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <router-link to="/shopping" class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 20万起高档车 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>20万起高档车</span>
-      </div>
-      <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <router-link to class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 猜你喜欢 -->
-    <div class="index_home_bottom">
-      <div class="index_home_title">
-        <span>猜你喜欢</span>
-      </div>
-      <div class="index_home_body">
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-        <router-link to="/page" class="index_home_body_a">
-          <img src="../assets/123.jpg" />
-          <i class="index_home_body_vido"></i>
-          <div class="index_home_body_div">
-            <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-            <div class="index_home_body_div_money">
-              <span class="list-detail-price">2.53万</span>
-            </div>
-          </div>
-        </router-link>
-      </div>
-      <router-link to="/shopping" class="index_home_btn">
-        查看更多
-        <img src="../assets/xiangyou.png" />
-      </router-link>
-    </div>
-    <!-- 锚点 -->
-    <a href="javascript:void(0);" class="totop" id="totop" v-if="truemett" @click="funcctict()"></a>
+
+      
   </div>
+  
+ 
 </template>
 
 <script>
-//    cockLoft_tabs_hidden_div_block
+
 import { Swipe, SwipeItem } from "mint-ui";
 const Logocai = () => import("../components/index/logocai")
 const Jinrizuixin = () => import("../components/index/jinrizuixin")
 const Swiper = () => import("../components/index/swiper")
+const Gif = () => import("../components/gif/loading")
 
-// import Logocai from '../components/index/logocai';
-// import Jinrizuixin from '../components/index/jinrizuixin';
-// import Swiper from '../components/index/swiper';
 export default {
     components:{
         Logocai,
         Jinrizuixin,
-        Swiper
+        Swiper,
+        Gif
     },
   created(){
     this.axios({
       url: "/apis/loadAll",
       methods: "get"
     }).then((ok)=>{
-      console.log(ok.data);
-      // this.dazhong=ok.data.queryResult.list[0].carName
       this.count = ok.data.length
+      console.log(ok.data)
+      this.countpst =(ok.data).splice(0,10)
+      this.bool=false
     });
+    
     this.axios({
-      url: "/apis/carByprice",
+      url: "/apis/loadByPriceRange/" + "5万以下",//五万以下
       methods: "get"
     }).then((ok)=>{
       console.log(ok.data);
-      this.index5wan = ok.data
+      this.index5wan=(ok.data.queryResult.list).splice(0,10)
       // this.dazhong=ok.data.queryResult.list[0].carName
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "5-8万",//5-8万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index5wandao8wan=(ok.data.queryResult.list).splice(0,10)
+    });
+   this.axios({
+      url: "/apis/loadByPriceRange/" + "8-10万",//8-10万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index8wandao10wan=(ok.data.queryResult.list).splice(0,10)
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "10-20万",//10-20万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index10wandao20wan=(ok.data.queryResult.list).splice(0,10)
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "20万以上",//20万以上
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index20wanyishang=(ok.data.queryResult.list).splice(0,10)
     });
 
   },
@@ -686,6 +317,10 @@ export default {
       count:"",
       name:"",
       index5wan:[],
+      index5wandao8wan:[],
+      index8wandao10wan:[],
+      index10wandao20wan:[],
+      countpst:[],
       mast:"买车商城",
       // 买车商城
       playcar: [
@@ -703,7 +338,7 @@ export default {
         { moey: "5万以下" },
         { moey: "5-8万" },
         { moey: "8-10万" },
-        { moey: "10万以上" },
+        { moey: "20万以上" },
         { moey: "热销SUV" },
         { moey: "三厢轿车" },
         { moey: "两厢轿车" },
@@ -741,7 +376,8 @@ export default {
       tabstes3: false,
       tabstes4: false,
       tabstes5: false,
-      tabstes6: false
+      tabstes6: false,
+      bool:true
     };
   },
   methods: {
@@ -856,7 +492,6 @@ export default {
     func4() {
       var ss = document.getElementsByClassName("index_tabs_ul")[0];
       ss.scrollLeft= 380;
-      console.log(ss.scrollLeft)
       document.documentElement.scrollTop = 3765;
       this.tabstes1 = false;
       this.tabstes2 = false;
@@ -906,8 +541,9 @@ export default {
 
 <style scoped>
 .index_body_node {
-  background: #fafafb;
+  background: #f4f4f4;
   overflow: hidden;
+  margin-bottom:1.5rem;
 }
 /* header */
 #index_body {
@@ -1170,7 +806,7 @@ export default {
 .index_home_body_a img {
   width: 100%;
   height: 2.28rem;
-  border-radius: 0.08rem;
+  border-radius: 0.2rem;
   padding: 2%;
 }
 .index_home_body_vido {
@@ -1209,6 +845,7 @@ export default {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  padding-left: .15rem;
 }
 .index_home_body_div_money {
   margin: 0.12rem 0;
@@ -1219,6 +856,10 @@ export default {
   font-size: 0.32rem;
   font-weight: 500;
   line-height: 1;
+  padding-left: .17rem;
+}
+.list-detail-text{
+  color: #f85d00;
 }
 /* 查看更多 */
 .index_home_btn {

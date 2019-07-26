@@ -2,7 +2,9 @@
     <div class="box">
         
         <div class="brander_a">
-             <Branderem v-for="(v,i) in arr" :key="i" :images="v.images" :name="v.name"></Branderem>
+            <!-- <router-link :to="'/shopping/'+v.name"> -->
+                <Branderem v-for="(v,i) in arr" :key="i" :images="v.images" :name="v.name"></Branderem>
+            <!-- </router-link> -->
         </div>
        
     </div>
@@ -19,13 +21,13 @@ export default {
     data(){
         return{
             arr:[
-                { images:"../../../static/img/2.png",name:"奥迪"},
-                { images:"../../../static/img/3.png",name:"阿尔法•罗密欧"},
-                { images:"../../../static/img/4.png",name:"阿斯顿•马丁"},
-                { images:"../../../static/img/5.png",name:"安驰"},
-                { images:"../../../static/img/6.png",name:"ALPINA"},
-                { images:"../../../static/img/7.png",name:"AC Schnitzer"},
-                { images:"../../../static/img/8.png",name:"安凯客车"}
+                { images:"../../../static/img/5.png",name:"奥迪",},
+                { images:"../../../static/img/luo.png",name:"阿尔法•罗密欧"},
+                { images:"../../../static/img/mading.png",name:"阿斯顿•马丁"},
+                { images:"../../../static/img/anchi.png",name:"安驰"},
+                { images:"../../../static/img/al.png",name:"ALPINA"},
+                { images:"../../../static/img/ac.png",name:"AC Schnitzer"},
+                { images:"../../../static/img/an.png",name:"安凯客车"}
 
             ],
            
@@ -36,6 +38,7 @@ export default {
 <style scoped>
     .box{
         width: 100%;
+        
     }
   
     /* .brander_a{

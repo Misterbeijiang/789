@@ -12,42 +12,46 @@
 					123465546
 				</div>
 			</div>
-				<div class="dingdan">
-					<div class="dingdan-1">
-						<p>1</p>
-						<p>购物车</p>
-					</div>
-					<div class="dingdan-1">
-						<p>1</p>
-						<p>我的咨询</p>
-					</div>
-					<div class="dingdan-1">
-						<p>1</p>
-						<p>浏览历史</p>
-					</div>
-					<div class="dingdan-1">
-						<p>1</p>
-						<p>我的订单</p>
-					</div>
+			<div class="dingdan">
+				<div class="dingdan-1">
+					<p>1</p>
+					<p>购物车</p>
 				</div>
-			<div class="my">
-				<div class="my-1">
-					<span><img src="../../../static/img/12.png" > </span>
-					<span>我卖的车</span>
+				<div class="dingdan-1">
+					<p>1</p>
+					<p>我的咨询</p>
 				</div>
-				<div class="my-1">
-					<span><img src="../../../static/img/222.png" > </span>
-					<span>我的分期</span>
+				<div class="dingdan-1">
+					<p>1</p>
+					<p>浏览历史</p>
 				</div>
-				<div class="my-1">
-					<span><img src="../../../static/img/333.png" > </span>
-					<span>我的合同</span>
-				</div>
-				<div class="my-1">
-					<span><img src="../../../static/img/4444.png" > </span>
-					<span>优惠券</span>
+				<div class="dingdan-1">
+					<p>1</p>
+					<p>我的订单</p>
 				</div>
 			</div>
+			<div class="my-box1">
+				<div class="my-box">
+					<div class="my-1">
+						<span><img src="../../../static/img/12.png" > </span>
+						<span>我卖的车</span>
+					</div>
+					<div class="my-1">
+						<span><img src="../../../static/img/222.png" > </span>
+						<span>我的分期</span>
+					</div>
+					<div class="my-1">
+						<span><img src="../../../static/img/333.png" > </span>
+						<span>我的合同</span>
+					</div>
+					<div class="my-1">
+						<span><img src="../../../static/img/4444.png" > </span>
+						<span>优惠券</span>
+					</div>
+				</div>
+			</div>
+			
+		<!-- </div> -->
 		</div>
 		<!-- 预约模块 -->
 		<div class="yy">
@@ -109,23 +113,19 @@
 		width: 100%;
 		height:5rem ;
 		background: linear-gradient(to right,#f0652c,#f24422);
-		overflow: hidden;
+		padding-top: 1rem; 
 	}
 	.touxiang-box{
 		padding-left: 4%;
 		width: 100%;
 		height: 70px;
-		/* background: green; */
-		margin-top: 75px;
 	}
 	.touxiang-1{
 		float: left;
-		/* padding-left:30px; */
-		display:inline-block;
+		display:block;
 		height: 70px;
 		width: 70px;
 		border-radius: 50%;
-		/* background: fuchsia; */
 	}
 	.touxiang-1 img{
 		width: 70px;
@@ -139,17 +139,14 @@
 		float: left;
 		height: 70px;
 		width: 200px;
-		/* background: skyblue; */
-		display: inline-block;
+		display: block;
 	}
 	.dingdan{
-		/* display: inline-block; */
 		margin: 20px auto 0;
 		display: flex;
 		justify-content: space-around;
 		width: 95%;
 		height: 70px;
-		/* background: aqua; */
 	}
 	.dingdan-1{
 		display: inline-block;
@@ -157,7 +154,6 @@
 		height: 70px;
 		min-width: 50px;
 		width: 14%;
-		/* background: slateblue; */
 	}
 	.dingdan-1 p:nth-child(1){
 		font-size: 26px;
@@ -167,26 +163,32 @@
 
 	}
 	.dingdan-1 p:nth-child(2){
-		/* font-size: 26px; */
 		color:#565656;
 		color: white;
 	}
-	.my{
+	.my-box1{
+		overflow: hidden;
+		position: relative;
+		background: white;
+		height: 1.9rem;
+		margin: -4px 2.5% 0;
+		border-radius: 5px;
+		z-index: 10;
+		top:.4rem;
+	}
+	.my-box{
 		display: flex;
 		justify-content: space-around;
 		width: 95%;
-		height: 90px;
+		height: 1.9rem;
 		background: white;
 		position: absolute;
-		margin: -4px 2.5% 0;
-		border-radius: 5px;
 	}
 	.my-1{
 		text-align: center;
 		color: #5b5b5b;
 		width: 14%;
 		height: 90px;
-		/* background:white; */
 		min-width: 50px;
 	}
 	.my-1 img{
@@ -197,14 +199,13 @@
 		height: 50px;
 	}
 	.my-1 span{
-		display: block
+		display: block;
 	}
 	.yy{
 		width: 95%;
-		/* height: 500px; */
 		background: white;
 		border-radius: 4px;
-		margin:90px 2.5% 0;
+		margin:1.5rem 2.5% 0;
 	}
 	.yy-1{
 		width: 94.5%;
@@ -227,7 +228,7 @@
 	.yy-1 span:nth-child(3) {
 		margin-top: 22px;
 		float: right;
-		display:inline-block;
+		display:block;
 		width: 8.5px;
 		height: 8.5px;
 		border:1px solid #c2c2c2;
@@ -247,7 +248,7 @@
 	.yy-right{
 		height: 50px;
 		float:right;
-		display:inline-block;
+		display:block;
 	}
 	.xiaoxi{
 		float: right;

@@ -19,7 +19,7 @@
         <section class="index_warp_banner" ref="slider">
             <mt-swipe :auto="index" class="carousel-wrap" @change="handleChange">
             <mt-swipe-item class="carousel-wrap-item" id="1" ref="dataInfo">
-                <router-link to="/shopping">
+                <router-link to="/bottombar/shopping/买车商城">
                 <img id="1" src="../../assets/lunbo_1.png" />
                 </router-link>
             </mt-swipe-item>

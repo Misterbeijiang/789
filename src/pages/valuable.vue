@@ -1,26 +1,28 @@
 <template>
     <div>
-        <div>
-            <Slide item="宝典"></Slide>
-            <Rotary :itemdata="arr"></Rotary>
-            <Rotnav :itemdata="arra"></Rotnav>
-            <div class="titles">
-                <Slidemore title="热门文章"></Slidemore>
-                <Article :itemdata="arrb"></Article>
-            </div>
-            <div class="titles">
-                <Slidemore title="百科"></Slidemore>
-                <Clopedias :itemdata="arrc"></Clopedias>
-            </div>
-            <div class="titles">
-                <Slidemore title="热门问答"></Slidemore>
-                <Popular :itemdata="arrd"></Popular>
-            </div>
-            <div class="questions">
-                <router-link to=""></router-link>
-            </div>
+        <div v-if="bool">
+            <Gif></Gif>
         </div>
-        
+        <div v-else>
+            <Slide item="宝典"></Slide>
+        <Rotary :itemdata="arr"></Rotary>
+        <Rotnav :itemdata="arra"></Rotnav>
+        <div class="titles">
+            <Slidemore title="热门文章"></Slidemore>
+            <Article :itemdata="arrb"></Article>
+        </div>
+        <div class="titles">
+            <Slidemore title="百科"></Slidemore>
+            <Clopedias :itemdata="arrc"></Clopedias>
+        </div>
+        <div class="titles">
+            <Slidemore title="热门问答"></Slidemore>
+            <Popular :itemdata="arrd"></Popular>
+        </div>
+        <div class="questions">
+            <router-link to=""></router-link>
+        </div>
+        </div>   
     </div>
 </template>
 <script>
@@ -32,6 +34,7 @@ const Slidemore = () => import("../components/repeat/slidemore")
 const Article = () => import("../components/treasury/article")
 const Clopedias = () => import("../components/treasury/clopedias")
 const Popular = () => import("../components/treasury/popular")
+const Gif = () => import("../components/gif/loading")
 
 
 export default {
@@ -43,6 +46,7 @@ export default {
         Article,
         Clopedias,
         Popular,
+        Gif
     },
     data(){
         return {
@@ -64,6 +68,7 @@ export default {
             arrb:[],
             arrc:[],
             arrd:[],
+            bool:true
         }
     },
     created() {
@@ -71,11 +76,11 @@ export default {
             url:"/link/data",
             method: "get"
         }).then((ok)=>{
-            console.log(ok);
             this.arr = ok.data.rotary
             this.arrb=ok.data.article.splice(0,2)
             this.arrc=ok.data.clopedias
             this.arrd=ok.data.popular
+            this.bool=false
         })
     },
 }

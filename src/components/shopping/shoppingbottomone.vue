@@ -298,7 +298,7 @@ export default {
 <style scopde>
 .enter-im-list{
     position: fixed;
-    bottom: 1.004rem;
+    bottom: 1.4rem;
     right: .18rem;
     width: 1.16rem;
     height: 1.16rem;
@@ -465,6 +465,7 @@ label-box-silver::before{
     background-size: 99%;
     margin-right: .08rem;
     color: #e0c189;
+    left: .05rem;
 
 }
 .label-promise{

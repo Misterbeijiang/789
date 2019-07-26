@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div v-for="(v,i) in chiends" :key="i" class="item">
-        <router-link to="/page"  >
+    <div v-for="(v,i) in chiends" :key="i" class="item" >
+        <router-link :to="'/page/'+v.carId">
             <div class="item_img">
                 <span>
                     <img :src="v.carPic">
@@ -20,21 +20,23 @@
                         <span>月供{{v.carMonthPay}}</span>
                     </li>
                 </ul>
-                
+             
             </div>
-                <p v-if="v.silver"  class="car-list-label">
-                    <span class="label-box-box">
-                        <img :src="v.yinpai">
-                        <span class="label-box-silver">{{v.silver}}</span>
-                        <span class="uxin-promise">{{v.retreat}}</span>
+                <p v-if="v.carAuthen1" class="car-list-label">
+                    <span class="label-box-box" >
+                        <img src="../../assets/yingpai.png">
+                        <span class="label-box-silver">{{v.carAuthen1}}</span>
+                        <span class="uxin-promise">{{v.carQuit1}}</span>
                     </span>
                 </p>
                 <p v-else class="label_gold">
                     <span class="label-box">
-                        <span class="label-silver">{{v.gold}}</span>
-                        <span class="label-promise">{{v.triduum}}</span>
+                        <span class="label-silver">{{v.carAuthen}}</span>
+                        <span class="label-promise">{{v.carQuit}}</span>
                     </span>
                 </p>
+
+
         </router-link>
         
     </div>
@@ -50,8 +52,12 @@ export default {
         return {
             shopping:[],
             mettods:[],
-            name:"买车商城"
+            name:"买车商城",
+            name:"一成购"
         }
+    },
+    methods:{
+
     },
     created(){
         this.name = this.$route.params.name
@@ -72,19 +78,30 @@ export default {
                     console.log(ok.data)
                     this.chiends=(ok.data).splice(0,10)
                 })
+        }else if(this.name =="一成购" || this.name =="超值好车"){
+              if(this.name =="超值好车"){
+                 this.name =="一成购"
+        }
+             this.axios({
+                    url:"/apis/loadAllCarPercent?carPercentName="+this.name,
+                    methods:"get"
+                }).then((ok)=>{
+                    console.log(ok.data)
+                    this.chiends=(ok.data).splice(0,10)
+                })
         }else if(this.name == 20192723){
             console.log(this.name)
              this.axios({
                     url:"/apis/newArrival/?carNewtime="+this.name,
                     methods:"get",
-                    // data:{
-                    //     carPercentName:this.name
-                    // }
                 }).then((ok)=>{
-                    console.log(ok.data)
-                    this.chiends=(ok.data).splice(0,10)
+                    console.log(ok.data);
+                    this.chiends=(ok.data).splice(0,10);
+                   
                 })
-        }else{this.axios({
+        }
+        else{
+          this.axios({
                     url:"/apis/loadByPriceRange/"+this.name,
                     methods:"get"
                 }).then((ok)=>{
