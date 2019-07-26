@@ -7,7 +7,7 @@
             <div class="section" v-for="(v,i) in arr" :key="i">
                 <div class="cont" @click="fun(id)">
                     <div class="cart-left">
-                        <img class="image" :src="v.image" alt="">
+                        <img class="image" :src="v.image">
                         <img :src="v.video" class="start">              
                     </div>
                     <h3>{{v.title}}</h3>
@@ -15,7 +15,7 @@
                     <span class="time">{{v.time}}</span>
                 </div>       
                 <div class="cart-right">
-                    <img class="imagein" :src="v.exponent" alt="">
+                    <img class="imagein" :src="v.exponent">
                     <div class="infor">
                         <router-link to=""><span class="online">在线咨询</span></router-link>            
                         <router-link to=""><span class="contrast"><i>+</i>对比</span></router-link>
@@ -23,16 +23,14 @@
                 </div>
             </div>
         </div>
-        
-        
     </div>
-   
 </template>
 <script>
 
 const Gif = () => import("../components/gif/loading")
 
 export default {
+    name:"cart",
     components:{
         Gif
     },
@@ -40,7 +38,9 @@ export default {
         return {
             arr:[],
             arrb:[],
-            bool:true
+            bool:true,
+            id:'',
+            name:''
         }
     },
     created() {
@@ -52,8 +52,6 @@ export default {
             this.bool=false
         }),
 
-
-
         this.newid = this.$route.params.id;
         for(var i in this.arr){
             for (var j in this.arr[i]){
@@ -61,7 +59,10 @@ export default {
                     return this.arrb=this.arr[i][j]
                 }
             }
-        }
+        };
+
+    
+
     },
     methods: {
         fun(id){
@@ -72,7 +73,9 @@ export default {
 </script>
 <style scoped>
     .content{
-        margin-top:1.1rem;
+        margin-top:.8rem;
+        overflow: hidden;
+        background:#f4f4f4;
     }
     .section{
         margin: .2rem;

@@ -23,7 +23,7 @@
         </router-link>
     </div>
     <div class="sellcar_free">
-        <router-link to="" class="free">
+        <router-link to="/Bulekefu" class="free">
             免费咨询
         </router-link>
         <router-link to="/home" class="evaluate">

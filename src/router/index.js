@@ -101,31 +101,7 @@ export default new Router({
       path: '/shangchuan',
       name: 'Shangchuan',
       component: resolve=>(require(["@/pages/shangchuan"],resolve))
-    },
-    {
-      path:"/index",
-      name:"Index",
-      component: resolve=>(require(["@/pages/index"],resolve)),
-      children:[
-        {
-          path: '/index/:name',
-          name: 'index',
-          component: resolve=>(require(["@/pages/index"],resolve))
-        },
-      ]
-    },
-    {
-      path:"/shopping",
-      name:"shopping",
-      component: resolve=>(require(["@/pages/shopping"],resolve)),
-      children:[
-        {
-          path: '/shopping/:name',
-          name: 'shopping',
-          component: resolve=>(require(["@/pages/shopping"],resolve))
-        },
-      ]
-    },
+     },
       {
         path:"/page/:id",
         name:"Page",

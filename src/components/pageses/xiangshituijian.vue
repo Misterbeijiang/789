@@ -1,19 +1,19 @@
 <template>
     <div class="car-details-recommend">
         <Uvintips></Uvintips>
-        <Shoppingbottomone></Shoppingbottomone>
+        <Shoppingbottom></Shoppingbottom>
     </div>
 </template>
 
 <script>
 
 const Uvintips = () => import("./uvintips")
-const Shoppingbottomone = () => import("../shopping/shoppingbottomone")
+const Shoppingbottom = () => import("../shopping/shoppingbottom")
 
 export default {
    components:{
        Uvintips,
-       Shoppingbottomone
+       Shoppingbottom
    } 
 }
 </script>

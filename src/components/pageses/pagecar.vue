@@ -143,7 +143,6 @@ export default {
             this.boolb = true
         },
         handleChange(index){
-            console.log(index)
             if(index==0){
                 this.isActiveA=true;
                 this.isActiveB=false;

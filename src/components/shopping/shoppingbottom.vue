@@ -20,23 +20,24 @@
                         <span>月供{{v.carMonthPay}}</span>
                     </li>
                 </ul>
-                
+             
             </div>
-                <p v-if="v.silver"  class="car-list-label">
-                    <span class="label-box-box">
-                        <img :src="v.yinpai">
-                        <span class="label-box-silver">{{v.silver}}</span>
-                        <span class="uxin-promise">{{v.retreat}}</span>
+                <p v-if="v.carAuthen1" class="car-list-label">
+                    <span class="label-box-box" >
+                        <img src="../../assets/yingpai.png">
+                        <span class="label-box-silver">{{v.carAuthen1}}</span>
+                        <span class="uxin-promise">{{v.carQuit1}}</span>
                     </span>
                 </p>
                 <p v-else class="label_gold">
                     <span class="label-box">
-                        <span class="label-silver">{{v.gold}}</span>
-                        <span class="label-promise">{{v.triduum}}</span>
+                        <span class="label-silver">{{v.carAuthen}}</span>
+                        <span class="label-promise">{{v.carQuit}}</span>
                     </span>
                 </p>
+
+
         </router-link>
-        
     </div>
     <div class="shopping_img">
       <img src="../../assets/z-4.png" />
@@ -51,8 +52,12 @@ export default {
             shopping:[],
             mettods:[],
             name:"买车商城",
+            name:"一成购",
             chuancan:[]
         }
+    },
+    methods:{
+
     },
     created(){
         this.name = this.$route.params.name
@@ -62,7 +67,6 @@ export default {
                     url:"/apis/getCarBycarBrand/"+this.name,
                     methods:"get"
                 }).then((ok)=>{
-                    console.log(ok.data.queryResult.list)
                     this.chiends=ok.data.queryResult.list
                 })
         }else if(this.name =="买车商城"){
@@ -70,26 +74,34 @@ export default {
                     url:"/apis/loadAll",
                     methods:"get"
                 }).then((ok)=>{
+                    this.chiends=(ok.data).splice(0,10)
+                })
+        }else if(this.name =="一成购" || this.name =="超值好车"){
+              if(this.name =="超值好车"){
+                 this.name =="一成购"
+        }
+             this.axios({
+                    url:"/apis/loadAllCarPercent?carPercentName="+this.name,
+                    methods:"get"
+                }).then((ok)=>{
                     console.log(ok.data)
                     this.chiends=(ok.data).splice(0,10)
                 })
         }else if(this.name == 20192723){
-            console.log(this.name)
              this.axios({
                     url:"/apis/newArrival/?carNewtime="+this.name,
                     methods:"get",
-                    // data:{carByprice
-                    //     carPercentName:this.name
-                    // }carPriceRange 
                 }).then((ok)=>{
-                    console.log(ok.data)
-                    this.chiends=(ok.data).splice(0,10)
+                    console.log(ok.data);
+                    this.chiends=(ok.data).splice(0,10);
+                   
                 })
-        }else{this.axios({
+        }
+        else{
+          this.axios({
                     url:"/apis/loadByPriceRange/"+this.name,
                     methods:"get"
                 }).then((ok)=>{
-                    console.log(ok.data.queryResult.list)
                     this.chiends=ok.data.queryResult.list
             })
         }   
@@ -122,11 +134,11 @@ export default {
   top: -15px;
 }
 .item_img img:nth-child(3n) {
-  width: 0.8rem;
+  width: 0.6rem;
   height: 0.8rem;
   position: absolute;
   bottom: 0.08rem;
-  left: 2.04rem;
+  left: 2.2rem;
 }
 .item_text {
   display: flex;

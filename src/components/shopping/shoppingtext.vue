@@ -27,36 +27,34 @@
     </div>
     <!-- 点击智能排序出现列表 -->
     <div v-show="flag" class="box">
-      <li>
-        <router-link to class="box_li">智能排序</router-link>
-      </li>
-
-      <router-link to>
-        <li>价格最低</li>
+      
+      <router-link to class="sort-list sort-list-active">智能排序</router-link>
+      <router-link to class="sort-list ">
+        价格最低
       </router-link>
 
-      <router-link to>
-        <li>价格最高</li>
+      <router-link to class="sort-list ">
+        价格最高
       </router-link>
 
-      <router-link to>
-        <li>车龄最短</li>
+      <router-link to class="sort-list ">
+        车龄最短
       </router-link>
 
-      <router-link to>
-        <li>里程最少</li>
+      <router-link to class="sort-list ">
+        里程最少
       </router-link>
 
-      <router-link to>
-        <li>最新发布</li>
+      <router-link to class="sort-list ">
+        最新发布
       </router-link>
 
-      <router-link to>
-        <li>首付最低</li>
+      <router-link to class="sort-list ">
+        首付最低
       </router-link>
 
-      <router-link to>
-        <li>月供最低</li>
+      <router-link to class="sort-list ">
+        月供最低
       </router-link>
     </div>
     <!-- 点击价格出现列表     -->
@@ -144,8 +142,7 @@ export default {
 
     showIcon() {
       if (
-        document.documentElement.scrollTop &&
-        document.documentElement.scrollTop > 90
+        document.documentElement.scrollTop && document.documentElement.scrollTop > 90
       ) {
         this.sttume = true;
       } else {
@@ -159,14 +156,7 @@ export default {
     price(index) {
       this.infor = index;
       console.log(this.infor);
-      // this.axios({
-      //       url:"/apis/loadAll",
-      //       methods:"get"
-      //   }).then((ok)=>{
-      //       this.mettods=ok.data;
-      //       console.log(this.mettods)
-      //       this.$emit('chiend',this.mettods)
-      //   })
+    
       if (index == "价格") {
         this.axios({
           url: "/apis/loadAll",
@@ -176,7 +166,7 @@ export default {
           console.log(this.mettods);
           this.$emit("chiend", this.mettods,true);
         });
-      } else if (index == "5万以下") {
+      } else if (index == "5万以下") {       //5万以下的数据接收
         this.axios({
           url: "/apis/carByprice",
           methods: "get"
@@ -185,9 +175,18 @@ export default {
           console.log(this.mettods);
           this.$emit("chiend", this.mettods,true);
         });
-      } else if (index == "5-10万") {
+      } else if (index == "5-10万") {        //5-10万的数据接收
         this.axios({
           url: "/apis/loadByPriceRange/" + "5-8万",
+          methods: "get"
+        }).then((ok) => {
+          this.mettods = ok.data.queryResult.list;
+          console.log(this.mettods);
+          this.$emit("chiend", this.mettods,true);
+        });
+      }else if (index == "10-15万") {
+        this.axios({
+          url: "/apis/loadByPriceRange/10-20万",
           methods: "get"
         }).then((ok) => {
           this.mettods = ok.data.queryResult.list;
@@ -198,13 +197,6 @@ export default {
       // this.math = !this.math;
       if (this.math == false) {
         this.math = true;
-
-        // this.axios({
-        //   url:"",
-        //   methods:"get"
-        // }).then((data)=>{
-        //   console.log(data)
-        // })
       } else {
         this.math = false;
       }
@@ -225,10 +217,10 @@ export default {
 <style scoped>
 /* 导航部分 */
 .text {
-  border-bottom: #c5c5c5 1px solid;
   width: 100%;
   background: #fff;
   z-index: 999;
+  border-bottom: #c5c5c5 1px solid;
 }
 .shopping_text {
   display: flex;
@@ -285,11 +277,13 @@ export default {
 }
 /* 点击智能排序出现列表 */
 .box {
-  width: 100%;
-  background: #fff;
-  position: absolute;
-  z-index: 999;
-  top: 44px;
+    position: fixed;
+    top: .8rem;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    height: auto;
+    z-index: 120;
 }
 .box_li::after {
   content: "";
@@ -304,6 +298,7 @@ export default {
 }
 .box_li {
   color: #ff5a37;
+  
 }
 .shopping_text .shopp_red {
   color: red;
@@ -390,5 +385,30 @@ export default {
   justify-content: space-between;
   padding: 0.1rem 0.6rem 0.3rem 0.55rem;
   color: #c5c5c5;
+}
+.box .sort-list-active {
+    color: #ff5a37;
+    position: relative;
+}
+.box .sort-list-active:after {
+    content: "";
+    width: .25rem;
+    height: .25rem;
+    background: url(//s4.xinstatic.com/u2-m-sta/media/yy.344dad2e.png) no-repeat 50%;
+    background-size: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 1.1em;
+    right: .5rem;
+}
+.sort-list {
+    line-height: .88rem;
+    display: block;
+    border-bottom: 1px solid #ededed;
+    color: #3c3c3c;
+    font-size: .28rem;
+    padding: 0 .36rem;
+    position: relative;
+    background: #fff;
 }
 </style>

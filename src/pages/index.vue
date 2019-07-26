@@ -99,88 +99,19 @@
               <span>5万以下开回家</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in index5wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
             </div>
-            <router-link to="/shopping" class="index_home_btn">
+            <router-link to="/bottombar/shopping/5万以下" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -191,88 +122,19 @@
               <span>5-8万入手准新车</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in index5wandao8wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
             </div>
-            <router-link to="/shopping" class="index_home_btn">
+            <router-link to="/bottombar/shopping/5-8万" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -283,88 +145,20 @@
               <span>8-10万买豪华品牌</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in index8wandao10wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
+              
             </div>
-            <router-link to="/shopping" class="index_home_btn">
+            <router-link to="/bottombar/shopping/8-10万" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -375,88 +169,19 @@
               <span>10-20万中大型车</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in index10wandao20wan" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
             </div>
-            <router-link to="/shopping" class="index_home_btn">
+            <router-link to="/bottombar/shopping/10-20万" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -467,88 +192,19 @@
               <span>20万起高档车</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in index20wanyishang" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
             </div>
-            <router-link to class="index_home_btn">
+            <router-link to="/bottombar/shopping/20万以上" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -559,88 +215,19 @@
               <span>猜你喜欢</span>
             </div>
             <div class="index_home_body">
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
+              <router-link to="/page" v-for="(v,i) in countpst" :key="i" class="index_home_body_a">
+                <img :src="v.carPic" />
                 <i class="index_home_body_vido"></i>
                 <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
+                  <div class="index_home_body_div_title">{{v.carBrand}} {{v.carBrandChilder}} {{v.carTime}} {{v.carDisplaceMent}} {{v.carGearBox}} {{v.carKinds}}</div>
                   <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
-                  </div>
-                </div>
-              </router-link>
-              <router-link to="/page" class="index_home_body_a">
-                <img src="../assets/123.jpg" />
-                <i class="index_home_body_vido"></i>
-                <div class="index_home_body_div">
-                  <div class="index_home_body_div_title">宝骏 310 2016款 1.2 手动 超值型</div>
-                  <div class="index_home_body_div_money">
-                    <span class="list-detail-price">2.53万</span>
+                    <span class="list-detail-price">{{v.carPrice}}</span>
+                    <span class="list-detail-text">首付{{v.carFirstPay}}</span>
                   </div>
                 </div>
               </router-link>
             </div>
-            <router-link to="/shopping" class="index_home_btn">
+            <router-link to="/bottombar/shopping/买车商城" class="index_home_btn">
               查看更多
               <img src="../assets/xiangyou.png" />
             </router-link>
@@ -681,14 +268,59 @@ export default {
       methods: "get"
     }).then((ok)=>{
       this.count = ok.data.length
+      console.log(ok.data)
+      this.countpst =(ok.data).splice(0,10)
       this.bool=false
     });
+    
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "5万以下",//五万以下
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index5wan=(ok.data.queryResult.list).splice(0,10)
+      // this.dazhong=ok.data.queryResult.list[0].carName
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "5-8万",//5-8万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index5wandao8wan=(ok.data.queryResult.list).splice(0,10)
+    });
+   this.axios({
+      url: "/apis/loadByPriceRange/" + "8-10万",//8-10万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index8wandao10wan=(ok.data.queryResult.list).splice(0,10)
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "10-20万",//10-20万
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index10wandao20wan=(ok.data.queryResult.list).splice(0,10)
+    });
+    this.axios({
+      url: "/apis/loadByPriceRange/" + "20万以上",//20万以上
+      methods: "get"
+    }).then((ok)=>{
+      console.log(ok.data);
+      this.index20wanyishang=(ok.data.queryResult.list).splice(0,10)
+    });
+
   },
   data() {
     return {
       dazhong:"",
       count:"",
       name:"",
+      index5wan:[],
+      index5wandao8wan:[],
+      index8wandao10wan:[],
+      index10wandao20wan:[],
+      countpst:[],
       mast:"买车商城",
       // 买车商城
       playcar: [
@@ -706,7 +338,7 @@ export default {
         { moey: "5万以下" },
         { moey: "5-8万" },
         { moey: "8-10万" },
-        { moey: "10-20万" },
+        { moey: "20万以上" },
         { moey: "热销SUV" },
         { moey: "三厢轿车" },
         { moey: "两厢轿车" },
@@ -1174,7 +806,8 @@ export default {
 .index_home_body_a img {
   width: 100%;
   height: 2.28rem;
-  border-radius: 0.08rem;
+  border-radius: 0.2rem;
+  padding: 2%;
 }
 .index_home_body_vido {
   display: inline-block;
@@ -1190,6 +823,7 @@ export default {
   bottom: 0.08rem;
   width: 0.44rem;
   height: 0.44rem;
+  top: -0.8rem;
 }
 .index_home_body_div {
   background: #fff;
@@ -1211,6 +845,7 @@ export default {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  padding-left: .15rem;
 }
 .index_home_body_div_money {
   margin: 0.12rem 0;
@@ -1221,6 +856,10 @@ export default {
   font-size: 0.32rem;
   font-weight: 500;
   line-height: 1;
+  padding-left: .17rem;
+}
+.list-detail-text{
+  color: #f85d00;
 }
 /* 查看更多 */
 .index_home_btn {

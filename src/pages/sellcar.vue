@@ -34,7 +34,6 @@ export default {
 <style socped>
     .box{
         background: white;   
-        margin-bottom:1.5rem;
     }
 </style>
  

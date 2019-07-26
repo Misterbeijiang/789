@@ -19,7 +19,7 @@
         <section class="index_warp_banner" ref="slider">
             <mt-swipe :auto="index" class="carousel-wrap" @change="handleChange">
             <mt-swipe-item class="carousel-wrap-item" id="1" ref="dataInfo">
-                <router-link to="/shopping">
+                <router-link to="/bottombar/shopping/买车商城">
                 <img id="1" src="../../assets/lunbo_1.png" />
                 </router-link>
             </mt-swipe-item>
@@ -62,7 +62,7 @@ export default {
     },
     methods:{
          handleChange(index) {
-             console.log(index)
+            //  console.log(index)
              if(index == 0){
                 this.elMain.background = "linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)";
              }else if(index == 1){
@@ -77,7 +77,7 @@ export default {
         }
     },
     created() {
-        console.log(this.titleName)
+        // console.log(this.titleName)
     },
 }
 </script>   

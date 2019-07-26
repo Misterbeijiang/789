@@ -465,6 +465,7 @@ label-box-silver::before{
     background-size: 99%;
     margin-right: .08rem;
     color: #e0c189;
+    left: .05rem;
 
 }
 .label-promise{

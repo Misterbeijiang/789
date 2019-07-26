@@ -129,6 +129,7 @@ export default {
     border-radius: .04rem;
     color: #fff;
     margin: 5%;
+    margin-bottom: 1.5rem;
 }
 appointment_a{
     position: fixed;
