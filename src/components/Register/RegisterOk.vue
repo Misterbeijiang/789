@@ -58,14 +58,19 @@ export default {
                 methods: "get",
                 emulateJSON:false
               }).then((data) => {
-                console.log(data);
+                console.log(data.data);
                 this.emaildata = data.data
                 if(this.emaildata ==data.data){
                   this.emailchongfa="s后重发"
                   this.matest = true
                   this.emailmiao = 120
+                    if(this.emaildata === "用户名已存在"){
+                      alert("你好好输入")
+                      this.matest = false
+                      this.emailmiao = 0
+                  }
                 }else{
-                  alert("请输入正确的邮箱")
+                  alert("请输入正确的邮箱2")
                 }
       });
       }else{
@@ -80,7 +85,7 @@ export default {
         console.log(this.emailmde)
        var metast=Number(this.emailmde)
         this.axios({
-                url: "/apis/aDiscount?"+"carPercentId="+1,
+                url: "/apis/user/registerUser?"+'name='+this.textid+'&pwd='+this.pasword+'&code='+this.emailmde,
                 methods: "get",
                 // user:{
                     
@@ -93,9 +98,10 @@ export default {
                 emulateJSON:true
               }).then((data) => {
                 console.log(data.data)
-                // if(data.data=="注册成功"){
-                  // next({path:"/Bulekefu"})//跳转到目的路由
-                // }
+                if(data.data=="注册成功"){
+                  alert("注册成功")
+                  this.$router.push('/login')//跳转到目的路由
+                }
               })
       }
     },

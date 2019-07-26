@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-for="(v,i) in mettods" :key="i" class="item" >
+    <div v-for="(v,i) in chiends" :key="i" class="item" >
         <router-link :to="'/page/'+v.carId">
             <div class="item_img">
                 <span>
@@ -78,9 +78,9 @@ export default {
              this.axios({
                     url:"/apis/newArrival/?carNewtime="+this.name,
                     methods:"get",
-                    // data:{
+                    // data:{carByprice
                     //     carPercentName:this.name
-                    // }
+                    // }carPriceRange 
                 }).then((ok)=>{
                     console.log(ok.data)
                     this.chiends=(ok.data).splice(0,10)

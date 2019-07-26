@@ -8,7 +8,8 @@
                     <span class="items">{{v.title}}</span>
                 </div>
             </router-link>
-        </div>
+        </div> 
+        <!-- 给这个组件里面动态传值 true或false 让他在刷新的时候消失或者显示 -->
         
         <router-view></router-view>
     </div>
