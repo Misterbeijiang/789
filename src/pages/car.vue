@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         fun(){
-            this.bool=false
+            this.bool = !this.bool            
         }
     },
 }

@@ -1,15 +1,14 @@
 <template>
 <!-- 首页城市定位 -->
     <div>
-        <Stale></Stale>
-        <!-- <nav>将从全国为您挑选该城市可购买的车辆</nav> -->
         <Stalem></Stalem>
+        <Stale></Stale>      
     </div>
 </template>
 <script>
 
-const Stale = () => import("../hunder/location/stale")
-const Stalem = () => import("../hunder/location/stalem")
+const Stale = () => import("../components/gujialocation/stale")
+const Stalem = () => import("../components/gujialocation/stalem")
 
 export default {
     components:{

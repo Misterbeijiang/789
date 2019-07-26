@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-for="(v,i) in mettods" :key="i" class="item" >
+    <div v-for="(v,i) in chuancan" :key="i" class="item" >
         <router-link :to="'/page/'+v.carId">
             <div class="item_img">
                 <span>

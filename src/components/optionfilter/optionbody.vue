@@ -5,7 +5,11 @@
         </ul>
         <div class="height_class_list_footer">
             <span class="height_class_list_footer_cz" @click="chong" >重置</span>
-            <span class="height_class_list_footer_zong" @click="zong">共{{gong}}辆车</span>
+            <router-link to="#" class="height_class_list_footer_zong">
+                <span @click.stop="zong">
+                    共{{gong}}辆车
+                </span>
+            </router-link> 
         </div>
         <div class="right" @scroll="onScroll">
             <!-- 品牌 -->
@@ -196,7 +200,7 @@ export default {
             falserb:false,
             gundong:0,
             gong:"",
-            lengths:"",
+            lengths:[],
             titleName:this.$route.params.id,
             arr :[
                 {"classift":"品牌"},
@@ -402,13 +406,15 @@ export default {
             console.log(this.threeinfo)
         },
         zong(){
+            console.log("sss")
             this.axios({
-                url:"/apis/choose?"+"carPriceRange="+this.info+"&carFirstPay="+this.twoinfo+"&carMonthPay"+this.threeinfo,
+                url:"/apis/choose?"+"carPriceRange="+this.info+"&carFirstPayRange="+this.twoinfo+"&carMonthPayRange"+this.threeinfo,   
                 methods:"get"
-            }).then((data)=>{
-                console.log(data)
-                this.length = data
-            })
+            }).then((data)=>{      
+                this.lengths = data.data
+                console.log(this.lengths)
+                this.$router.push({name:'filtershopping',query:{name: this.lengths}});
+            })            
         },
         chong(){
             // console.log("sss")

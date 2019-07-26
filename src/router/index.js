@@ -65,7 +65,18 @@ export default new Router({
       name: 'Staler',
       component: resolve=>(require(["@/pages/staler"],resolve))
     },
-  
+    {
+      path: '/filtershopping',
+      name: 'filtershopping',
+      component: resolve=>(require(["@/pages/filtershopping"],resolve)),
+      children:[
+        {
+          path: '/filtershopping/:name',
+          name: 'filtershopping',
+          component: resolve=>(require(["@/pages/filtershopping"],resolve))
+        }
+      ]
+    },
     {
       path: '/carinfo',
       name: 'Carinfo',
@@ -90,25 +101,31 @@ export default new Router({
       path: '/shangchuan',
       name: 'Shangchuan',
       component: resolve=>(require(["@/pages/shangchuan"],resolve))
-     },
-    
-      {
-        path:"/index",
-        name:"Index",
-        component: resolve=>(require(["@/pages/index"],resolve)),
-        children:[
-          {
-            path: '/index/:name',
-            name: 'index',
-            component: resolve=>(require(["@/pages/index"],resolve))
-          },
-        ]
-      },
-      {
-        path:"/shopping",
-        name:"Shopping",
-        component: resolve=>(require(["@/pages/shopping"],resolve))
-      },
+    },
+    {
+      path:"/index",
+      name:"Index",
+      component: resolve=>(require(["@/pages/index"],resolve)),
+      children:[
+        {
+          path: '/index/:name',
+          name: 'index',
+          component: resolve=>(require(["@/pages/index"],resolve))
+        },
+      ]
+    },
+    {
+      path:"/shopping",
+      name:"shopping",
+      component: resolve=>(require(["@/pages/shopping"],resolve)),
+      children:[
+        {
+          path: '/shopping/:name',
+          name: 'shopping',
+          component: resolve=>(require(["@/pages/shopping"],resolve))
+        },
+      ]
+    },
       {
         path:"/page/:id",
         name:"Page",
@@ -147,11 +164,28 @@ export default new Router({
       },
       {
         path: '/home',
-        name: 'Home',
-        component: resolve=>(require(["@/pages/home"],resolve))    
+        name: 'home',
+        component: resolve=>(require(["@/pages/home"],resolve)),    
+        children:[
+          {
+            path: '/home/:name',
+            name: 'home',
+            component: resolve=>(require(["@/pages/home"],resolve))
+          },
+        ]
       },
-      
-      
+      {
+        path: '/homebarand',
+        name: 'homebarand',
+        component: resolve=>(require(["@/pages/homebarand"],resolve)),
+        children:[
+          {
+            path: '/homebarand/:name',
+            name: 'homebarand',
+            component: resolve=>(require(["@/pages/shopping"],resolve))
+          },
+        ]
+      }, 
       {
         path:'/yichenggou',
         name:'Yichenggou',

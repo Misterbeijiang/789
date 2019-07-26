@@ -3,7 +3,7 @@
     <nav class="nav">
       <!-- 这个点击跳转首页 -->
       <a href="javascript:history.go(-1);" class="GoBack"></a>
-      <span class="subTit">登录</span>
+      <span class="subTit">注册</span>
     </nav>
     <div class="banner type">
       <P class="banner_p1">购车无忧</P>
@@ -23,7 +23,7 @@
         <input v-model="emailmde" type="number" placeholder="验证码" />
         <a href="javascript:void(0)" @click="func()"><span v-text="emailmiao" v-if="matest"></span>{{emailchongfa}}</a>
       </div>
-      <a href="javascript:void(0)" class="login" @click="funb()">立即获取</a>
+      <a href="javascript:void(0)" class="login" @click="funb()">注册</a>
       <div class="footer">
         登录即视为己同意
         <a>《用户注册协议》</a>
@@ -56,10 +56,6 @@ export default {
           this.axios({
                 url: "/apis/user/sendEmail?"+'name='+this.textid+'&pwd='+this.pasword+'&email='+this.email,
                 methods: "get",
-                // data: {
-                //           'email':this.email  
-                      
-                // },
                 emulateJSON:false
               }).then((data) => {
                 console.log(data);
@@ -85,7 +81,7 @@ export default {
        var metast=Number(this.emailmde)
         this.axios({
                 url: "/apis/aDiscount?"+"carPercentId="+1,
-                methods: "put",
+                methods: "get",
                 // user:{
                     
                 //     'name':this.textid ,

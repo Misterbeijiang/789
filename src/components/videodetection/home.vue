@@ -2,49 +2,56 @@
     <div>
         <div class="color">
             <div class="box1">
-                <a href="javascript:history.go(-1)" class="header_goback">
-                </a>
+                <router-link to="./index" class="header_goback">
+                    <!-- <em ></em> -->
+                </router-link>
+                
                 <p class="nav">车辆估价</p>
                 <span></span>
             </div>
             <ul class="info">
                 <router-link to="./staler">
                 <li class="list-item">
+                    
                     <span class="MD-c2b-car-sale-o-c2b-trigger-title">卖车城市</span>
-                    <p class="MD-c2b-car-sale-o-c2b-trigger-collect">                  
-                        <span class="MD-c2b-car-sale-o-c2b-trigger-content MD-c2b-car-sale-o-c2b-trigger-finish">{{crty}}</span>
-                        <i class="MD-c2b-car-sale-o-c2b-trigger-arrow"></i>             
-                    </p>  
+                    <p class="MD-c2b-car-sale-o-c2b-trigger-collect">
+                        
+                            <span class="MD-c2b-car-sale-o-c2b-trigger-content MD-c2b-car-sale-o-c2b-trigger-finish">北京</span>
+                            <i class="MD-c2b-car-sale-o-c2b-trigger-arrow"></i>
+                        
+                    </p>
+                   
                 </li>
                  </router-link>
                 <li class="list-item">
                     <span class="MD-c2b-car-sale-o-c2b-trigger-title">车辆牌照</span>
                     <p class="MD-c2b-car-sale-o-c2b-license-collect">
-                        <span class="MD-c2b-car-sale-o-c2b-license-content" @click="funb()">{{shenghui}}</span>
+                        <span class="MD-c2b-car-sale-o-c2b-license-content" >京</span>
                         <span>
-                         <div class="item_b" :class="{active:show==1}" v-show="boola">
+                         <div class="item_b" :class="{active:show==1}" data-flag="car-letter">
                                 <div class="item_f"></div>
                                 <div class="item_e">
-                                   <span class="item_d" v-for="(v,i) in arra" :key="i" @click="func(v,i)">{{v.name}}</span>
+                                   <span  class="item_d" v-for="(v,i) in arra" :key="i" @click="fun(i)">{{v.name}}</span>
                                 </div>
                             </div>
                         </span>
                         <span>
-                             <span class="MD-c2b-car-sale-o-c2b-license-content" @click="funa()">{{zimu}}</span>
-                             <div class="item_b" :class="{active:show==1}" v-show="bools">
+                             <span class="MD-c2b-car-sale-o-c2b-license-content" >A </span>
+                             <div class="item_b" :class="{active:show==1}" data-flag="car-letter"  style="display:block">
                                 <div class="item_f"></div>
                                 <div class="item_e">
-                                    <span class="item_d" v-for="(v,i) in arr" :key="i" @click="fun(v,i)" >{{v.name}}</span>
+                                    <span class="item_d" v-for="(v,i) in arr" :key="i" @click="fun(i)" >{{v.name}}</span>
                                 </div>
                             </div>
-                        </span>     
+                        </span>
+                       
                     </p>
                 </li>
-                <router-link to="./homebarand">
+                <router-link to="./brand">
                 <li class="list-item">
                     <span class="MD-c2b-car-sale-o-c2b-trigger-title">品牌车系</span>
                     <p class="MD-c2b-car-sale-o-c2b-trigger-collect">
-                        <span class="MD-c2b-car-sale-o-c2b-trigger-title">{{chexi}}</span>
+                        <span class="MD-c2b-car-sale-o-c2b-trigger-title">请选择品牌&车系</span>
                         <i class="MD-c2b-car-sale-o-c2b-trigger-arrow"></i>
                     </p>
                 </li>
@@ -66,7 +73,8 @@
                 <li class="list-item" @click="show()">
                     <span class="MD-c2b-car-sale-o-c2b-trigger-title">车况自评</span>
                     <p class="MD-c2b-car-sale-o-c2b-trigger-collect">
-                        <span class="MD-c2b-car-sale-o-c2b-trigger-content">请选择车况</span>      
+                        <span class="MD-c2b-car-sale-o-c2b-trigger-content">请选择车况</span>
+                        
                         <i class="MD-c2b-car-sale-o-c2b-trigger-arrow"></i>
                         <Car class="box2" v-if="bool"></Car>
                     </p>
@@ -75,13 +83,13 @@
             </ul>
             <div class="color_b">车辆估价</div>
         </div>   
-    </div>    
+    </div>
+          
 </template>
 <script>
-
-const Staler = () => import("./staler")
-const Car = () => import("./car")
-    
+import Staler from './staler'
+import Car from './car'  //引入组件
+import Ca from './ca'
   export default {
     components:{
       Car ,
@@ -91,12 +99,6 @@ const Car = () => import("./car")
       return{
         date:'',
         bool:false,
-        boola:false,
-        bools:false,
-        crty:this.$route.query.name,
-        zimu:"",
-        shenghui:"",
-        chexi:this.$route.query.value,
         arr:[
             {name:"A"},
             {name:"B"},
@@ -124,6 +126,7 @@ const Car = () => import("./car")
             {name:"X"},
             {name:"Y"},
             {name:"Z"},
+
         ],
         arra:[
             {name:"京"},
@@ -157,39 +160,32 @@ const Car = () => import("./car")
             {name:"宁"},
             {name:"琼"},
             {name:"云"},
+
         ]
+        
       }
+      
     },
+    
     methods:{
         show(){
             this.bool=true
         },
-        funa(){
-            console.log("ss")
-            this.bools = !this.bools
-            console.log(this.bools)
-        },
-        funb(){
-            console.log("ss")
-            this.boola = !this.boola
-            console.log(this.boola)
-        },
-        fun(value,index){
-            this.bools = false 
-            this.zimu = value.name
-        },
-        func(value,index){
-            this.boola = false 
-            this.shenghui = value.name
+        fun(i){
+            console.log(i);
+           
+            for (var j = 0; j<this.arr.length;j++){
+                if(i==j){
+                    
+                }
+            }      
         }
-    },
-    created() {
-    },
+    }
   }
 
 </script>
 <style scoped>
-       .item_e:onclick .item_b{
+    .item_e:onclick .item_b{
         display: none;
     }
     .item_e{
@@ -208,6 +204,7 @@ const Car = () => import("./car")
             cursor: pointer;
     }
     .item_b{
+        display: none;
         position: fixed;
         width: 100%;
         height: 100%;
@@ -422,10 +419,12 @@ const Car = () => import("./car")
         position: relative;
         margin-right:-.7rem;
         float:right;
+        
         margin-top:.4rem;
     }
     p{
         float: right;
         /* margin-right: .7rem; */
     }
+    
 </style>
