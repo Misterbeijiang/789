@@ -1,6 +1,6 @@
 <template>
     <div class="gif">
-        <img src="../../../static/img/timg (1).gif">
+        <img src="../../../static/img/timg.gif">
     </div>
 </template>
 <script>
@@ -16,6 +16,6 @@ export default {
     }
     .gif{
         padding:213px 0;
-        background: #00db8e;
+        /* background: #00db8e; */
     }
 </style>

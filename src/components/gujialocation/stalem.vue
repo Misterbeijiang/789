@@ -38,7 +38,7 @@ export default {
     width: 100%;
 } */
 span{
-    width: 90%;
+    width: 100%;
     text-align: center;
     height: .7rem;
     text-align: center;

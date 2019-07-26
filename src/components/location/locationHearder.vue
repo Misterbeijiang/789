@@ -1,44 +1,91 @@
 <template>
 <!-- 城市头部 -->
    <div class="Search_header">
-        <em class="header_goback"></em>
+        <router-link  :to="'/index/' + this.values" class="header_goback"></router-link>
         <p @click="show()" v-show="bool">
             <i class="header_logo"></i>
             <span>请输入城市名称或拼音</span>
         </p>
         <div class="Search_input" v-show="newbool">
-            <strong>
-                <i></i>
-            </strong> 
-            <input type="text" placeholder="请输入城市名称或拼音">
-            <span @click="to()">取消</span>
+            <div class="Search_input_input">
+                <strong>
+                    <i></i>
+                </strong>
+                <input type="text" placeholder="请输入城市名称或拼音" @input="func" v-model="input_content">
+                <span @click="to()">取消</span>
+            </div>
+        </div>
+        <div class="Search_input_result"  v-show="bools">
+            <router-link :to="'/index/ '+ v.name"  v-for="(v,i) in inputDate" :key="i">
+                <span @click="bother(v.name)">{{v.name}}</span>
+            </router-link>
         </div>
    </div>
 </template>
 <script>
+import brother from '../../../src/assets/js/brother.js'
 export default {
     data() {
         return {
             bool:true,
             newbool:false,
             mast:false,
-            goodmast:false
+            goodmast:false,
+            bools:false,
+            input_content:"",
+            city:[],
+            values:""
         }
     },
     methods: {
         show(){
-            console.log("ssss")
+            // console.log("ssss")
             this.newbool = !this.newbool
             this.bool = !this.bool  
-            this.$emit("spot", this.mast)
+            this.$emit("spot",this.mast,this.goodmast)
         },
         to(){
-            console.log("ssss");
+            // console.log("llll")
             this.newbool = !this.newbool
-            this.bool = !this.bool
-            // this.$emit("spot",this.goodmast)  
+            this.bool = !this.bool  
+            this.$emit("spotwhite",this.goodmast,this.bools)
+        },
+        func(){
+            this.bools = true
+            console.log("sss")
+            if(document.querySelector('input').value == "" ){
+                this.bool = false
+            }
+        },
+        bother:function(value){
+            this.values = value
+            console.log("传入信息")
+            brother.$emit("bothers",this.values)
         }
     },
+    created() {
+        this.axios({
+            url:"/ding/wei",
+            methods:"get"
+        }).then((data)=>{
+            console.log(data.data.city)
+            this.city = data.data.city[0].A
+            console.log(this.city)
+        })
+    },
+    computed: {
+      inputDate(){
+         let input_content = this.input_content;
+         if(input_content){
+                return this.city.filter(function(product) {
+                return Object.keys(product).some(function(key) {
+                return String(product[key]).toLowerCase().indexOf(input_content) > -1
+            })
+         })
+      }
+      return this.products;
+   },
+}
 }
 </script>
 <style scoped>
@@ -47,8 +94,6 @@ export default {
    border-bottom: 1px solid #dbdada;
    padding: .1rem 0;
    position: relative; 
-   align-items: center;
-   display: flex;
    background: #ffffff;
 }
 .Search_header p{
@@ -60,8 +105,7 @@ export default {
     height: .7rem;
     line-height: .7rem;
     text-align: center;
-    margin: 0 .3rem 0 .64rem;
-    width: 100%;
+    margin: 0 .3rem 0 .64rem;   
 }
 .Search_header .header_logo{
     display: inline-block;
@@ -84,7 +128,6 @@ export default {
 }
 /* input框 */
 .Search_header .Search_input{
-    margin-left: .64rem;
     display: flex;
     align-items: center;
     width: 100%;
@@ -97,6 +140,7 @@ export default {
     border-radius: .1rem;
     background: #f3f3f3;
     text-indent: .75rem;
+    width: 300px;
 }
 .Search_header .Search_input span{
     display: inline-block;
@@ -106,6 +150,7 @@ export default {
     height: .6rem;
     line-height: .6rem;
     text-align: center;
+    margin-left: 8px;
 }
 .Search_header .Search_input strong{
     position: absolute;
@@ -120,5 +165,28 @@ export default {
     height: .44rem;
     background: url(https://s2.xinstatic.com/u2-m-sta/media/search-icon@2x.02819b4e.png) no-repeat;
     background-size: 100%;
+}
+.Search_input_result{
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+.Search_input_result a{
+    font-size: .26rem;
+    color: #1b1b1b;
+    padding: 0 .24rem;
+    font-weight: 400;
+    font-family: PingFangSC-Regular;
+}
+.Search_input_result a span{
+    display: block;
+    border-bottom: 1px solid #eeeeee;
+    padding: .28rem 0;
+}
+.Search_input .Search_input_input{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: .64rem;
 }
 </style>

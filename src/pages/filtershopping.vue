@@ -2,20 +2,21 @@
     <div class="box">
           <Shoppingtop></Shoppingtop>
           <Shoppingtext @chiend="chiends($event,userDefined)"></Shoppingtext>
-          <Shoppingbottom :chiends="name"></Shoppingbottom>
+          <Filtershoppingbottom :chiends="name"></Filtershoppingbottom>
     </div>
 </template>
 <script>
-
 const Shoppingtop = () => import("../components/shopping/shoppingtop")
 const Shoppingtext = () => import("../components/shopping/shoppingtext")
-const Shoppingbottom = () => import("../components/shopping/shoppingbottom")
+const Filtershoppingbottom = () => import("../components/filtershopping/filtershoppingbottom")
+
+
 
 export default {
     components:{
         Shoppingtop,
         Shoppingtext,
-        Shoppingbottom
+        Filtershoppingbottom
     },
     data () {
         return {

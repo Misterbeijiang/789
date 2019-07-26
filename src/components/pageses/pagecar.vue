@@ -10,8 +10,13 @@
                 </router-link>
             </div>
             <div class="page_car_wrap">
-                <mt-swipe :auto="index" class="page_carousel_wrap" @change="handleChange">
-                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                <div class="carousel-wrap-item-mst" @touchstart="touchstart" @touchmove="touchmove" style="position: absolute; left: 0px;" ref="dataInfo">
+                        <router-link :to="'/vrkanche/'+id">
+                            <img :src="mastks" width="100%">
+                        </router-link>
+                </div>
+                <mt-swipe :auto="index" class="page_carousel_wrap" @change="handleChange" v-if="mastat">
+                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
                         <router-link to="/jiancebaogao">
                             <div class="play-btn-wrap">
                                 <div class="play-btn"></div>
@@ -19,50 +24,21 @@
                             <img src="../../assets/page_car_1.jpg" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
                         <router-link to="">
                         <img src="../../assets/carshippingphone.jpg" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
+                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
                         <router-link to="">
                         <img src="../../assets/carshippingphone.jpg" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
-                        <router-link to="">
-                        <img src="../../assets/carshippingphone.jpg" width="100%">
-                        </router-link>
-                    </mt-swipe-item>
-                    <!-- 
-                    <router-link to="/shopping">
-                    < img id="1" src="../../assets/lunbo_1.png" />
-                    </router-link>
-                    <mt-swipe-item class="carousel-wrap-item" id="2" ref="dataInfo">
-                    <router-link to="/contract">
-                    < img id="2" src="../../assets/jinrong.jpg" />
-                    </router-link>
-                    </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item" id="3" ref="dataInfo">
-                    <router-link to="/videodetection">
-                    < img id="3" src="../../assets/shipinjiance.jpg" />
-                    </router-link>
-                    </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item" id="4" ref="dataInfo">
-                    <router-link to="/goodcar">
-                    < img id="4" src="../../assets/chaozhihaoche.png" />
-                    </router-link>
-                    </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item" id="5" ref="dataInfo">
-                    <router-link to="/valuable">
-                    < img id="5" src="../../assets/zhuanjia.jpg" />
-                    </router-link>
-                    </mt-swipe-item>
-                    -->
                 </mt-swipe>
                 <div class="swiper_bot">
-                    <div class="video-tag" :class="{ swiper_video: isActiveA }" @click="funD()">视频</div>
-                    <div class="video-tag" :class="{ swiper_video: isActiveB }" @click="funT()">图片</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveC }" @click="funT()">VR</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveB }" @click="funD()">视频</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveA }" @click="funT()">图片</div>
                     <div class="pagination-tag" v-if="pagination">1/24</div>
                 </div>
             </div>
@@ -85,38 +61,118 @@
         </router-link>
     </div>
 </template>
-
 <script>
 export default {
     data(){
         return{
             index:0,
-            isActiveA:true,
+            isActiveA:false,
             isActiveB:false,
-            pagination:false
+            isActiveC:true,
+            pagination:false,
+            mastat:false,
+            lastPosX :0,//当前点击时候的坐标
+            curPosX :0,//移动的坐标
+            diff :0,    //差值
+            imgager:require("../../assets/img"+1+".jpg"),
+            id:"",
+            datavr:[],
+            chiends:[],
+            mastks:"", //初始值
+            mastk:"",
+            diffmst:0//下标
         }
+    },
+    created() {
+        this.id = this.$route.params.id
+        this.axios({
+            url:"/apis/findVrPic?carId="+this.id,
+            methods:"get"
+        }).then((data)=>{
+            console.log(data.data)
+            this.chiends=(data.data).splice(0,32)
+            this.datavr=data.data
+            this.mastks = this.chiends[0].carVrPic
+            console.log(this.chiends)
+        })
     },
     methods:{
         funa(){
             this.$router.go(-1);
         },
         handleChange(index){
-            console.log(index)
             if(index==0){
-                this.isActiveA=true;
+                this.isActiveA=false;
                 this.isActiveB=false;
-            }else{
+                this.isActiveC=true;
+            }else if(index==1){
                 this.isActiveA=false;
                 this.isActiveB=true;
+                this.isActiveC=false;
+            }else{
+                this.isActiveA=true;
+                this.isActiveB=false;
+                this.isActiveC=false;
             }
         },
-        funT(){
-
+        // 当鼠标点击时触发，类似onclick事件
+        touchstart(e) {
+            console.log(e.targetTouches[0].clientX)
+            this.lastPosX=e.targetTouches[0].clientX
         },
-        funD(){
+        // 当鼠标移动时触发
+        touchmove(e) {
+            // console.log(e.targetTouches[0].clientX )
+            this.curPosX=e.targetTouches[0].clientX
+            this.diff = this.lastPosX-this.curPosX
+            // console.log()
+            console.log(this.diff)
+            if(this.diff>=10){
+                if(this.diffmst == 32){
+                    this.diffmst=0
+                }else{
+                    this.diffmst=this.diffmst+1
+                }
+                console.log(this.chiends[this.diffmst].carVrPic)
+                this.mastks = this.chiends[this.diffmst].carVrPic
+            }else if(this.diff<=-10){
+                if(this.diffmst == 0){
+                    this.diffmst=32
+                }else{
+                    this.diffmst=this.diffmst-1
+                }
+                this.mastks = this.chiends[this.diffmst].carVrPic
+            }
+            // var x= 1;
+            // x++
+            // var imga= require("../../assets/img"+x+".jpg")
 
+            // if(this.diff==30){
+
+                // if(x==30){
+                //     x=0
+                // }else{
+                //     var imga= require("../../assets/img"+x+".jpg")
+                // }
+            // }
+            // else if(this.diff==-30){
+            //     x--
+            //     if(x==-1){
+            //         x=30
+            //     }else{
+            //         var imga= require("../../assets/img"+x+".jpg")
+            //     }
+                
+            // }
+            
+            // this.imgager =imga
+            // console.log(this.imgager)
+            
+            
+            // console.log(x)
         }
     }
+
 }
 </script>
 

@@ -30,7 +30,17 @@ export default {
         Pagebody,
         Cardangan,
         Carjiance
-    }
+    },
+    data() {
+        return {
+            name:""
+        }
+    },
+    created() {
+        this.name = this.$route.params.id
+        console.log(this.name)
+        
+    },
 }
 </script>
 

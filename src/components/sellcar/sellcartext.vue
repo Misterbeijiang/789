@@ -262,7 +262,7 @@ export default {
   padding: 0.3rem 0 0.3rem 0.3rem;
   background: #fdf8ef;
   line-height: 0.43rem;
-  font-size: 0.25rem;
+  font-size: 0.3rem;
   color: #c5a879;
   position: relative;
 }

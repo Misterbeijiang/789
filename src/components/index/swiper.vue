@@ -9,7 +9,7 @@
                 <span class="text">搜索你想要的车</span>
             </span>
             </router-link>
-            <router-link to="/LocationStr" class="header-city">北京</router-link>
+            <router-link to="/LocationStr" class="header-city">{{titleName}}</router-link>
         </header>
         <!-- 轮播图的背景图 -->
         <section class="index_warp" v-bind:style="elMain">
@@ -56,13 +56,13 @@ export default {
             index:2000,
             elMain:{
                 background:"linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)"
-            }
-        }
-       
+            },
+            titleName:this.$route.params.name,
+        }   
     },
     methods:{
          handleChange(index) {
-             console.log(index)
+            //  console.log(index)
              if(index == 0){
                 this.elMain.background = "linear-gradient(90deg, rgb(231, 5, 0) 0%, rgb(219, 84, 0) 49%, rgb(235, 59, 0) 100%)";
              }else if(index == 1){
@@ -75,10 +75,12 @@ export default {
                 this.elMain.background = "linear-gradient(90deg, rgb(215, 97, 0) 0%, rgb(234, 117, 2) 49%, rgb(214, 117, 0) 100%)";
              }
         }
-    }
+    },
+    created() {
+        // console.log(this.titleName)
+    },
 }
-</script>
-
+</script>   
 <style>
     header {
         padding-top: 0.24rem;
