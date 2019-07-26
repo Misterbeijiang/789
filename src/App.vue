@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="fade">
+        <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -51,4 +53,25 @@ export default {
       text-decoration: none;
       display: block;
     }
+    /* .fade-enter-active,.fade-leave-active{
+      transition: opacity .5s;
+    }
+     .fade-enter,.fade-leave-active{
+      opacity: 0;
+    } */
+.fade{
+  position: absolute;left:0;right: 0;
+}
+.fade-enter-active {
+  transition: all 1.2s ease;
+}
+.fade-leave-active {
+  transition: all .1s cubic-bezier(2.0, 0.5, 0.8, 1.0);
+}
+.fade-enter,.fade-leave-active
+{
+  left:0;right: 0;
+  transform: translateX(600px);
+  opacity: 0;
+}
 </style>

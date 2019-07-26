@@ -2,10 +2,9 @@
     <div>
         <div class="header-page">
             <div class="header-head">
-                <h1>五菱汽车 宏光 2015款 1.2 手动 S标准型5-8座</h1>
+                <h1>{{newdata.carBrand}} {{newdata.carBrandChilder}} {{newdata.carTime}} {{newdata.carFuel}} {{newdata.carGearBox}} {{newdata.carKinds}}{{newdata.carSeat}}</h1>
                 <div class="price">
-                    <span class="money">4.17<i class="wan">万</i></span>
-                    <span class="full-tax originan-price">原价4.45万</span>
+                    <span class="money">{{newdata.carPrice}}<i class="wan"></i></span>
                     <div class="car-price-analysis-wrap">
                         <router-link to="" class="car-price-analysis">车价分析</router-link>
                     </div>
@@ -15,7 +14,7 @@
             <!-- 一成首付 -->
             <div class="car-header-one">
                 <img src="../../assets/renpepoe.png" class="icon-head-li">
-                <router-link to="/yichenggou" class="xBtn one-precent-li-bkg">一成首付 月供1050元</router-link>
+                <router-link to="/yichenggou" class="xBtn one-precent-li-bkg">一成首付 月供{{newdata.carMonthPay}}</router-link>
             </div>
         </div>
     </div>
@@ -23,7 +22,23 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            buycar:this.$route.params.id,
+            newdata:[]
+        }
+    },
+    created() {
+        console.log(this.buycar)
+        this.axios({
+            url:"/apis/getCarById?carId="+this.buycar,
+            methods:"get"
+        }).then((ok)=>{
+            console.log(ok.data)
+            this.newdata = ok.data;
+            console.log( this.newdata)
+        })
+    },
 }
 </script>
 

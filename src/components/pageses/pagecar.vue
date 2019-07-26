@@ -10,35 +10,35 @@
                 </router-link>
             </div>
             <div class="page_car_wrap">
-                <div class="carousel-wrap-item-mst" @touchstart="touchstart" @touchmove="touchmove" style="position: absolute; left: 0px;" ref="dataInfo">
-                        <router-link :to="'/vrkanche/'+id">
-                            <img :src="mastks" width="100%">
-                        </router-link>
+                <div v-show="bool" class="carousel-wrap-item-mst" @touchstart="touchstart" @touchmove="touchmove" ref="dataInfo">
+                    <router-link :to="'/vrkanche/'+id">
+                        <img :src="mastks" width="100%">
+                    </router-link>
                 </div>
-                <mt-swipe :auto="index" class="page_carousel_wrap" @change="handleChange" v-if="mastat">
-                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
+                <mt-swipe :auto="index" class="page_carousel_wrap" @change="handleChange" v-show="boola">
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo">
                         <router-link to="/jiancebaogao">
                             <div class="play-btn-wrap">
                                 <div class="play-btn"></div>
                             </div>
-                            <img src="../../assets/page_car_1.jpg" width="100%">
+                            <img :src="mastks.carPic" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo" v-show="boolb">
                         <router-link to="">
-                        <img src="../../assets/carshippingphone.jpg" width="100%">
+                        <img :src="mastks.carPic" width="100%">
                         </router-link>
                     </mt-swipe-item>
-                    <mt-swipe-item class="carousel-wrap-item-mst" style="position: absolute; left: 0px;" ref="dataInfo">
+                    <mt-swipe-item class="carousel-wrap-item-mst" ref="dataInfo" v-show="boolb">
                         <router-link to="">
-                        <img src="../../assets/carshippingphone.jpg" width="100%">
+                        <img :src="mastks.carPic" width="100%">
                         </router-link>
                     </mt-swipe-item>
                 </mt-swipe>
                 <div class="swiper_bot">
-                    <div class="video-tag" :class="{ swiper_video: isActiveC }" @click="funT()">VR</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveA }" @click="funT()">VR</div>
                     <div class="video-tag" :class="{ swiper_video: isActiveB }" @click="funD()">视频</div>
-                    <div class="video-tag" :class="{ swiper_video: isActiveA }" @click="funT()">图片</div>
+                    <div class="video-tag" :class="{ swiper_video: isActiveC }" @click="funC()">图片</div>
                     <div class="pagination-tag" v-if="pagination">1/24</div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ export default {
             isActiveB:false,
             isActiveC:true,
             pagination:false,
-            mastat:false,
+            mastat:true,
             lastPosX :0,//当前点击时候的坐标
             curPosX :0,//移动的坐标
             diff :0,    //差值
@@ -80,12 +80,19 @@ export default {
             chiends:[],
             mastks:"", //初始值
             mastk:"",
-            diffmst:0//下标
+            diffmst:0,//下标,
+            mmttsus:false,
+            bool:true,
+            boola:true,
+            boolb:true,
+            newdata:[],
+            buycar:this.$route.params.id,
         }
     },
     created() {
         this.id = this.$route.params.id
-        this.axios({
+        if(this.id == 20 || this.id == 1){
+             this.axios({
             url:"/apis/findVrPic?carId="+this.id,
             methods:"get"
         }).then((data)=>{
@@ -95,25 +102,60 @@ export default {
             this.mastks = this.chiends[0].carVrPic
             console.log(this.chiends)
         })
+        }else{
+            this.axios({
+            url:"/apis/getCarById?carId="+this.buycar,
+                methods:"get"
+            }).then((ok)=>{
+                console.log(ok.data)
+                this.mastks = ok.data;
+                console.log(this.mastks)
+            })
+        }
+       
     },
     methods:{
         funa(){
             this.$router.go(-1);
         },
+        funT(){
+            this.isActiveA=true
+            this.isActiveB=false
+            this.isActiveC=false
+            this.bool = true
+            this.boola = false
+            this.boolb = false
+        },
+        funD(){
+            this.isActiveA=false
+            this.isActiveB=true
+            this.isActiveC=false
+            this.bool = false
+            this.boola = true
+            this.boolb = false
+        },
+        funC(){
+            this.isActiveA=false
+            this.isActiveB=false
+            this.isActiveC=true
+            this.bool = false
+            this.boola = false
+            this.boolb = true
+        },
         handleChange(index){
             console.log(index)
             if(index==0){
-                this.isActiveA=false;
+                this.isActiveA=true;
                 this.isActiveB=false;
-                this.isActiveC=true;
+                this.isActiveC=false;
             }else if(index==1){
                 this.isActiveA=false;
                 this.isActiveB=true;
                 this.isActiveC=false;
-            }else{
-                this.isActiveA=true;
+            }else if(index==2){
+                this.isActiveA=false;
                 this.isActiveB=false;
-                this.isActiveC=false;
+                this.isActiveC=true;
             }
         },
         // 当鼠标点击时触发，类似onclick事件
@@ -144,33 +186,6 @@ export default {
                 }
                 this.mastks = this.chiends[this.diffmst].carVrPic
             }
-            // var x= 1;
-            // x++
-            // var imga= require("../../assets/img"+x+".jpg")
-
-            // if(this.diff==30){
-
-                // if(x==30){
-                //     x=0
-                // }else{
-                //     var imga= require("../../assets/img"+x+".jpg")
-                // }
-            // }
-            // else if(this.diff==-30){
-            //     x--
-            //     if(x==-1){
-            //         x=30
-            //     }else{
-            //         var imga= require("../../assets/img"+x+".jpg")
-            //     }
-                
-            // }
-            
-            // this.imgager =imga
-            // console.log(this.imgager)
-            
-            
-            // console.log(x)
         }
     }
 
@@ -285,6 +300,7 @@ export default {
         height: 100%;
         position: relative;
     }
+    /* 
     .page_carousel_wrap li:nth-child(2){
         z-index: 1;
     }
@@ -293,7 +309,7 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-    }
+    } */
     .page_carousel_wrap a{
         margin: 0;
         padding: 0;

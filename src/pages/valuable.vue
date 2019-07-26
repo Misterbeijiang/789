@@ -26,7 +26,6 @@
     </div>
 </template>
 <script>
-
 const Slide = () => import("../components/slide/slide")
 const Rotary = () => import("../components/rotary/rotary")
 const Rotnav = () => import("../components/repeat/more")

@@ -5,28 +5,28 @@
             <Uvintips></Uvintips>
             <div class="achrive">
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">2008-06上牌</p>
+                    <p class="vehicle-data">{{newdata.carAge}}</p>
                 </div>
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">表显里程</p>
+                    <p class="vehicle-data">{{newdata.carDiatance}}</p>
                 </div>
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">可异地上牌</p>
+                    <p class="vehicle-data">{{newdata.carEmissionStandan}}</p>
                 </div>
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">颜色</p>
+                    <p class="vehicle-data">{{newdata.carColor}}</p>
                 </div>
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">自然吸气</p>
+                    <p class="vehicle-data">{{newdata.carDisplaceMent}}</p>
                 </div>
                 <div class="car-info car-bot">
-                    <p class="vehicle-title">2019-06上牌</p>
-                    <p class="vehicle-data">1个月</p>
+                    <p class="vehicle-title">提车时间</p>
+                    <p class="vehicle-data">{{newdata.carQuit}}</p>
                 </div>
             </div>
             <router-link to="/canshu" class="car-detail-item-more">查看详细参数配置</router-link>
@@ -79,7 +79,24 @@ export default {
         func(){
 
         }
-    }
+    },
+    data() {
+        return {
+            buycar:this.$route.params.id,
+            newdata:[]
+        }
+    },
+    created() {
+        console.log(this.buycar)
+        this.axios({
+            url:"/apis/getCarById?carId="+this.buycar,
+            methods:"get"
+        }).then((ok)=>{
+            console.log(ok.data)
+            this.newdata = ok.data;
+            console.log( this.newdata)
+        })
+    },
 }
 </script>
 
