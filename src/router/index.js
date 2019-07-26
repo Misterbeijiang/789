@@ -188,6 +188,11 @@ export default new Router({
         name: 'Bulekefu', 
         component: resolve=>(require(["@/pages/Bulekefu"],resolve))
       },
+      {
+        path: '/vrkanche/:id',
+        name: 'Vrkanche',
+        component: resolve=>(require(["@/pages/Vrkanche"],resolve))
+      },
      
       {
         path:"/*",redirect:"/bottombar/index"
